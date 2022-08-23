@@ -8,10 +8,7 @@ nav{
 }
 
 section{
-    height: max-content;
-    width: max-content;
     background-color: #1b2a4e;
-    text-align: center;
 }
 
 hr{
