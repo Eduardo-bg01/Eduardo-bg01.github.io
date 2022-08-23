@@ -15,6 +15,10 @@ hr{
     width: auto;
 }
 
+p{
+    color: black;
+}
+
 footer{
     background-color: aliceblue;
     height: 20%;
