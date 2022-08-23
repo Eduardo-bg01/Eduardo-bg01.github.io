@@ -2,21 +2,20 @@ html{
     background-color: #1b2a4e;
 }
 
-header{
-    height: 10%;
+nav{
     background-color: aliceblue;
+    padding: 20%;
 }
 
-body{
-    padding: 50%;
+section{
+    height: max-content;
+    width: max-content;
+    background-color: #1b2a4e;
+    text-align: center;
 }
 
 hr{
     width: auto;
-}
-
-p{
-    text-align: center;
 }
 
 footer{
