@@ -2,16 +2,20 @@ html{
     background-color: #1b2a4e;
 }
 
-footer{
-    background-color: aliceblue;
-    height: 20%;
-}
-
 header{
     height: 10%;
     background-color: aliceblue;
 }
 
+body{
+    padding: 50%;
+}
+
 hr{
     width: auto;
+}
+
+footer{
+    background-color: aliceblue;
+    height: 20%;
 }
