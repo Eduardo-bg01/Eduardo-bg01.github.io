@@ -1,7 +1,17 @@
-body{
+html{
     background-color: slateblue;
 }
 
-html{
-    background-color: rgb(157, 84, 84);
+footer{
+    background-color: aliceblue;
+    height: 20%;
+}
+
+header{
+    height: 10%;
+    background-color: aliceblue;
+}
+
+hr{
+    width: auto;
 }
