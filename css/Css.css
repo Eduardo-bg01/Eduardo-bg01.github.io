@@ -18,6 +18,7 @@ nav{
 }
 
 hr {
+    position: absolute;
     margin-top: 80%;
     margin-bottom: 10px;
     border-top: 2px solid aliceblue;
