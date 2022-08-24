@@ -19,11 +19,10 @@ nav{
 
 hr {
     position: absolute;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-top: 1px solid aliceblue;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-top: 2px solid aliceblue;
     background-color: aliceblue; 
-    height: 1px; 
     border: 0;
   }
 
