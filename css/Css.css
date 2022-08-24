@@ -17,7 +17,8 @@ p{
 
 footer{
     background-color: aliceblue;
-    height: 20%;
+    width: 100%;
+    height: 30%;
 }
 ul {
     display: inline-block;
