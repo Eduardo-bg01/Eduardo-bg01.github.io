@@ -4,7 +4,7 @@ html{
 
 body{
     background-color: #1b2a4e;
-    height: 80%;
+    height: auto;
 }
 
 h1{
@@ -18,8 +18,6 @@ nav{
 }
 
 hr {
-    margin-top: 80%;
-    margin-bottom: 10px;
     border-top: 2px solid aliceblue;
     border: 0;
   }
