@@ -4,6 +4,7 @@ html{
 
 body{
     background-color: #1b2a4e;
+    height: 80%;
 }
 
 h1{
@@ -29,7 +30,7 @@ p{
 div{
     background-color: aliceblue;
     width: 100%;
-    height: 30%;
+    height: 20%;
 }
 
 ul {
