@@ -12,7 +12,7 @@ h1{
 }
 
 nav{
-    background-color: aliceblue;
+    background-color: #1b2a4e;
     padding: 20%;
     margin-bottom: 5%;
 }
@@ -20,12 +20,14 @@ nav{
 hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    border-top: 1px solid aliceblue;
+    background-color: aliceblue; 
+    height: 1px; 
     border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
 p{
-    color: black;
+    color: aliceblue;
 }
 
 div{
