@@ -13,27 +13,27 @@ img{
 
 h1{
     color: #333;
-    size: 20px;
+    font-size: 20px;
 }
 
 h2{
     color: #666;
-    size: 16px;
+    font-size: 16px;
 }
 
 a{
     color: blue;
-    size: 12px;
+    font-size: 12px;
 }
 
 p, li, td{
     color: #000;
-    size: 12px;
+    font-size: 12px;
 }
 
 th{
     color: #000;
-    size: 14px;
+    font-size: 14px;
 }
 
 th, td{
