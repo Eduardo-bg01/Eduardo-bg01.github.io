@@ -1,0 +1,38 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table{
+    border: 1px solid;
+}
+
+img{
+    height: 400px;
+    width: 200px;
+}
+
+h1{
+    color: #333;
+    size: 20px;
+}
+
+h2{
+    color: #666;
+    size: 16px;
+}
+
+a{
+    color: blue;
+    size: 12px;
+}
+
+p, li, td{
+    color: #000;
+    size: 12px;
+}
+
+th{
+    color: #000;
+    size: 14px;
+}
+
