@@ -13,8 +13,8 @@
             <label for="Usuario">Usuario:</label> <br>
             <input type="text" name="Usuario"  style="text-transform:uppercase"> <br> <br>
             <label for="Departamento">Departamento: </label> <br>
-            <select name="departamento" onchange="selectChangeHandler(this)">
-                <option value="valor1" selected>Marketing</option>
+            <select name="departamento" id="depa" onchange="selectChangeHandler(this)">
+                <option id="valor1" value="valor1" selected>Marketing</option>
                 <option value="valor2">Desarrollo Humano</option>
                 <option value="valor3">Ayuda</option>
             </select>
@@ -26,6 +26,7 @@
                 function selectChangeHandler(selectNode) {
                     if (selectNode.selectedIndex == 1) {
                         alert("opcion invalida");
+                        document.getElementById('depa').value=valor1;
                     }
                 }
 
