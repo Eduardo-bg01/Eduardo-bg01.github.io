@@ -24,11 +24,11 @@
            
             <script>
                 function selectChangeHandler(selectNode) {
-                    if (selectNode.selectedIndex !== "Desarrollo Humano") {
+                    if (selectNode.selectedIndex != "Desarrollo Humano") {
                         alert("opcion invalida");
                     }
                 }
-                
+
                 let text = document.getElementById("Atxt").innerHTML; 
                 document.getElementById("Atxt").innerHTML = text.replace(" ", "%");
             </script>
