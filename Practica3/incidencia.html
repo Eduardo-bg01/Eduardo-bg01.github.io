@@ -21,15 +21,17 @@
             <br>
             <p>Area de texto:</p> <br>
             <textarea name="areaTexto" id="Atxt" cols="30" rows="10">En este control del formulario se pueden escribir varias lineas de texto</textarea>
+           
             <script>
                 function selectChangeHandler(selectNode) {
                     if (selectNode.selectedIndex !== "Desarrollo Humano") {
                         alert("opcion invalida");
                     }
                 }
+                
                 let text = document.getElementById("Atxt").innerHTML; 
                 document.getElementById("Atxt").innerHTML = text.replace(" ", "%");
-                </script>
+            </script>
         </Fieldset>
     
         <fieldset>
