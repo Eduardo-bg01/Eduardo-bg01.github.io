@@ -13,7 +13,7 @@
             <label for="Usuario">Usuario:</label> <br>
             <input type="text" name="Usuario"  style="text-transform:uppercase"> <br> <br>
             <label for="Departamento">Departamento: </label> <br>
-            <select name="departamento" onchange="if(this.value!='Marketing' || this.value!='Ayuda'){alert('Opcion Invalida');}">
+            <select name="departamento" onchange="selectChangeHandler(this)">
                 <option value="valor1" selected>Marketing</option>
                 <option value="valor2">Desarrollo Humano</option>
                 <option value="valor3">Ayuda</option>
@@ -22,6 +22,11 @@
             <p>Area de texto:</p> <br>
             <textarea name="areaTexto" id="Atxt" cols="30" rows="10">En este control del formulario se pueden escribir varias lineas de texto</textarea>
             <script>
+                function selectChangeHandler(selectNode) {
+                    if (selectNode.selectedIndex !== "Desarrollo Humano") {
+                        alert("opcion invalida");
+                    }
+                }
                 let text = document.getElementById("Atxt").innerHTML; 
                 document.getElementById("Atxt").innerHTML = text.replace(" ", "%");
                 </script>
