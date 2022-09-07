@@ -20,7 +20,7 @@
             </select>
             <br>
             <p>Area de texto:</p> <br>
-            <textarea name="areaTexto" id="Atxt" cols="30" rows="10">En este control del formulario se pueden escribir varias lineas de texto</textarea>
+            <textarea name="areaTexto" id="Atxt" cols="30" rows="10" onkeypress="myFunction()">En este control del formulario se pueden escribir varias lineas de texto</textarea>
            
             <script>
                 function selectChangeHandler(selectNode) {
@@ -29,8 +29,11 @@
                     }
                 }
 
-                let text = document.getElementById("Atxt").innerHTML; 
-                document.getElementById("Atxt").innerHTML = text.replace(" ", "%");
+                function myFunction() {
+                    let str = document.getElementById("Atxt").innerHTML; 
+                    let res = str.replace(/ / , "%");
+                    document.getElementById("Atxt").innerHTML = res;
+                }
             </script>
         </Fieldset>
     
