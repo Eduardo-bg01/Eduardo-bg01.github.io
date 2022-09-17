@@ -1,8 +1,8 @@
-form{
-    border-radius: 3px;
-    background-color: antiquewhite;
+#formulario{
+    border-radius: 5px;
+    background-color: rgb(206, 202, 202);
 }
 
 h1{
-    color: blue;
+    color: rgb(52, 52, 211);
 }
