@@ -10,9 +10,11 @@ body{
 
 button{
     padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 img{
-    height: 150px;
-    width: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
