@@ -3,8 +3,9 @@
     background-color: rgb(206, 202, 202);
 }
 
-html{
+body{
     margin: auto;
+    padding: auto;
 }
 
 button{
