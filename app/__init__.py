@@ -13,3 +13,6 @@ def create_app():
 def init_db():
     create_db()
     admin = Users(name = "Pedro")
+    db.session.add(admin)
+    db.session.commit()
+    
