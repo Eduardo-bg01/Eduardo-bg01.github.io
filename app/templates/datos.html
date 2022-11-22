@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block main %}
+<ul>
+    {% for input in lista %}
+    <li>
+        <p>{{ input }} - {{ input|length }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

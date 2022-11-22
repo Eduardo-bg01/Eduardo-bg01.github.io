@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block main %}
+
+<form class="w-50 mx-auto my-25" action="" method="post">
+    <div class="form-group">
+        <label for="input1">Ingresa dato  #1: </label>
+        <input class="form-control w-100" type="text" id="input1" name="input1">
+    </div>
+    <div class="form-group">
+        <label for="input2">Ingresa dato  #2: </label>
+        <input class="form-control w-100" type="text" id="input2" name="input2">
+    </div>
+    <div class="form-group">
+        <label for="input3">Ingresa dato  #3 : </label>
+        <input class="form-control w-100" type="text" id="input3" name="input3">
+    </div>
+
+    <input class="btn btn-primary my-3 w-100" type="submit" value="Registrar">
+</form>
+{% endblock %}
