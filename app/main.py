@@ -12,7 +12,7 @@ def prueba2():
 
 @app.route('/')
 def prueba():
-    return "Resultados: "
+    return "Pon /prueba en la barra de busqueda"
 
 @app.route('/database')
 def create_db():
@@ -27,10 +27,9 @@ def form():
 def retorno():
     nombre = request.args.get('nombreUser')
     apellido = request.args.get('apellido')
-    juego = request.args.get('juego')
-    longitud = len(juego)
-    
-    return "<center><h1>Nombre " + nombre + "<br><center><h1> Juego favorito: "+ apellido +"<br><center><h1> Juego favorito: " + juego + "<br></h1></center><br>"
+    usuario = request.args.get('usuario')
+    artista = request.args.get('artista')
+    return "<center>Nombre " + nombre + "<br><center>Juego favorito: "+ apellido +"<br><center> Usuario: " + usuario +"<br><center> Juego favorito: " + artista + "<br>"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
