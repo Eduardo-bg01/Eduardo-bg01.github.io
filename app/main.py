@@ -6,13 +6,13 @@ from flask import request, Flask
 app = create_app()
 
 @app.route('/prueba')
-def create_db():
+def prueba2():
     lista = ["valorant", "halo", "apex"]
     return render_template("prueba.html", varx=lista)
 
 @app.route('/')
 def prueba():
-    return "<center><h1>Index</h1></center>"
+    return "Resultados: "
 
 @app.route('/database')
 def create_db():
@@ -25,11 +25,12 @@ def form():
 
 @app.route("/retorno", methods=['GET'])
 def retorno():
-    nombreUser = request.args.get('nombreUser')
+    nombre = request.args.get('nombreUser')
+    apellido = request.args.get('apellido')
     juego = request.args.get('juego')
     longitud = len(juego)
     
-    return "<center><h1>Bienvenido " + nombreUser + "</h1></center><br>""<center><h1> Juego favorito " + juego + "</h1></center><br>"
+    return "<center><h1>Nombre " + nombre + "<br><center><h1> Juego favorito: "+ apellido +"<br><center><h1> Juego favorito: " + juego + "<br></h1></center><br>"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
