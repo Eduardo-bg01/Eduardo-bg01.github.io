@@ -25,11 +25,11 @@ def form():
 
 @app.route("/retorno", methods=['GET'])
 def retorno():
-    nombre = request.args.get('nombreUser')
+    nombre = request.args.get('nombre')
     apellido = request.args.get('apellido')
     usuario = request.args.get('usuario')
     artista = request.args.get('artista')
-    return "<center>Nombre " + nombre + "<br><center>Juego favorito: "+ apellido +"<br><center> Usuario: " + usuario +"<br><center> Juego favorito: " + artista + "<br>"
+    return "<center>Nombre " + nombre + "<br><center>Apellido "+ apellido +"<br><center> Usuario: " + usuario +"<br><center>Artista favorito: " + artista + "<br>"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

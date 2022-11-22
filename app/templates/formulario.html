@@ -9,31 +9,31 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <body>
     
-        <form>
+        <form action="/retorno" method="get">
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="validationServer01">Nombre</label>
-                <input type="text" name="nombre" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
+                <input type="text" name="nombre" id="validationServer01" placeholder="Nombre" required>
                 <div class="valid-feedback">
-                  Looks good!
+                  Se ve al cienazo!
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="validationServer02">Apellido</label>
-                <input type="text" name="apellido" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
+                <input type="text" name="apellido"id="validationServer02" placeholder="Apellido" required>
                 <div class="valid-feedback">
-                  Looks good!
+                  Se ve al cienazo!
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="validationServerUsername">Usuario</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    <span class="input-group-text" id="inputGroupPrepend3">:)</span>
                   </div>
-                  <input type="text" name="usuario" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+                  <input type="text" name="usuario" id="validationServerUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend3" required>
                   <div class="invalid-feedback">
-                    Please choose a username.
+                    Por favor ingrese un usuario.
                   </div>
                 </div>
               </div>
@@ -41,24 +41,24 @@
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label for="validationServer03">Artista Favorito</label>
-                <input type="text" name="artista" class="form-control is-invalid" id="validationServer03" placeholder="City" required>
+                <input type="text" name="artista" id="validationServer03" placeholder="Artista Favorito" required>
                 <div class="invalid-feedback">
-                  Please provide a valid city.
+                  Por favor ingrese un artista favorito.
                 </div>
               </div>
             </div>
             <div class="form-group">
               <div class="form-check">
-                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                <input type="checkbox" value="" id="invalidCheck3" required>
                 <label class="form-check-label" for="invalidCheck3">
-                  Agree to terms and conditions
+                  Estoy deacuerdo con el uso de mi informacion privada.
                 </label>
                 <div class="invalid-feedback">
-                  You must agree before submitting.
+                  No se vale decir que no
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit" value="Enviar">Enviar!</button>
           </form>
         
     </body>
