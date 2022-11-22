@@ -29,7 +29,7 @@ def retorno():
     apellido = request.args.get('apellido')
     usuario = request.args.get('usuario')
     artista = request.args.get('artista')
-    return "<center>Nombre " + nombre + "<br><center>Apellido "+ apellido +"<br><center> Usuario: " + usuario +"<br><center>Artista favorito: " + artista + "<br>"
+    return "<center>Nombre " + nombre + "<br><br><center>Apellido "+ apellido +"<br><br><center> Usuario: " + usuario +"<br><br><center> Tu contrasena secreta: " + artista + "<br><br>"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
