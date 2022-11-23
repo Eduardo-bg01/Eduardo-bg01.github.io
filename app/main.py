@@ -1,9 +1,11 @@
 from app import create_app
 from app.migrate import init_db
 from flask import render_template
-from flask import request, Flask
+from flask import request
+from flaskext.mysql import MySQL
 
 app = create_app()
+mysql = MySQL()
 
 @app.route('/prueba')
 def prueba2():
@@ -32,7 +34,12 @@ def retorno():
     longitudNombre = str(nombre)
     longitud2 = len(longitudNombre)
     lenght = str(longitud2)
-    return "<center>Nombre " + nombre + "<br><br><center>Longitud de nombre " + lenght + "<br><br><center>Apellido "+ apellido +"<br><br><center> Usuario: " + usuario +"<br><br><center> Tu contrasena secreta: " + artista + "<br><br>"
+    return "Nombre: " + nombre + "<br><br>Longitud de nombre: " + lenght + "<br><br>Apellido: "+ apellido +"<br><br> Usuario: " + usuario +"<br><br> Tu contrasena secreta: " + artista + "<br><br>"
+
+@app.route('/pruebaBD')
+def testdb():
+    mysql.init_app(app)
+    
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
