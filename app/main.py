@@ -39,9 +39,8 @@ def retorno():
 @app.route('/pruebaBD')
 def testdb():
     mysql.init_app(app)
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor = mysql.connection.cursor()
     cursor.execute("select * from usuario")
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
