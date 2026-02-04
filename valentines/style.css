@@ -36,6 +36,19 @@ body{
 .hero-content {
     text-align: center;
     max-width: 600px;
+    margin-top: -20px;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero h1 {
@@ -96,8 +109,14 @@ button.no {
 
 @media (max-width: 900px) {
   .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 40px 20px;
+    gap: 20px;
   }
 
   .illustration {
