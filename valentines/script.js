@@ -17,7 +17,8 @@ noButton.addEventListener("click", () => {
   yesButton.style.transformOrigin = "center";
 });
 
-noButton.addEventListener("click", () => {
+noButton.addEventListener("touchstart", (e) => {
+  e.preventDefault();
   yesScale = Math.min(yesScale + 0.25, 3.5);
   yesButton.style.transform = `scale(${yesScale})`;
   yesButton.style.transformOrigin = "center";
