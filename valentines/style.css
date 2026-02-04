@@ -145,3 +145,17 @@ button.no {
     font-size: 48px;
   }
 }
+
+@media (orientation: portrait) {
+    .illustration-left,
+    .illustration-right {
+        display: none;
+    }
+
+    .illustration-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        order: -1;
+    }
+}
