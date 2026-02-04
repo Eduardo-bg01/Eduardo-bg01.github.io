@@ -1,5 +1,6 @@
-const noButton = document.getElementById("noButton");
-const yesButton = document.getElementById("yesButton");
+const noButton = document.getElementById("no-button");
+const yesButton = document.getElementById("yes-button");
+let yesScale = 1;
 let yesScale = 1;
 
 noButton.addEventListener("mouseover", () => {
@@ -9,6 +10,12 @@ noButton.addEventListener("mouseover", () => {
   noButton.style.position = "absolute";
   noButton.style.left = `${x}px`;
   noButton.style.top = `${y}px`;
+});
+
+noButton.addEventListener("click", () => {
+  yesScale = Math.min(yesScale + 0.25, 3.5);
+  yesButton.style.transform = `scale(${yesScale})`;
+  yesButton.style.transformOrigin = "center";
 });
 
 noButton.addEventListener("click", () => {
