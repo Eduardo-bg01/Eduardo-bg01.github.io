@@ -76,6 +76,10 @@ body{
     color: #7a2c2c;
 }
 
+.buttons {
+    position: relative;
+}
+
 .illustration-mobile {
     display: none;
 }
@@ -106,17 +110,21 @@ button.no {
     font-size: 18px;
     border: none;
     cursor: pointer;
+    position: relative;
 }
 
 button.yes {
     background: #e63946;
     color: white;
+    z-index: 2;
+    transition: transform 0.2s ease;
 }
 
 button.no {
     background: #ffd6d6;
     color: #5a0f0f;
     position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 900px) {

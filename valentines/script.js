@@ -12,16 +12,20 @@ noButton.addEventListener("mouseover", () => {
 });
 
 noButton.addEventListener("click", () => {
-  yesScale = Math.min(yesScale + 0.25, 3.5);
+  yesScale = 4;
   yesButton.style.transform = `scale(${yesScale})`;
   yesButton.style.transformOrigin = "center";
+  yesButton.style.zIndex = "2";
+  noButton.style.zIndex = "1";
 });
 
 noButton.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  yesScale = Math.min(yesScale + 0.25, 3.5);
+  yesScale = 4;
   yesButton.style.transform = `scale(${yesScale})`;
   yesButton.style.transformOrigin = "center";
+  yesButton.style.zIndex = "2";
+  noButton.style.zIndex = "1";
 });
 
 yesButton.addEventListener("click", () => {
