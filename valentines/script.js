@@ -1,7 +1,6 @@
 const noButton = document.getElementById("no-button");
 const yesButton = document.getElementById("yes-button");
 let yesScale = 1;
-let yesScale = 1;
 
 noButton.addEventListener("mouseover", () => {
   const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
