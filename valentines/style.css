@@ -165,9 +165,6 @@ button.no {
     z-index: 1;
 }
 
-/* ===================================
-   CELEBRATION STATE (YES CLICKED)
-   =================================== */
 body.celebrated header,
 body.celebrated .navbar,
 body.celebrated .illustration-left,
@@ -216,9 +213,7 @@ body.celebrated #date-desc p {
     backdrop-filter: blur(10px);
 }
 
-/* ===================================
-   MOBILE RESPONSIVENESS
-   =================================== */
+
 @media (max-width: 900px) {
   body.celebrated {
     overflow: auto;
@@ -243,7 +238,7 @@ body.celebrated #date-desc p {
     padding: 12px 20px;
   }
 
-  main.hero {
+  .hero {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -251,7 +246,7 @@ body.celebrated #date-desc p {
     padding: 30px 20px !important;
     gap: 30px !important;
     min-height: calc(100vh - 70px);
-    grid-template-columns: 1fr !important;
+    grid-template-columns: none !important;
     grid-template-areas: none !important;
     width: 100%;
   }
@@ -271,8 +266,8 @@ body.celebrated #date-desc p {
   }
 
   .illustration-mobile img {
-    max-width: 300px !important;
-    width: 85% !important;
+    max-width: 280px !important;
+    width: 80% !important;
     height: auto !important;
   }
 
@@ -284,10 +279,11 @@ body.celebrated #date-desc p {
     order: 1 !important;
     text-align: center !important;
     box-sizing: border-box !important;
+    grid-area: unset !important;
   }
 
   .hero h1 {
-    font-size: 42px !important;
+    font-size: 40px !important;
     line-height: 1.2 !important;
     margin-bottom: 20px !important;
     word-wrap: break-word !important;
@@ -301,17 +297,17 @@ body.celebrated #date-desc p {
   }
 
   .date-badge {
-    font-size: 16px !important;
-    padding: 10px 20px !important;
-    margin: 20px auto !important;
+    font-size: 14px !important;
+    padding: 8px 18px !important;
+    margin: 15px auto !important;
     display: inline-block !important;
     white-space: nowrap !important;
   }
 
   .description {
-    font-size: 16px !important;
-    margin: 20px auto 30px !important;
-    line-height: 1.6 !important;
+    font-size: 14px !important;
+    margin: 15px auto 25px !important;
+    line-height: 1.5 !important;
     width: 100% !important;
     max-width: 90% !important;
     text-align: center !important;
@@ -320,20 +316,19 @@ body.celebrated #date-desc p {
 
   .buttons {
     display: flex !important;
-    flex-direction: row !important;
-    gap: 15px !important;
+    flex-direction: column !important;
+    gap: 12px !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 280px !important;
     margin: 0 auto !important;
     justify-content: center !important;
   }
 
   button.yes,
   button.no {
-    flex: 1 !important;
-    max-width: 150px !important;
+    width: 100% !important;
     padding: 16px 24px !important;
-    font-size: 18px !important;
+    font-size: 16px !important;
     margin: 0 !important;
   }
 
