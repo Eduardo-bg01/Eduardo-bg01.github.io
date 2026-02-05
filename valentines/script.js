@@ -29,5 +29,16 @@ noButton.addEventListener("touchstart", (e) => {
 });
 
 yesButton.addEventListener("click", () => {
-  document.body.innerHTML = "<h1 style='text-align:center;margin-top:40vh;'>💖 AJUAAAA! 💖</h1>";
+  const buttons = document.querySelector(".buttons");
+  const dateDesc = document.getElementById("date-desc");
+  const heroContent = document.querySelector(".hero-content");
+  
+  buttons.style.display = "none";
+  dateDesc.style.display = "block";
+  
+  const celebration = document.createElement("h1");
+  celebration.style.textAlign = "center";
+  celebration.style.marginTop = "20px";
+  celebration.textContent = "💖 AJUAAAA! 💖";
+  heroContent.appendChild(celebration);
 });
