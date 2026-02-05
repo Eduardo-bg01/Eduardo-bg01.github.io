@@ -1,0 +1,116 @@
+/* ============================================
+   CAR ANIMATION STYLES - Mexicali to San Diego
+   ============================================ */
+
+/* Road container */
+#road-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 250px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 60%, #696969 60%, #696969 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Road lines */
+.road-line {
+    position: absolute;
+    bottom: 45px;
+    width: 70px;
+    height: 5px;
+    background: white;
+    border-radius: 2px;
+    animation: roadMove 2.5s linear infinite;
+}
+
+@keyframes roadMove {
+    0% { left: 100%; }
+    100% { left: -70px; }
+}
+
+.road-line:nth-child(2) { animation-delay: 0.5s; }
+.road-line:nth-child(3) { animation-delay: 1.0s; }
+.road-line:nth-child(4) { animation-delay: 1.5s; }
+.road-line:nth-child(5) { animation-delay: 2.0s; }
+
+/* Cities */
+.city {
+    position: absolute;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.city-emoji {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.city-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #5a0f0f;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+#mexicali { left: 8%; }
+#san-diego { right: 8%; }
+
+/* Car */
+#car {
+    position: absolute;
+    bottom: 55px;
+    left: 8%;
+    font-size: 48px;
+    z-index: 20;
+    animation: driveCar 10s ease-in-out infinite;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+@keyframes driveCar {
+    0% { left: 8%; transform: scaleX(1); }
+    45% { left: calc(92% - 48px); transform: scaleX(1); }
+    50% { left: calc(92% - 48px); transform: scaleX(1); }
+    52% { left: calc(92% - 48px); transform: scaleX(-1); }
+    97% { left: 8%; transform: scaleX(-1); }
+    100% { left: 8%; transform: scaleX(1); }
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    z-index: 15;
+    animation: floatHeart 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes floatHeart {
+    0% { bottom: 60px; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { bottom: 180px; opacity: 0; }
+}
+
+.heart:nth-child(6) { left: 15%; animation-delay: 0s; }
+.heart:nth-child(7) { left: 35%; animation-delay: 1.3s; }
+.heart:nth-child(8) { left: 55%; animation-delay: 2.6s; }
+.heart:nth-child(9) { left: 75%; animation-delay: 4s; }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    #road-container { height: 200px; }
+    .city-emoji { font-size: 24px; }
+    .city-label { font-size: 12px; }
+    #car { font-size: 36px; bottom: 45px; }
+    .road-line { bottom: 35px; width: 50px; height: 4px; }
+}

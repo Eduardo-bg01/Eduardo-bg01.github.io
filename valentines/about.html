@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Be My Valentine</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" />
+    <script  src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/valentines/about-styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'valentine-pink': '#fff7f2',
+                        'valentine-red': '#c1121f',
+                        'valentine-dark': '#5a0f0f',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-valentine-pink">
+
+    <!-- Navbar -->
+    <header class="navbar bg-white shadow-lg px-6 md:px-16 py-4">
+        <div class="flex-1">
+            <a href="index.html" class="text-2xl font-bold text-valentine-dark hover:text-valentine-red transition-colors">
+                LOGO
+            </a>
+        </div>
+        <nav class="flex-none">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li>
+                    <a href="index.html" class="text-valentine-dark hover:text-valentine-red hover:bg-valentine-pink transition-all">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="text-white bg-valentine-red hover:bg-red-700 transition-all">
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero min-h-[70vh] bg-gradient-to-br from-valentine-pink via-pink-100 to-red-50">
+        <div class="hero-content text-center">
+            <div class="max-w-3xl">
+                <h1 class="text-6xl md:text-7xl font-extrabold text-valentine-red mb-6 leading-tight">About our story</h1>
+                <p class="text-xl md:text-2xl text-valentine-dark opacity-80 mb-8 max-w-2xl mx-auto">The story of our weird and wonderful journey together</p>
+                <div class="badge badge-lg bg-valentine-red text-white border-none px-6 py-4 text-base font-semibold shadow-xl">Since 2019</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-8  max-w-5xl">
+            <h2 class="text-5xl font-extrabold text-center text-valentine-dark mb-16"> Our journey </h2>
+            <ul class="timeline timeline-vertical lg:timeline-horizontal">
+                <!-- item 1 -->
+                <li>
+                    <div class="timeline-start mb-10 md:text-end">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2019</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">boba de frambuesa</div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <hr class="bg-valentine-red"/>
+                </li>
+                <!-- item 2 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <div class="timeline-end mb-10">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2020</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">
+                            1st year
+                        </div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <hr class="bg-valentine-red"/> 
+                </li>
+                <!-- item 3 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-start mb-10 md:text-end">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2021</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">2nd year</div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <hr class="bg-valentine-red"/>
+                </li>
+                <!-- item 4 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-start mb-10 md:text-end">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2022</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">3rd year</div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <hr class="bg-valentine-red"/>
+                </li>
+                <!-- item 5 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-start mb-10 md:text-end">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2023</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">4th year</div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <hr class="bg-valentine-red"/>
+                </li>
+                <!-- item 6 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-start mb-10 md:text-end">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2024</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">5th year</div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <hr class="bg-valentine-red"/>
+                </li>
+                <!-- item 7 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-start mb-10 md:text-end">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2025</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">6th year</div>
+                        <p class="text-valentine-dark opacity-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <hr class="bg-valentine-red"/>
+                </li>
+                <!-- item 8 -->
+                <li>
+                    <hr class="bg-valentine-red"/>
+                    <div class="timeline-middle">
+                        <div class="w-4 h-4 rounded-full bg-valentine-red"></div>
+                    </div>
+                    <div class="timeline-end mb-10">
+                        <time class="font-mono italic text-sm text-valentine-red mb-2 block">2026</time>
+                        <div class="text-xl font-bold text-valentine-dark mb-2">7th year</div>
+                        <p class="text-valentine-dark opacity-70">Valentines together</p>  
+                        <Strong class="text-valentine-dark opacity-70">To be continued...</Strong>  
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- cards -->
+    <section class="py-20 bg-gradient-to-b from-valentine-pink to-pink-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-5xl font-extrabold text-center text-valentine-dark mb-16">Why we hate eachother</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- card 1 -->
+                <div class="card bg-white shadow-2xl hover:shadow-valentine-red/20 hover:-translate-y-2 transition-all duration-300">
+                    <figure class="px-10 pt-10">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center text-6xl">😊</div>
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title text-2xl text-valentine-red mb-3">1.-Lorem ipsum dolor</h2>
+                        <p class="text-valentine-dark opacity-80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div class="card bg-white shadow-2xl hover:shadow-valentine-red/20 hover:-translate-y-2 transition-all duration-300">
+                    <figure class="px-10 pt-10">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center text-6xl">🌟</div>
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title text-2xl text-valentine-red mb-3">2.</h2>
+                        <p class="text-valentine-dark opacity-80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="card bg-white shadow-2xl hover:shadow-valentine-red/20 hover:-translate-y-2 transition-all duration-300">
+                     <figure class="px-10 pt-10">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center text-6xl">💝</div>
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title text-2xl text-valentine-red mb-3">3.</h2>
+                        <p class="text-valentine-dark opacity-80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer footer-center p-10 bg-valentine-dark text-white">
+        <aside>
+            <p class="font-bold text-lg mb-2">Made for nat</p>
+            <p class="opacity-80">Eduardo Beltran - 2026</p>
+        </aside>
+    </footer>
+</body>
+</html>
