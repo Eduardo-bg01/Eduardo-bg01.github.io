@@ -41,7 +41,7 @@ body::before {
 .hero {
     min-height: calc(100vh - 80px);
     display: grid;
-    grid-template-columns: 1fr minmax(320px, 600px) 1fr;
+    grid-template-columns: 1.2fr minmax(320px, 600px) 1.2fr;
     grid-template-areas: "left content right";
     align-items: center;
     justify-items: center;
@@ -122,7 +122,7 @@ body::before {
 
 .illustration-left img,
 .illustration-right img {
-    max-width: 360px;
+    max-width: 480px;
     width: 100%;
     height: auto;
 }
