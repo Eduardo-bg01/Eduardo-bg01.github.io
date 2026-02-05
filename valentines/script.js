@@ -49,8 +49,6 @@ yesButton.addEventListener("click", () => {
   gif.style.maxWidth = "400px";
   gif.style.width = "100%";
   gif.style.marginTop = "40px";
-  gif.style.borderRadius = "16px";
-  gif.style.boxShadow = "0 10px 40px rgba(193, 18, 31, 0.3)";
   
   dateDesc.appendChild(celebration);
   dateDesc.appendChild(info);
