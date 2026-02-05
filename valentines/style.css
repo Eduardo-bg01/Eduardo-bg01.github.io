@@ -283,6 +283,7 @@ body.celebrated #date-desc p {
     width: 100% !important;
     order: 1 !important;
     text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   .hero h1 {
@@ -291,19 +292,30 @@ body.celebrated #date-desc p {
     margin-bottom: 20px !important;
     word-wrap: break-word !important;
     width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .hero h1 br {
+    display: block !important;
   }
 
   .date-badge {
     font-size: 16px !important;
     padding: 10px 20px !important;
-    margin: 20px 0 !important;
+    margin: 20px auto !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
   }
 
   .description {
     font-size: 16px !important;
-    margin: 20px 0 30px !important;
+    margin: 20px auto 30px !important;
     line-height: 1.6 !important;
     width: 100% !important;
+    max-width: 90% !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
   }
 
   .buttons {
