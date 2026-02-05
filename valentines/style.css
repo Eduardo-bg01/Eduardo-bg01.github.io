@@ -105,6 +105,9 @@ body::before {
 
 .buttons {
     position: relative;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
 }
 
 .illustration-mobile {
@@ -162,16 +165,22 @@ button.no {
     z-index: 1;
 }
 
+/* ===================================
+   CELEBRATION STATE (YES CLICKED)
+   =================================== */
+body.celebrated header,
 body.celebrated .navbar,
 body.celebrated .illustration-left,
 body.celebrated .illustration-right,
 body.celebrated .illustration-mobile,
-body.celebrated .hero-content {
-    display: none;
+body.celebrated .hero-content,
+body.celebrated main,
+body.celebrated .hero {
+    display: none !important;
 }
 
 body.celebrated {
-    overflow: hidden;
+    overflow: auto;
 }
 
 body.celebrated #date-desc {
@@ -183,8 +192,33 @@ body.celebrated #date-desc {
     inset: 0;
     text-align: center;
     font-size: 24px;
+    padding: 40px 20px;
+    overflow-y: auto;
 }
 
+/* Text boxes with background */
+body.celebrated #date-desc strong {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(193, 18, 31, 0.2);
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    display: block;
+}
+
+body.celebrated #date-desc p {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(193, 18, 31, 0.15);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+/* ===================================
+   MOBILE RESPONSIVENESS
+   =================================== */
 @media (max-width: 900px) {
   body.celebrated {
     overflow: auto;
@@ -199,9 +233,14 @@ body.celebrated #date-desc {
     align-items: center;
   }
 
- 
-  .navbar {
-    padding: 15px 20px;
+  body.celebrated #date-desc strong {
+    font-size: 24px;
+    padding: 16px 24px;
+  }
+
+  body.celebrated #date-desc p {
+    font-size: 18px;
+    padding: 12px 20px;
   }
 
   .hero {
@@ -212,13 +251,14 @@ body.celebrated #date-desc {
     padding: 30px 20px !important;
     gap: 30px !important;
     min-height: calc(100vh - 70px);
+    grid-template-columns: none !important;
+    grid-template-areas: none !important;
   }
 
   .illustration-left,
   .illustration-right {
     display: none !important;
   }
-
 
   .illustration-mobile {
     display: flex !important;
@@ -235,28 +275,25 @@ body.celebrated #date-desc {
     height: auto;
   }
 
-
   .hero-content {
     margin-top: 0 !important;
     max-width: 100% !important;
     padding: 0 15px !important;
     width: 100%;
+    order: 1;
   }
 
-  
   .hero h1 {
     font-size: 48px !important;
     line-height: 1.2 !important;
     margin-bottom: 20px !important;
   }
 
-
   .date-badge {
     font-size: 16px !important;
     padding: 10px 20px !important;
     margin: 20px 0 !important;
   }
-
 
   .description {
     font-size: 16px !important;
@@ -271,6 +308,7 @@ body.celebrated #date-desc {
     width: 100% !important;
     max-width: 280px !important;
     margin: 0 auto !important;
+    justify-content: center !important;
   }
 
   button.yes,
@@ -280,7 +318,6 @@ body.celebrated #date-desc {
     font-size: 18px !important;
     margin: 0 !important;
   }
-
 
   #date-desc {
     display: none;
@@ -296,6 +333,7 @@ body.celebrated #date-desc {
         display: flex !important;
         flex-direction: column !important;
         padding: 30px 20px !important;
+        grid-template-columns: none !important;
     }
 
     .illustration-left,
@@ -336,6 +374,7 @@ body.celebrated #date-desc {
     .hero {
         min-height: auto !important;
         padding: 20px !important;
+        grid-template-columns: none !important;
     }
 
     .hero h1 {
@@ -371,5 +410,15 @@ body.celebrated #date-desc {
     button.no {
         font-size: 16px !important;
         padding: 16px 24px !important;
+    }
+
+    body.celebrated #date-desc strong {
+        font-size: 20px;
+        padding: 14px 20px;
+    }
+
+    body.celebrated #date-desc p {
+        font-size: 16px;
+        padding: 10px 16px;
     }
 }

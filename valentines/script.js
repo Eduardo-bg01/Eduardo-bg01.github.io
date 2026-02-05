@@ -34,19 +34,27 @@ noButton.addEventListener("touchstart", (e) => {
 yesButton.addEventListener("click", () => {
   const dateDesc = document.getElementById("date-desc");
   
-  document.body.classList.add("celebrated");
+  dateDesc.innerHTML = '';
   
-  const celebration = document.createElement("h1");
-  celebration.style.fontSize = "64px";
-  celebration.style.marginBottom = "40px";
-  celebration.textContent = "💖 AJUAAAA! 💖";
+  const celebration = document.createElement("strong");
+  celebration.textContent = "Valentines date:";
+  celebration.className = "text-3xl text-valentine-red mb-4";
+  
+  const info = document.createElement("p");
+  info.textContent = "Restaurante Fussion 9:00 PM!";
+  info.className = "text-2xl text-valentine-dark font-semibold";
   
   const gif = document.createElement("img");
   gif.src = "assets/benitogif.gif";
   gif.style.maxWidth = "400px";
   gif.style.width = "100%";
   gif.style.marginTop = "40px";
+  gif.style.borderRadius = "16px";
+  gif.style.boxShadow = "0 10px 40px rgba(193, 18, 31, 0.3)";
   
   dateDesc.appendChild(celebration);
+  dateDesc.appendChild(info);
   dateDesc.appendChild(gif);
+  
+  document.body.classList.add("celebrated");
 });
