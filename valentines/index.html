@@ -3,44 +3,62 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Be My Valentine</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'valentine-pink': '#fff7f2',
+                        'valentine-red': '#c1121f',
+                        'valentine-dark': '#5a0f0f',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-     <header class="navbar">
-        <div class="logo">LOGO</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
+    <!-- Navbar -->
+     <header class="navbar shadow-xl">
+        <div class="logo text-2xl font-bold text-valentine-dark">LOGO</div>
+        <nav class="flex gap-4">
+            <a href="index.html" class="hover:text-valentine-red transition-colors duration-300 font-semibold">Home</a>
+            <a href="about.html" class="hover:text-valentine-red transition-colors duration-300 font-semibold">About Us</a>
         </nav>
      </header>
 
       <main class="hero">
         <div class="illustration-mobile">
-            <img src="assets/both-il.png" alt="both"/>
+            <img src="assets/both-il.png" alt="both" class="drop-shadow-2x1"/>
         </div>
         <div class="illustration-left">
-            <img src="assets/nat-il.png" alt="nat left"/>
+            <img src="assets/nat-il.png" alt="nat left" class="drop-shadow-2xl hover:scale-105 transition-transform duration-500"/>
         </div>
         <div class="illustration-right">
-            <img src="assets/edu-il.png" alt="edu right"/>
+            <img src="assets/edu-il.png" alt="edu right" class="drop-shadow-2xl hover:scale-105 transition-transform duration-500"/>
         </div>
+        <!-- Hero Content -->
         <div class="hero-content">
             <h1>Will you be my<br><span>valentine?</span></h1>
-            <div class="date-badge">14th February</div>
+            <div class="date-badge rounded-full shadow-lg">14th February</div>
             <p class="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Sed do eiusmod tempor incididunt ut labore.
             </p>
 
-            <div class="buttons">
-                <button id="yes-button" class="yes">Yes</button>
-                <button id="no-button" class="no">No</button>
+            <!-- Buttons -->
+            <div class="buttons flex gap-4 justify-center">
+                <button id="yes-button" class="yes  rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">Yes</button>
+                <button id="no-button" class="no rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">No</button>
             </div>
         </div>
       </main>
 
-      <div id="date-desc" class="date-desc">
-        <strong>Valentines date:</strong><p>Restaurante Fussion 9:00 PM!</p>
+      <div id="date-desc" class="date-desc bg-gradient-to-br from-valentine-pink via-pink-100 to-red-50">
+        <strong class="text-3xl text-valentine-red mb-4">Valentines date:</strong><p class="text-2xl text-valentine-dark font-semibold">Restaurante Fussion 9:00 PM!</p>
       </div>
 
       <script src="script.js"></script>
