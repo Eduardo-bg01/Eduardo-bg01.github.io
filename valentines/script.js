@@ -29,16 +29,21 @@ noButton.addEventListener("touchstart", (e) => {
 });
 
 yesButton.addEventListener("click", () => {
-  const buttons = document.querySelector(".buttons");
   const dateDesc = document.getElementById("date-desc");
-  const heroContent = document.querySelector(".hero-content");
   
-  buttons.style.display = "none";
-  dateDesc.style.display = "block";
+  document.body.classList.add("celebrated");
   
   const celebration = document.createElement("h1");
-  celebration.style.textAlign = "center";
-  celebration.style.marginTop = "20px";
+  celebration.style.fontSize = "64px";
+  celebration.style.marginBottom = "40px";
   celebration.textContent = "💖 AJUAAAA! 💖";
-  heroContent.appendChild(celebration);
+  
+  const gif = document.createElement("img");
+  gif.src = "assets/benitogif.gif";
+  gif.style.maxWidth = "400px";
+  gif.style.width = "100%";
+  gif.style.marginTop = "40px";
+  
+  dateDesc.appendChild(celebration);
+  dateDesc.appendChild(gif);
 });
