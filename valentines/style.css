@@ -41,7 +41,8 @@ body::before {
 .hero {
     min-height: calc(100vh - 80px);
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr minmax(320px, 600px) 1fr;
+    grid-template-areas: "left content right";
     align-items: center;
     justify-items: center;
     padding: 40px 60px;
@@ -49,6 +50,7 @@ body::before {
 }
 
 .hero-content {
+    grid-area: content;
     text-align: center;
     max-width: 600px;
     margin-top: -20px;
@@ -110,6 +112,14 @@ body::before {
     justify-content: center;
 }
 
+.illustration-left {
+    grid-area: left;
+}
+
+.illustration-right {
+    grid-area: right;
+}
+
 .illustration-left img,
 .illustration-right img {
     max-width: 280px;
@@ -154,12 +164,17 @@ body.celebrated .hero-content {
     display: none;
 }
 
+body.celebrated {
+    overflow: hidden;
+}
+
 body.celebrated #date-desc {
     display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    position: fixed;
+    inset: 0;
     text-align: center;
     font-size: 24px;
 }
