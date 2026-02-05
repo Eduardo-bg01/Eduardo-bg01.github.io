@@ -10,6 +10,16 @@ body{
     color: #5a0f0f;
     background-image: url("/valentines/assets/bg-il.png");
     position: relative;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 body::before {
@@ -86,6 +96,16 @@ body::before {
     background: #c1121f;
     color: white;
     font-weight: bold;
+    animation: gentlePulse 3s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .description{
