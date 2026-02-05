@@ -3,10 +3,13 @@ const yesButton = document.getElementById("yes-button");
 let yesScale = 1;
 
 noButton.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+  const maxX = window.innerWidth - noButton.offsetWidth;
+  const maxY = window.innerHeight - noButton.offsetHeight;
+  
+  const x = Math.random() * Math.max(0, maxX);
+  const y = Math.random() * Math.max(0, maxY);
 
-  noButton.style.position = "absolute";
+  noButton.style.position = "fixed";
   noButton.style.left = `${x}px`;
   noButton.style.top = `${y}px`;
 });

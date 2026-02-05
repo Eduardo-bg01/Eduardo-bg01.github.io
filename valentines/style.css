@@ -8,8 +8,20 @@
 body{
     background: #fff7f2;
     color: #5a0f0f;
-    background-image:url("/valentines/assets/bg-il.png");
-    background-image: opacity(0.5);
+    background-image: url("/valentines/assets/bg-il.png");
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 247, 242, 0.25);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .navbar {
@@ -177,6 +189,14 @@ body.celebrated #date-desc {
   .hero h1 {
     font-size: 48px;
   }
+
+  #date-desc {
+    display: none;
+  }
+
+  body.celebrated #date-desc {
+    display: flex !important;
+  }
 }
 
 @media (orientation: portrait) {
@@ -190,5 +210,13 @@ body.celebrated #date-desc {
         align-items: center;
         justify-content: center;
         order: -1;
+    }
+
+    #date-desc {
+        display: none;
+    }
+
+    body.celebrated #date-desc {
+        display: flex !important;
     }
 }
