@@ -78,6 +78,8 @@ body::before {
     font-weight: 800;
     line-height: 1.1;
     color: #c1121f;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .hero h1 span {
@@ -108,6 +110,8 @@ body::before {
 .description{
     margin: 20px 0 40px;
     color: #7a2c2c;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 #date-desc {
