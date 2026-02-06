@@ -65,6 +65,16 @@
 #mexicali { left: 8%; }
 #san-diego { right: 8%; }
 
+/* Emoji circles inside cards */
+.card figure > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 2.25rem;
+    letter-spacing: -0.08em;
+}
+
 /* Car */
 #car {
     position: absolute;
@@ -92,4 +102,5 @@
     .city-label { font-size: 12px; }
     #car { font-size: 36px; bottom: 45px; }
     .road-line { bottom: 35px; width: 50px; height: 4px; }
+    .card figure > div { font-size: 2rem; }
 }
