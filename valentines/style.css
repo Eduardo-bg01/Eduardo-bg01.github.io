@@ -55,6 +55,7 @@ body::before {
 }
 
 .hero-content {
+    grid-area: content;
     text-align: center;
     max-width: 600px;
     margin-top: -20px;
@@ -129,6 +130,14 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.illustration-left {
+    grid-area: left;
+}
+
+.illustration-right {
+    grid-area: right;
 }
 
 .illustration-left img,
