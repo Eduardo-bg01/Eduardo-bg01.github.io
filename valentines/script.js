@@ -36,9 +36,11 @@ yesButton.addEventListener("click", () => {
   
   dateDesc.innerHTML = '';
   
+  const container = document.createElement("div");
+  
   const celebration = document.createElement("strong");
   celebration.textContent = "Valentines date:";
-  celebration.className = "text-3xl text-valentine-red mb-4";
+  celebration.className = "text-3xl text-valentine-red";
   
   const info = document.createElement("p");
   info.textContent = "Restaurante Fussion 9:00 PM!";
@@ -48,11 +50,12 @@ yesButton.addEventListener("click", () => {
   gif.src = "assets/benitogif.gif";
   gif.style.maxWidth = "400px";
   gif.style.width = "100%";
-  gif.style.marginTop = "40px";
+  gif.style.marginTop = "20px";
   
-  dateDesc.appendChild(celebration);
-  dateDesc.appendChild(info);
-  dateDesc.appendChild(gif);
+  container.appendChild(celebration);
+  container.appendChild(info);
+  container.appendChild(gif);
+  dateDesc.appendChild(container);
   
   document.body.classList.add("celebrated");
 });
