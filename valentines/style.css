@@ -46,7 +46,6 @@ body::before {
 }
 
 .hero-content {
-    grid-area: content;
     text-align: center;
     max-width: 600px;
     margin-top: -20px;
@@ -83,6 +82,8 @@ body::before {
     color: white;
     font-weight: bold;
     animation: gentlePulse 3s ease-in-out infinite;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(193, 18, 31, 0.3);
 }
 
 @keyframes gentlePulse {
@@ -121,25 +122,25 @@ body::before {
     justify-content: center;
 }
 
-.illustration-left {
-    grid-area: left;
-}
-
-.illustration-right {
-    grid-area: right;
-}
-
 .illustration-left img,
 .illustration-right img {
     max-width: 480px;
     width: 100%;
     height: auto;
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    transition: transform 0.5s ease;
+}
+
+.illustration-left img:hover,
+.illustration-right img:hover {
+    transform: scale(1.05);
 }
 
 .illustration-mobile img {
     max-width: 320px;
     width: 100%;
     height: auto;
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
 }
 
 button.yes,
@@ -149,19 +150,26 @@ button.no {
     border: none;
     cursor: pointer;
     position: relative;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button.yes:hover,
+button.no:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
 }
 
 button.yes {
     background: #e63946;
     color: white;
     z-index: 2;
-    transition: transform 0.2s ease;
 }
 
 button.no {
     background: #ffd6d6;
     color: #5a0f0f;
-    position: relative;
     z-index: 1;
 }
 
@@ -238,17 +246,17 @@ body.celebrated #date-desc p {
     padding: 12px 20px;
   }
 
-  .hero {
+  main.hero {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding: 30px 20px !important;
-    gap: 30px !important;
-    min-height: calc(100vh - 70px);
-    grid-template-columns: none !important;
+    padding: 20px !important;
+    gap: 20px !important;
+    min-height: calc(100vh - 80px) !important;
+    grid-template-columns: 1fr !important;
     grid-template-areas: none !important;
-    width: 100%;
+    width: 100% !important;
   }
 
   .illustration-left,
@@ -261,8 +269,8 @@ body.celebrated #date-desc p {
     align-items: center !important;
     justify-content: center !important;
     order: -1 !important;
-    max-width: 100% !important;
     width: 100% !important;
+    max-width: 100% !important;
   }
 
   .illustration-mobile img {
@@ -274,44 +282,31 @@ body.celebrated #date-desc p {
   .hero-content {
     margin-top: 0 !important;
     max-width: 100% !important;
-    padding: 0 20px !important;
+    padding: 0 !important;
     width: 100% !important;
     order: 1 !important;
     text-align: center !important;
-    box-sizing: border-box !important;
-    grid-area: unset !important;
   }
 
   .hero h1 {
-    font-size: 40px !important;
+    font-size: 38px !important;
     line-height: 1.2 !important;
-    margin-bottom: 20px !important;
-    word-wrap: break-word !important;
-    width: 100% !important;
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
-  }
-
-  .hero h1 br {
-    display: block !important;
+    margin-bottom: 16px !important;
+    padding: 0 10px !important;
   }
 
   .date-badge {
     font-size: 14px !important;
     padding: 8px 18px !important;
-    margin: 15px auto !important;
-    display: inline-block !important;
-    white-space: nowrap !important;
+    margin: 16px auto !important;
   }
 
   .description {
     font-size: 14px !important;
-    margin: 15px auto 25px !important;
+    margin: 16px auto 24px !important;
     line-height: 1.5 !important;
-    width: 100% !important;
-    max-width: 90% !important;
-    text-align: center !important;
-    word-wrap: break-word !important;
+    padding: 0 20px !important;
+    max-width: 100% !important;
   }
 
   .buttons {
@@ -321,7 +316,7 @@ body.celebrated #date-desc p {
     width: 100% !important;
     max-width: 280px !important;
     margin: 0 auto !important;
-    justify-content: center !important;
+    padding: 0 20px !important;
   }
 
   button.yes,
@@ -331,55 +326,11 @@ body.celebrated #date-desc p {
     font-size: 16px !important;
     margin: 0 !important;
   }
-
-  #date-desc {
-    display: none;
-  }
-
-  body.celebrated #date-desc {
-    display: flex !important;
-  }
 }
 
 @media (orientation: portrait) and (max-width: 900px) {
-    .hero {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 30px 20px !important;
-        grid-template-columns: none !important;
-    }
-
-    .illustration-left,
-    .illustration-right {
-        display: none !important;
-    }
-
-    .illustration-mobile {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        order: -1;
-    }
-
-    .hero h1 {
-        font-size: 42px !important;
-        text-align: center;
-    }
-
-    .buttons {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        width: 100% !important;
-    }
-
-    #date-desc {
-        display: none;
-    }
-
-    body.celebrated #date-desc {
-        display: flex !important;
-        padding: 60px 20px;
+    main.hero {
+        padding: 20px !important;
     }
 }
 
