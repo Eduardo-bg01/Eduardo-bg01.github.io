@@ -5,12 +5,21 @@
     font-family: sans-serif;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
 body{
     background: #fff7f2;
     color: #5a0f0f;
     background-image: url("/valentines/assets/bg-il.png");
     position: relative;
     animation: fadeIn 0.8s ease-out;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 @keyframes fadeIn {
@@ -201,7 +210,6 @@ body.celebrated #date-desc {
     overflow-y: auto;
 }
 
-/* Text boxes with background */
 body.celebrated #date-desc strong {
     background: rgba(255, 255, 255, 0.95);
     padding: 20px 30px;
@@ -251,12 +259,14 @@ body.celebrated #date-desc p {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding: 20px !important;
+    padding: 20px 15px !important;
     gap: 20px !important;
     min-height: calc(100vh - 80px) !important;
     grid-template-columns: 1fr !important;
     grid-template-areas: none !important;
     width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
   }
 
   .illustration-left,
@@ -282,31 +292,41 @@ body.celebrated #date-desc p {
   .hero-content {
     margin-top: 0 !important;
     max-width: 100% !important;
-    padding: 0 !important;
+    padding: 0 20px !important;
     width: 100% !important;
     order: 1 !important;
     text-align: center !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   .hero h1 {
     font-size: 38px !important;
     line-height: 1.2 !important;
-    margin-bottom: 16px !important;
-    padding: 0 10px !important;
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+    width: 100% !important;
+    order: 1 !important;
   }
 
   .date-badge {
     font-size: 14px !important;
     padding: 8px 18px !important;
-    margin: 16px auto !important;
+    margin: 0 auto 20px !important;
+    display: inline-block !important;
+    order: 2 !important;
   }
 
   .description {
     font-size: 14px !important;
-    margin: 16px auto 24px !important;
-    line-height: 1.5 !important;
-    padding: 0 20px !important;
+    margin: 0 auto 24px !important;
+    line-height: 1.6 !important;
+    padding: 0 !important;
     max-width: 100% !important;
+    width: 100% !important;
+    order: 3 !important;
   }
 
   .buttons {
@@ -316,7 +336,8 @@ body.celebrated #date-desc p {
     width: 100% !important;
     max-width: 280px !important;
     margin: 0 auto !important;
-    padding: 0 20px !important;
+    padding: 0 !important;
+    order: 4 !important;
   }
 
   button.yes,
