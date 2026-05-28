@@ -1,0 +1,108 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root{
+  --accent1: #D92555; /* rosa mexicano */
+  --accent2: #590F32; /* burgundy */
+  --accent3: #CAB4D9; /* lavanda claro */
+  --accent4: #8C845D; /* oliva suave */
+  --accent5: #D9AA71; /* dorado cálido */
+
+  --accent1-rgb: 217,37,85;
+  --accent2-rgb: 89,15,50;
+  --accent3-rgb: 202,180,217;
+  --accent4-rgb: 140,132,93;
+  --accent5-rgb: 217,170,113;
+
+
+  --hero-image: url('../assets/salle-louvre.jpg');
+
+  --card-bg: rgba(255,255,255,0.94);
+  --card-border: rgba(var(--accent2-rgb),0.12);
+  --text-color: #111111;
+  --muted: #5b5852;
+}
+
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:var(--text-color);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-color: #f8f6f4;
+}
+
+.hero{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:2rem;
+  --overlay: linear-gradient(rgba(var(--accent2-rgb),0.45), rgba(0,0,0,0.22));
+  background-image: var(--overlay), var(--hero-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.card{
+  width:100%;
+  max-width:720px;
+  background: var(--card-bg);
+  border-radius:14px;
+  padding:2.25rem;
+  box-shadow: 0 10px 30px rgba(17,17,17,0.18);
+  border:1px solid var(--card-border);
+}
+
+.card-header{ text-align:center; margin-bottom:1.25rem }
+.names{
+  margin:0;
+  font-family:'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight:700;
+  color:var(--accent2);
+  letter-spacing:0.01em;
+  font-size:clamp(1.8rem, 4.5vw, 3.2rem);
+}
+.subtitle{ margin:0.35rem 0 0; color:var(--muted); font-weight:400 }
+
+.details{ text-align:center; margin-bottom:1.25rem }
+.details .date, .details .location{ margin:0.4rem 0; color:var(--muted) }
+.details strong{ color:var(--accent2); }
+
+.timeline{ margin-top:1rem }
+.timeline-list{ list-style:none; margin:0; padding:0; display:grid; gap:0.6rem }
+.timeline-list li{
+  display:flex; align-items:flex-start; gap:0.8rem; padding:0.45rem 0; border-bottom:1px dashed rgba(0,0,0,0.05)
+}
+.timeline-list time{ min-width:52px; font-weight:600; color:var(--accent1) }
+.timeline-list .event{ color:var(--muted) }
+
+.card-footer{ display:flex; gap:1rem; align-items:center; justify-content:center; margin-top:1.25rem }
+.rsvp-button{
+  display:inline-block;
+  padding:0.6rem 1rem;
+  text-decoration:none;
+  border-radius:8px;
+  background:var(--accent2);
+  color:#fff;
+  font-weight:600;
+  box-shadow: 0 6px 14px rgba(var(--accent2-rgb),0.18);
+}
+.rsvp-button:hover{ transform:translateY(-2px); transition:transform .18s ease }
+.note.small{ color:var(--muted); font-size:0.85rem; margin:0 }
+
+
+.sr-only{
+  position:absolute!important; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:600px){
+  .card{ padding:1.25rem; border-radius:10px }
+  .names{ font-size:2.1rem }
+  .timeline-list time{ min-width:44px }
+}
+
+.debug-guide{ font-size:0.8rem; color:#444; text-align:center }
