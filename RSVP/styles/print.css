@@ -13,3 +13,8 @@ body{ font-family: 'Times New Roman', Times, serif; }
 .rsvp-button{ display:none }
 
 .timeline-list li{ border-bottom:1px solid #ddd }
+
+/* Opcional: instrucciones para imprimir la tarjeta 5x7 */
+@page { size: 5in 7in; margin: 8mm; }
+body { background: #fff; }
+.card { max-width:100%; border-radius:6px; padding:0.8rem; }
