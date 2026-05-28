@@ -128,3 +128,21 @@ body{
 /* Animación sutil al cargar la tarjeta */
 .card{ transform-origin:center; opacity:0; transform:translateY(10px) scale(.995); animation:card-in .48s cubic-bezier(.2,.9,.3,1) .03s forwards }
 @keyframes card-in{ to{ opacity:1; transform:translateY(0) scale(1) } }
+
+/* Envelope page specific styles */
+.envelope-page{ min-height:100vh; display:grid; place-items:center; background:var(--accent2); color:#fff }
+.envelope-wrap{ text-align:center; padding:2rem }
+.env-title{ font-family:'Playfair Display'; margin-bottom:1.2rem; color: #f7efe8; letter-spacing:0.06em }
+.envelope-note{ margin-top:.6rem; color: rgba(255,255,255,0.85); font-weight:500 }
+.back-link{ display:inline-block; margin-top:1rem; color:rgba(255,255,255,0.95); font-weight:600 }
+
+.envelope-sprite{
+  width:510px; height:300px; display:block; margin:0 auto; border-radius:10px; border:none; cursor:pointer;
+  background-image: url('../assets/Closed_Envelope.png');
+  background-size: cover; background-position: center center;
+  box-shadow:0 14px 40px rgba(0,0,0,0.35); transition:transform .36s ease, box-shadow .2s ease;
+}
+.envelope-sprite:focus{ outline:3px solid rgba(255,255,255,0.12) }
+.envelope-sprite:hover{ transform:translateY(-6px) }
+.envelope-sprite.open{ transform:scale(0.98); filter:brightness(.96) }
+
