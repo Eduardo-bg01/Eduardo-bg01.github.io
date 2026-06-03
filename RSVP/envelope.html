@@ -17,9 +17,13 @@
   <main class="envelope-page">
     <div class="envelope-wrap">
       <h1 class="env-title">Natalina &amp; Eduardo</h1>
-      <button class="envelope-sprite" id="open-envelope" aria-label="Abrir sobre" title="Abrir sobre">
-        <span class="sr-only">Abrir sobre - ir a la invitación</span>
-      </button>
+      <div class="envelope-figure">
+        <button class="envelope-sprite" id="open-envelope" aria-label="Abrir sobre" title="Abrir sobre">
+          <span class="sr-only">Abrir sobre - ir a la invitación</span>
+        </button>
+        <!-- sello que caerá sobre el sobre -->
+        <img id="envelope-seal" class="seal-img" src="assets/seal_EN.png" alt="Sello" aria-hidden="true" />
+      </div>
       <div class="envelope-note">Haz clic en el sobre para abrir</div>
       <a class="back-link" href="invitation.html">Ir a la invitación (sin animación)</a>
     </div>
@@ -30,10 +34,20 @@
       const btn = document.getElementById('open-envelope');
       if(!btn) return;
       btn.addEventListener('click', ()=>{
-        // swap background-image to the open envelope asset and add class for style
-        btn.style.backgroundImage = "url('assets/Open_Envelope.png')";
-        btn.classList.add('open');
-        setTimeout(()=>{ window.location.href = 'invitation.html'; }, 900);
+        // prevenir clicks adicionales
+        btn.disabled = true;
+        // hacer que el sello desaparezca (animación) antes de abrir el sobre
+        const seal = document.getElementById('envelope-seal');
+        if(seal){ seal.classList.add('vanish'); }
+
+        // después de la pequeña animación, cambiar imagen del sobre a abierta
+        setTimeout(()=>{
+          btn.style.backgroundImage = "url('assets/Open_Envelope.png')";
+          btn.classList.add('open');
+        }, 360);
+
+        // navegar a la invitación tras el efecto
+        setTimeout(()=>{ window.location.href = 'invitation.html'; }, 800);
       });
       btn.addEventListener('keydown', (e)=>{
         if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
