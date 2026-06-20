@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../CSS/LandingCSS.css">
+  </head>
+  <body>
+    <div class="wrapper">
+        <header>
+            <!--Barra de navegacion-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+                <div class="container">
+                    <!--Logo-->
+                    <a class="navbar-brand" href="https://youtu.be/dQw4w9WgXcQ">
+                        <img src="../img/RickAs.png" class="img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Redes</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu especial
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="https://youtu.be/dQw4w9WgXcQ">Algo chilo</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="https://youtu.be/dQw4w9WgXcQ">Otra cosa chila</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        
+        <!--Titulo y subtitulo-->
+        <h1 class="display-4 fw-bold mb-3">La mejor cancion del mundo</h1>
+        <p class="h6">"Never Gonna Give You Up" es el asunto de una popular broma o fenómeno de Internet conocida como "rickrolling" que envuelve un engaño de enlaces que redirigen al vídeo musical de la canción. En mayo de 2007 la práctica alcanzó notoriedad en Internet, y aumentó su popular después de su uso en el Día de los inocentes de 2008 por varias compañías y sitios webs, incluyendo a YouTube "rickrolling" todos sus videos destacados en ese día y un sitio web apoya a la gente a "rickrollear" a sus amigos por teléfono.
+            <br>
+            En un 'par de días', cerca de 13 millones de personas han sido "rickroleadas" viendo el video de Astley, dijo la BBC el 1 de abril de 2008. "Yo creo que es una de esas cosas que uno toma si sabe que la demás gente lo hace junto", Astley dijo a Los Angeles Times a finales de marzo de 2008, añadiendo: "Qué brillante es internet"
+        </p>
+
+        <!--Contenido de la pagina-->
+        <div class="row align-items-center g-lg-5 py-5">
+            
+            <!--Video Hero-->
+            <div class="col-lg-7 text-center text-lg-start">
+                    <h3 class="display-4 fw-bold mb-3">
+                    Video de referencia
+                </h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!--Formulario a la derecha de la pagina-->
+            <div class="col-md-10 mx-auto col-lg-5" id="formulario">
+                <h3 class="display-4 fw-bold mb-3">
+                    Formulario
+                </h3>
+                <form p-4 p-md-5>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <p>Nombre</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Nombre" required>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <p>Apellido</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Apellido" required>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <p>Correo</p>
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="nombre@ejemplo.com" aria-describedby="inputGroupPrepend" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Call To action-->
+                    <button class="btn btn-primary" type="submit">Si quiero correos</button>
+                </form>
+            </div>
+
+            <!--Beneficios y caracteristicas-->
+            <div class="container text-center mt-5">
+                <h3 class="display-4 fw-bold mb-3">
+                    Beneficios de escuchar la cancion
+                </h3>
+                <div class="row align-items-md-center">
+                    <!--Div de beneficio #1-->
+                    <div class="col">
+                        <p class="h4">
+                            <i class="bi bi-1-square-fill"></i>
+                            Expande tus gustos musicales
+                        </p>
+                    </div>
+                    <!--Div de beneficio #2-->
+                    <div class="col">
+                        <p class="h4">
+                            <i class="bi bi-2-square-fill"></i>
+                            Nunca te vas a cansar de esta cancion
+                        </p>
+                    </div>
+                    <!--Div de beneficio #3-->
+                    <div class="col">
+                        <p class="h4">
+                            <i class="bi bi-3-square-fill"></i>
+                            No volveras a escuchar la musica de la misma manera
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Social Proof-->
+            <div class="container text-center mt-5">
+                <div class="row align-items-md-center">
+                    <div class="col" >
+                        <p class="h4">
+                            <i class="bi bi-person-circle"></i>
+                            Natalia Trevino
+                        </p>
+                        Definitivamente expandio mis gustos musicales!!
+                    </div>
+
+                    <div class="col" >
+                        <p class="h4">
+                            <i class="bi bi-person-circle"></i>
+                            Rene Santos
+                        </p> 
+                        Como me salgo de aqui!!??
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    </div>
+  </body>
+</html>
