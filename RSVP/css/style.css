@@ -13,7 +13,7 @@ body::before{
   content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
   background-image:url('../assets/background.jpeg');
   background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:fixed;
-  opacity:0.20
+  opacity:0.15
 }
 body::after{
   content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
