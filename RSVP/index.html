@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Eduardo & Natalia — Wedding</title>
+<link rel="icon" type="image/png" href="assets/Icons/logo.png" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&family=Great+Vibes&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
@@ -17,11 +18,11 @@
       <button class="material-symbols-outlined text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem">menu</button>
       <span class="font-script text-script-lg text-primary" style="letter-spacing:0.02em">E&amp;N</span>
     </div>
-    <nav class="hidden md:flex items-center" style="gap:3rem">
+    <nav class="hidden md:flex items-center nav-centered" style="gap:3rem">
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
-      <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#rsvp">RSVP</a>
+      <a class="font-label text-label text-on-surface-variant hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#itinerario">Itinerario</a>
-      <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dress Code</a>
+      <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
     </nav>
   </div>
 </header>
@@ -35,9 +36,9 @@
   </div>
   <nav class="flex flex-col gap-6">
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
-    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#rsvp">RSVP</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#itinerario">Itinerario</a>
-    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dress Code</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-outline-variant" style="border-top-color:rgba(217,192,197,0.3)">
     <p class="font-script text-script-md text-primary text-center">Eduardo &amp; Natalia</p>
@@ -51,20 +52,27 @@
 
 <!-- ===== HERO / INVITACIÓN ===== -->
 <section id="invitacion" class="hero">
-  <div class="hero-deco deco-1" aria-hidden="true"><img src="assets/Icons/Sun_Moon.png" alt="" /></div>
-  <div class="hero-deco deco-2" aria-hidden="true"><img src="assets/Icons/Tobby_Caja.png" alt="" /></div>
-  <div class="hero-deco deco-3" aria-hidden="true"><img src="assets/Icons/Benito_Crudo.png" alt="" /></div>
-
   <div class="hero-composition">
+
+    <!-- Pass + RSVP (left) -->
+    <a class="invitation-pass rsvp-link" href="rsvp.html">
+      <span class="pass-card">
+        <span class="font-label text-label text-on-surface-variant" id="invite-greeting">pase para</span>
+        <span class="font-display text-display-lg text-primary font-bold" id="invite-count">—</span>
+        <span class="font-label text-label text-on-surface-variant" id="invite-people">personas</span>
+        <span class="font-display text-display-md text-primary font-semibold" id="invite-name" style="font-size:1rem;margin-top:0.5rem">Invitado</span>
+      </span>
+      <span class="rsvp-strip">Confirmar asistencia</span>
+    </a>
 
     <!-- Main invitation (envelope) -->
     <div class="invitation-main">
-      <div class="envelope relative" style="aspect-ratio:4/5;display:flex;align-items:center;justify-content:center">
+      <div class="relative" style="aspect-ratio:4/5;display:flex;align-items:center;justify-content:center">
         <div class="relative" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">
           <div class="absolute bottom-0 bg-primary shadow-xl rounded-sm" style="width:90%;height:70%">
             <div class="absolute inset-0" style="background-image:url('https://www.transparenttextures.com/patterns/linen-white.png');opacity:0.15"></div>
           </div>
-          <div class="invitation-label relative z-10 bg-surface border shadow-lg p-8 flex flex-col items-center justify-center" style="width:17rem;height:21rem;border-color:rgba(65,0,28,0.2);border-radius:50% 50% 0 0">
+          <div class="relative z-10 bg-surface border shadow-lg p-8 flex flex-col items-center justify-center" style="width:17rem;height:21rem;border-color:rgba(65,0,28,0.2);border-radius:50% 50% 0 0">
             <div class="absolute inset-0" style="background-image:url('https://www.transparenttextures.com/patterns/floral-paper.png');opacity:0.08"></div>
             <p class="font-script text-script-lg text-primary text-center">Eduardo &amp; Natalia</p>
             <div class="ornamental-divider" style="max-width:12rem;margin:0.75rem auto"></div>
@@ -78,21 +86,10 @@
       </div>
     </div>
 
-    <!-- Pass for two -->
-    <div class="invitation-pass">
-      <p class="font-label text-label text-on-surface-variant" id="invite-greeting">pase para</p>
-      <p class="font-display text-display-lg text-primary font-bold" id="invite-count">2</p>
-      <p class="font-label text-label text-on-surface-variant" id="invite-people">personas</p>
-      <p class="font-display text-display-md text-primary font-semibold" id="invite-name" style="font-size:1rem;margin-top:0.5rem">Invitado</p>
-    </div>
-
-    <!-- CTA RSVP -->
-    <a class="rsvp-cta" href="#rsvp">CONFIRMAR ASISTENCIA</a>
-
-    <!-- Details link -->
-    <a class="details-link" href="#detalles">
-      <span class="details-label">DETALLES</span>
-      <span class="details-arrow" aria-hidden="true">↓</span>
+    <!-- Details element (right) -->
+    <a class="invitation-details" href="#detalles">
+      <img src="assets/Icons/Lamps.png" alt="" aria-hidden="true" />
+      <span class="details-label">Detalles</span>
     </a>
 
   </div>
@@ -144,6 +141,7 @@
       <h3 class="font-label text-label text-primary info-title">Regalos</h3>
       <!-- TODO: copy definitivo para REGALOS -->
       <p class="text-body-md text-on-surface-variant">Tu presencia es el mejor regalo.</p>
+      <a class="map-link" href="https://natbynat.my.canva.site" target="_blank" rel="noopener noreferrer">VER LISTA DE REGALOS</a>
     </div>
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">location_on</span>
@@ -162,15 +160,11 @@
 <!-- ===== SECTION: DRESS CODE ===== -->
 <section id="dresscode" class="fade-section">
 <div class="section-inner">
-  <h2 class="section-title">Dress Code</h2>
-  <div class="ornamental-divider" style="max-width:20rem;margin:0 auto 4rem"></div>
+  <h2 class="section-title">Dresscode</h2>
+  <p class="font-display text-secondary text-center mt-4" style="font-size:1.25rem;font-style:italic">Cóctel-Formal</p>
+  <div class="ornamental-divider" style="max-width:20rem;margin:1.5rem auto 4rem"></div>
 
-  <div class="dresscode-illustrations">
-    <img src="assets/dresscode_f.png" alt="Sugerencia de vestimenta" />
-    <img src="assets/dresscode_m.png" alt="Sugerencia de vestimenta" />
-  </div>
-
-  <p class="text-body-lg text-on-surface-variant text-center mt-8" style="max-width:32rem;margin-inline:auto">
+  <p class="text-body-lg text-on-surface-variant text-center" style="max-width:32rem;margin-inline:auto">
     Con todo respeto les pedimos considerar lo siguiente:
   </p>
 
@@ -180,7 +174,12 @@
     <li>No mini vestidos</li>
   </ul>
 
-  <p class="text-body-md italic text-secondary text-center">
+  <div class="dresscode-illustrations">
+    <img src="assets/dresscode_f.png" alt="Sugerencia de vestimenta" />
+    <img src="assets/dresscode_m.png" alt="Sugerencia de vestimenta" />
+  </div>
+
+  <p class="text-body-md italic text-secondary text-center mt-10">
     Dejemos el color Blanco y derivados para los novios.
   </p>
 </div>
@@ -191,10 +190,10 @@
 <div class="section-inner">
   <!-- ponytail: placeholders de distintos formatos, reemplazar por arte propio -->
   <div class="gallery-grid">
-    <img src="assets/11_Picture.jpg" alt="Ilustración" />
-    <img src="assets/169_Picture.jpg" alt="Ilustración" />
-    <img src="assets/413_Picture.jpg" alt="Ilustración" />
-    <img src="assets/916_Picture.jpg" alt="Ilustración" />
+    <div class="illustration-item"><img src="assets/11_Picture.jpg" alt="Ilustración" /></div>
+    <div class="illustration-item"><img src="assets/169_Picture.jpg" alt="Ilustración" /></div>
+    <div class="illustration-item"><img src="assets/413_Picture.jpg" alt="Ilustración" /></div>
+    <div class="illustration-item"><img src="assets/916_Picture.jpg" alt="Ilustración" /></div>
   </div>
 </div>
 </section>
@@ -245,45 +244,6 @@
 </div>
 </section>
 
-<!-- ===== SECTION: RSVP ===== -->
-<section id="rsvp" class="fade-section">
-<div class="section-inner" style="max-width:36rem">
-  <div class="text-center">
-    <h2 class="section-title">Confirma tu asistencia</h2>
-    <div class="filigree-divider mb-6" style="max-width:20rem;margin-inline:auto"></div>
-  </div>
-
-  <div class="bg-surface p-8 md:p-10 rounded-lg border border-outline-variant relative overflow-hidden text-center" style="margin-top:3rem">
-    <div id="rsvp-card" class="relative" style="z-index:10">
-      <div id="rsvp-not-found" style="display:block">
-        <span class="material-symbols-outlined" style="font-size:3rem;color:#877276;margin-bottom:1rem">person_search</span>
-        <p class="text-body-lg text-on-surface-variant">Usa el enlace personalizado que te enviamos para acceder a tu invitación.</p>
-      </div>
-
-      <div id="rsvp-found" style="display:none">
-        <p class="font-script text-script-lg text-primary mb-1" id="rsvp-guest-name"></p>
-        <p class="text-body-md text-on-surface-variant mb-1" id="rsvp-party-info"></p>
-        <div style="width:3rem;height:1px;background:rgba(65,0,28,0.2);margin:1rem auto"></div>
-        <p class="font-label text-label text-on-surface-variant mb-6">¿Podrás asistir?</p>
-        <div id="rsvp-party-select" style="display:none;margin-bottom:1rem">
-          <label class="font-label text-label text-on-surface-variant" style="display:block;margin-bottom:0.5rem">¿Cuántos asistirán?</label>
-          <select id="rsvp-party-count" class="bg-surface border border-outline-variant rounded-full px-6 py-3 font-label text-label text-on-surface-variant" style="outline:none;cursor:pointer;min-width:8rem">
-          </select>
-        </div>
-        <div class="flex gap-4 justify-center flex-wrap" id="rsvp-buttons">
-          <button class="rsvp-yes bg-primary text-on-primary px-10 py-4 rounded-full font-label text-label shadow-lg" style="cursor:pointer;transition:all 0.2s;min-width:10rem;letter-spacing:0.15em">SÍ, ASISTIRÉ</button>
-          <button class="rsvp-no border border-outline-variant text-on-surface-variant px-10 py-4 rounded-full font-label text-label" style="cursor:pointer;transition:all 0.2s;min-width:10rem;background:transparent">NO PODRÉ</button>
-        </div>
-        <div id="rsvp-response" style="display:none;margin-top:2rem;padding:1.5rem;background:rgba(251,234,236,0.5);border-radius:0.5rem">
-          <p class="font-script text-script-md text-primary" id="rsvp-response-text"></p>
-          <p class="font-label text-label text-on-surface-variant mt-2">Gracias por confirmar.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-
 <!-- ===== PETS ILLUSTRATION ===== -->
 <section class="fade-section">
 <div class="section-inner">
@@ -305,8 +265,8 @@
   <div class="flex gap-8 mt-4" style="flex-wrap:wrap;justify-content:center">
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#itinerario">Itinerario</a>
-    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dress Code</a>
-    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#rsvp">RSVP</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
   </div>
 </footer>
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RSVP — Eduardo & Natalia</title>
+<link rel="icon" type="image/png" href="assets/Icons/logo.png" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&family=Great+Vibes&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR (minimal) ===== -->
+<header class="fixed top-0 w-full z-50" id="navbar">
+  <div class="flex justify-between items-center w-full px-6" style="max-width:1200px;margin:0 auto;padding-top:1.25rem;padding-bottom:0.5rem">
+    <a href="index.html" class="font-script text-script-lg text-primary" style="letter-spacing:0.02em">E&amp;N</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary" href="index.html">Volver a la invitación</a>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+<!-- ===== SECTION: RSVP ===== -->
+<section id="rsvp" class="fade-section">
+<div class="section-inner" style="max-width:36rem">
+  <div class="text-center">
+    <h2 class="section-title">Confirma tu asistencia</h2>
+    <div class="filigree-divider mb-6" style="max-width:20rem;margin-inline:auto"></div>
+  </div>
+
+  <div class="bg-surface p-8 md:p-10 rounded-lg border border-outline-variant relative overflow-hidden text-center" style="margin-top:3rem">
+    <div id="rsvp-card" class="relative" style="z-index:10">
+      <div id="rsvp-not-found" style="display:block">
+        <span class="material-symbols-outlined" style="font-size:3rem;color:#877276;margin-bottom:1rem">person_search</span>
+        <p class="text-body-lg text-on-surface-variant">Usa el enlace personalizado que te enviamos para acceder a tu invitación.</p>
+      </div>
+
+      <div id="rsvp-found" style="display:none">
+        <p class="font-script text-script-lg text-primary mb-1" id="rsvp-guest-name"></p>
+        <p class="text-body-md text-on-surface-variant mb-1" id="rsvp-party-info"></p>
+        <div style="width:3rem;height:1px;background:rgba(65,0,28,0.2);margin:1rem auto"></div>
+        <p class="font-label text-label text-on-surface-variant mb-6">¿Podrás asistir?</p>
+        <div id="rsvp-party-select" style="display:none;margin-bottom:1rem">
+          <label class="font-label text-label text-on-surface-variant" style="display:block;margin-bottom:0.5rem">¿Cuántos asistirán?</label>
+          <select id="rsvp-party-count" class="bg-surface border border-outline-variant rounded-full px-6 py-3 font-label text-label text-on-surface-variant" style="outline:none;cursor:pointer;min-width:8rem">
+          </select>
+        </div>
+        <div class="flex gap-4 justify-center flex-wrap" id="rsvp-buttons">
+          <button class="rsvp-yes bg-primary text-on-primary px-10 py-4 rounded-full font-label text-label shadow-lg" style="cursor:pointer;transition:all 0.2s;min-width:10rem;letter-spacing:0.15em">SÍ, ASISTIRÉ</button>
+          <button class="rsvp-no border border-outline-variant text-on-surface-variant px-10 py-4 rounded-full font-label text-label" style="cursor:pointer;transition:all 0.2s;min-width:10rem;background:transparent">NO PODRÉ</button>
+        </div>
+        <div id="rsvp-response" style="display:none;margin-top:2rem;padding:1.5rem;background:rgba(251,234,236,0.5);border-radius:0.5rem">
+          <p class="font-script text-script-md text-primary" id="rsvp-response-text"></p>
+          <p class="font-label text-label text-on-surface-variant mt-2">Gracias por confirmar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-16 flex flex-col items-center text-center" style="border-top:1px solid rgba(217,192,197,0.4)">
+  <span class="font-script text-script-lg text-primary">Eduardo &amp; Natalia</span>
+  <p class="text-body-md text-on-surface-variant mt-4">23 de Octubre de 2026 — Mexicali, Baja California</p>
+</footer>
+
+<script defer src="js/rsvp.js"></script>
+</body>
+</html>
