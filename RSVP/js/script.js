@@ -43,7 +43,7 @@ function updateInvitation(guest) {
   inviteName.textContent = guest.name;
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';
-  const card = document.querySelector('.invitation-label');
+  const card = document.querySelector('.invitation-pass');
   card.style.animation = 'none';
   void card.offsetHeight;
   card.style.animation = 'slideUp 1.2s cubic-bezier(0.22, 0.97, 0.36, 1) forwards';
@@ -123,18 +123,34 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
 
 // ========== COUNTDOWN TIMER ==========
-(function() {
-  const el = document.getElementById('countdown');
-  if (!el) return;
-  const target = new Date('2026-10-23T00:00:00');
-  const now = new Date();
-  const diff = target - now;
-  if (diff > 0) {
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    el.textContent = `FALTAN ${days} DÍAS`;
-  } else {
-    el.textContent = '¡HOY ES EL GRAN DÍA!';
+(function () {
+  // ponytail: fixed offset -07:00 (ceremonia 18:15 en Mexicali, oct 2026 = PDT)
+  const target = new Date('2026-10-23T18:15:00-07:00');
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minutesEl = document.getElementById('cd-minutes');
+  const secondsEl = document.getElementById('cd-seconds');
+  if (!daysEl) return;
+
+  function pad(n, size) {
+    return String(n).padStart(size, '0');
   }
+
+  function updateCountdown() {
+    let diff = target - Date.now();
+    if (diff < 0) diff = 0;
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+    daysEl.textContent = pad(days, 3);
+    hoursEl.textContent = pad(hours, 2);
+    minutesEl.textContent = pad(minutes, 2);
+    secondsEl.textContent = pad(seconds, 2);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 })();
 
 // ========== INIT ==========
