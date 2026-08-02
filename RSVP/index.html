@@ -5,11 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Eduardo & Natalia — Wedding</title>
 <link rel="icon" type="image/png" href="assets/Icons/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&family=Great+Vibes&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="preload" as="image" href="assets/background.jpeg" />
 </head>
 <body>
+
+<!-- ===== INTRO ===== -->
+<!-- ponytail: swap intro photos here (portrait / landscape) -->
+<div id="intro-screen">
+  <div class="intro-photo">
+    <picture>
+      <source media="(max-width: 768px)" srcset="assets/background.jpeg" />
+      <img src="assets/169_Picture.jpg" alt="" />
+    </picture>
+  </div>
+  <div class="blue-veil">
+    <div class="blue-panel blue-panel-left"></div>
+    <div class="blue-panel blue-panel-right"></div>
+  </div>
+  <div class="burgundy-ribbon"></div>
+  <button class="wax-seal" aria-label="Abrir invitación">
+    <img src="assets/Icons/logo.png" alt="" />
+  </button>
+</div>
 
 <!-- ===== NAVBAR ===== -->
 <header class="fixed top-0 w-full z-50" id="navbar">
@@ -103,28 +125,28 @@
 
   <div class="events">
     <div class="event">
-      <div class="event-icon"><img src="assets/Icons/Lamps.png" alt="Ceremonia" /></div>
+      <div class="event-icon"><img src="assets/Icons/rings.PNG" alt="Ceremonia" /></div>
       <p class="event-name">Ceremonia</p>
       <p class="event-time">6:15 PM</p>
     </div>
     <div class="event">
-      <div class="event-icon"><img src="assets/Icons/Pizza.png" alt="Cocktail" /></div>
+      <div class="event-icon"><img src="assets/Icons/cocktail.png" alt="Cocktail" /></div>
       <p class="event-name">Cocktail</p>
       <p class="event-time">7:00 PM</p>
     </div>
     <!-- ponytail: icono placeholder, reemplazar por arte real de CENA -->
     <div class="event">
-      <div class="event-icon"><img src="assets/Icons/Tobby_Caja.png" alt="Cena" /></div>
+      <div class="event-icon"><img src="assets/Icons/salt_pepper.PNG" alt="Cena" /></div>
       <p class="event-name">Cena</p>
       <p class="event-time">8:00 PM</p>
     </div>
     <div class="event">
-      <div class="event-icon"><img src="assets/Icons/Disco_Ball.png" alt="Primer baile" /></div>
+      <div class="event-icon"><img src="assets/Icons/dancing.PNG" alt="Primer baile" /></div>
       <p class="event-name">Primer baile</p>
       <p class="event-time">8:30 PM</p>
     </div>
     <div class="event">
-      <div class="event-icon"><img src="assets/Icons/Sun_Moon.png" alt="A casita" /></div>
+      <div class="event-icon"><img src="assets/Icons/moon.PNG" alt="A casita" /></div>
       <p class="event-name">A casita</p>
       <p class="event-time">1:00 AM</p>
     </div>
@@ -139,13 +161,14 @@
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">card_giftcard</span>
       <h3 class="font-label text-label text-primary info-title">Regalos</h3>
-      <!-- TODO: copy definitivo para REGALOS -->
       <p class="text-body-md text-on-surface-variant">Tu presencia es el mejor regalo.</p>
       <a class="map-link" href="https://natbynat.my.canva.site" target="_blank" rel="noopener noreferrer">VER LISTA DE REGALOS</a>
     </div>
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">location_on</span>
       <h3 class="font-label text-label text-primary info-title">Ubicación</h3>
+      <p class="text-body-md text-on-surface-variant">La 500s.</p>
+      <p class="text-body-md text-on-surface-variant"><b>Dirección: </b>Av. Mineros 500, Libertad, 21030 Mexicali, B.C.</p>
       <a class="map-link" href="https://share.google/DGGg4dF86WotmRqpR" target="_blank" rel="noopener noreferrer">VER MAPA</a>
     </div>
     <div class="info-block">
@@ -172,11 +195,12 @@
     <li>No mezclilla</li>
     <li>No guayabera</li>
     <li>No mini vestidos</li>
+    <li>Evitar camisas Hawaianas</li>
   </ul>
 
   <div class="dresscode-illustrations">
-    <img src="assets/dresscode_f.png" alt="Sugerencia de vestimenta" />
-    <img src="assets/dresscode_m.png" alt="Sugerencia de vestimenta" />
+    <img src="assets/dresscode_f.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
+    <img src="assets/dresscode_m.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
   </div>
 
   <p class="text-body-md italic text-secondary text-center mt-10">
@@ -190,10 +214,10 @@
 <div class="section-inner">
   <!-- ponytail: placeholders de distintos formatos, reemplazar por arte propio -->
   <div class="gallery-grid">
-    <div class="illustration-item"><img src="assets/11_Picture.jpg" alt="Ilustración" /></div>
-    <div class="illustration-item"><img src="assets/169_Picture.jpg" alt="Ilustración" /></div>
-    <div class="illustration-item"><img src="assets/413_Picture.jpg" alt="Ilustración" /></div>
-    <div class="illustration-item"><img src="assets/916_Picture.jpg" alt="Ilustración" /></div>
+    <div class="illustration-item"><img src="assets/11_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
+    <div class="illustration-item"><img src="assets/169_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
+    <div class="illustration-item"><img src="assets/413_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
+    <div class="illustration-item"><img src="assets/916_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
   </div>
 </div>
 </section>
@@ -249,8 +273,8 @@
 <div class="section-inner">
   <div class="w-full flex flex-col items-center">
     <div class="w-full flex items-end justify-center gap-4 md:gap-6 overflow-hidden pt-4 border-b pb-4" style="max-width:56rem;border-color:rgba(217,192,197,0.3)">
-      <img class="h-20 md:h-32 object-contain" style="transition:transform 0.5s;cursor:pointer" src="assets/Icons/Tobby_Caja.png" alt="Tobby" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'" />
-      <img class="h-20 md:h-32 object-contain" style="transition:transform 0.5s;cursor:pointer" src="assets/Icons/Benito_Crudo.png" alt="Benito" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'" />
+      <img class="h-20 md:h-32 object-contain" style="transition:transform 0.5s;cursor:pointer" src="assets/Icons/Tobby_Caja.png" alt="Tobby" loading="lazy" decoding="async" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'" />
+      <img class="h-20 md:h-32 object-contain" style="transition:transform 0.5s;cursor:pointer" src="assets/Icons/Benito_Crudo.png" alt="Benito" loading="lazy" decoding="async" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'" />
     </div>
   </div>
 </div>
@@ -270,6 +294,7 @@
   </div>
 </footer>
 
+<script defer src="js/intro.js"></script>
 <script defer src="js/script.js"></script>
 </body>
 </html>

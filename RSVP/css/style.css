@@ -1,6 +1,6 @@
 /* === RESET & BASE === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{
   position:relative;
   background:#ffffff;
@@ -162,7 +162,7 @@ ul{list-style:none}
 }
 
 /* === NAVBAR === */
-#navbar{background:transparent}
+#navbar{background:transparent;padding-top:env(safe-area-inset-top)}
 #navbar a{transition:color 0.2s}
 .nav-centered{justify-content:center;flex:1}
 
@@ -170,6 +170,7 @@ ul{list-style:none}
 .hero{
   position:relative;
   min-height:100vh;
+  min-height:100svh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -258,7 +259,7 @@ ul{list-style:none}
 /* === SECTIONS === */
 section{
   width:100%;
-  padding-block:clamp(5rem,10vw,9rem);
+  padding-block:clamp(3.5rem,7vw,6rem);
 }
 section[id]{scroll-margin-top:6rem}
 .section-inner{
@@ -279,7 +280,7 @@ section[id]{scroll-margin-top:6rem}
 .events{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:2rem;
+  gap:1.5rem;
   align-items:start;
 }
 .event{
@@ -291,18 +292,14 @@ section[id]{scroll-margin-top:6rem}
 }
 .event-icon{
   width:100%;
-  max-width:8.5rem;
-  aspect-ratio:1/1;
-  border:1px solid rgba(217,192,197,0.5);
-  border-radius:50%;
+  max-width:10rem;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:1.5rem;
 }
 .event-icon img{
   width:100%;
-  height:100%;
+  height:auto;
   object-fit:contain;
   opacity:0.85;
 }
@@ -372,13 +369,13 @@ section[id]{scroll-margin-top:6rem}
 .dresscode-rules{
   margin:3rem auto;
   max-width:32rem;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:1.25rem;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem 2.5rem;
   text-align:center;
 }
 .dresscode-rules li{
+  display:inline-block;
   font-family:Montserrat,Helvetica,sans-serif;
   font-size:0.9rem;
   letter-spacing:0.3em;
@@ -466,7 +463,7 @@ section[id]{scroll-margin-top:6rem}
 .fade-section.visible{opacity:1;transform:translateY(0)}
 
 /* === DRAWER === */
-#side-drawer{transition:transform 0.3s ease-in-out}
+#side-drawer{transition:transform 0.3s ease-in-out;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 
 /* === FORM ELEMENTS === */
 input,select{
@@ -476,6 +473,7 @@ input,select{
 
 /* === FOOTER === */
 footer a{transition:color 0.2s}
+footer.py-16{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 
 /* === RESPONSIVE === */
 @media(max-width:1024px){
@@ -493,7 +491,7 @@ footer a{transition:color 0.2s}
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
   .hero-composition{flex-direction:column;gap:1.5rem}
-  .invitation-main{width:min(100%,22rem)}
+  .invitation-main{width:min(100%,22rem);order:-1}
   .invitation-pass,.invitation-details{
     width:min(9rem,60vw);
   }
@@ -508,10 +506,120 @@ footer a{transition:color 0.2s}
   .event + .event{
     border-top:1px solid rgba(217,192,197,0.4);
   }
-  .event-icon{max-width:7rem}
+  .event-icon{max-width:8rem}
   .info-grid{grid-template-columns:1fr;gap:1.5rem}
   .dresscode-illustrations{grid-template-columns:1fr;gap:1.5rem}
   .gallery-grid{grid-template-columns:1fr;row-gap:3rem}
   .countdown-display{gap:1rem}
   .countdown-unit{min-width:3.5rem}
+}
+@media(max-width:480px){
+  .countdown-value{font-size:clamp(1.75rem,9vw,3.75rem)}
+  .countdown-display{gap:0.5rem}
+  .countdown-unit{min-width:3rem}
+  .dresscode-rules{gap:1rem 1.5rem}
+  .dresscode-rules li{font-size:0.72rem;letter-spacing:0.18em}
+}
+
+/* === INTRO === */
+body.no-scroll{overflow:hidden}
+#intro-screen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  overflow:hidden;
+  background:#fff8f8;
+}
+.intro-photo{position:absolute;inset:0}
+.intro-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.blue-veil{
+  position:absolute;
+  inset:0;
+  display:flex;
+}
+.blue-panel{
+  flex:1 1 50%;
+  background:rgba(168,194,214,0.6);
+  will-change:transform;
+}
+.burgundy-ribbon{
+  position:absolute;
+  inset-block:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:2rem;
+  background:#41001c;
+  z-index:2;
+  transition:opacity 0.3s ease;
+}
+.wax-seal{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+  width:5.5rem;
+  height:5.5rem;
+  border:1px solid rgba(65,0,28,0.15);
+  border-radius:50%;
+  background:#f7efe2;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.8rem;
+  box-shadow:0 8px 20px rgba(0,0,0,0.22);
+  -webkit-tap-highlight-color:transparent;
+}
+.wax-seal img{width:100%;height:100%;object-fit:contain}
+.wax-seal:hover{transform:translate(-50%,-50%) scale(1.05)}
+.wax-seal:focus-visible{outline:3px solid #d9aa71;outline-offset:3px}
+.wax-seal:active{transform:translate(-50%,-50%) scale(0.95)}
+
+#intro-screen.is-opening .wax-seal{
+  animation:seal-press 0.12s ease, seal-slide 0.3s ease 0.12s forwards;
+}
+@keyframes seal-press{
+  0%{transform:translate(-50%,-50%) scale(1)}
+  100%{transform:translate(-50%,-50%) scale(0.95)}
+}
+@keyframes seal-slide{
+  0%{transform:translate(-50%,-50%) scale(0.95)}
+  100%{transform:translate(60%,-50%) scale(0.95);opacity:0}
+}
+#intro-screen.is-opening .burgundy-ribbon{
+  opacity:0;
+  transition:opacity 0.3s ease 0.25s;
+}
+#intro-screen.is-opening .blue-panel{
+  transition:transform 0.8s cubic-bezier(0.65,0,0.35,1) 0.35s;
+}
+#intro-screen.is-opening .blue-panel-left{transform:translateX(-100%)}
+#intro-screen.is-opening .blue-panel-right{transform:translateX(100%)}
+#intro-screen.is-photo-fading .intro-photo{transition:opacity 0.9s ease;opacity:0}
+#intro-screen.is-fading{opacity:0;transition:opacity 0.7s ease;pointer-events:none}
+#intro-screen.is-done{display:none}
+
+@media(min-width:769px){
+  .wax-seal{width:8rem;height:8rem;padding:1rem}
+  .burgundy-ribbon{width:3rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #intro-screen.is-opening .wax-seal,
+  #intro-screen.is-opening .blue-panel,
+  #intro-screen.is-opening .burgundy-ribbon,
+  #intro-screen.is-photo-fading .intro-photo,
+  #intro-screen.is-fading{
+    transition:none;
+    animation:none;
+  }
+  #intro-screen.is-fading{opacity:0;pointer-events:none}
+  #intro-screen.is-opening .blue-panel-left{transform:translateX(-100%)}
+  #intro-screen.is-opening .blue-panel-right{transform:translateX(100%)}
 }
