@@ -10,24 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&family=Great+Vibes&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="preload" as="image" href="assets/background.jpeg" />
+<link rel="preload" as="image" href="assets/169_Picture.jpg" />
 </head>
 <body>
 
 <!-- ===== INTRO ===== -->
-<!-- ponytail: swap intro photos here (portrait / landscape) -->
+<!-- ponytail: opaque interior hides the photo when closed; translucent flap is the veil; flap up + bottom down reveal it -->
 <div id="intro-screen">
-  <div class="intro-photo">
-    <picture>
-      <source media="(max-width: 768px)" srcset="assets/background.jpeg" />
-      <img src="assets/169_Picture.jpg" alt="" />
-    </picture>
-  </div>
-  <div class="blue-veil">
-    <div class="blue-panel blue-panel-left"></div>
-    <div class="blue-panel blue-panel-right"></div>
-  </div>
-  <div class="burgundy-ribbon"></div>
+  <div class="bottom-piece"></div>
+  <div class="flap"></div>
   <button class="wax-seal" aria-label="Abrir invitación">
     <img src="assets/Icons/logo.png" alt="" />
   </button>

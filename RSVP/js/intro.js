@@ -31,8 +31,8 @@
       return;
     }
 
-    setTimeout(function () { intro.classList.add('is-photo-fading'); }, 2150);
-    setTimeout(function () { intro.classList.add('is-fading'); }, 2400);
-    setTimeout(finish, 3300);
+    // flap + bottom open (~1.9s), hold the photo, then fade out
+    setTimeout(function () { intro.classList.add('is-fading'); }, 2200);
+    setTimeout(finish, 2900);
   });
 })();

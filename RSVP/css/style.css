@@ -528,43 +528,45 @@ body.no-scroll{overflow:hidden}
   inset:0;
   z-index:9999;
   overflow:hidden;
-  background:#fff8f8;
+  background:#fff8f8 url('../assets/169_Picture.jpg') center/cover no-repeat;
+  perspective:1200px;
 }
-.intro-photo{position:absolute;inset:0}
-.intro-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.blue-veil{
+/* bottom panel — opaque envelope interior, hides the photo until it slides away; the translucent flap is the veil over it */
+.bottom-piece{
   position:absolute;
-  inset:0;
-  display:flex;
-}
-.blue-panel{
-  flex:1 1 50%;
-  background:rgba(168,194,214,0.6);
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index:2;
+  background:rgba(147,173,200,1);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
   will-change:transform;
 }
-.burgundy-ribbon{
+/* top flap — blue envelope flap, V-shaped, oversized to fully cover */
+.flap{
   position:absolute;
-  inset-block:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:2rem;
-  background:#41001c;
-  z-index:2;
-  transition:opacity 0.3s ease;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background:rgba(168,194,214,0.7);
+  clip-path:polygon(-100% 0,200% 0,50% 60%);
+  transform-origin:top center;
+  z-index:3;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  will-change:transform;
 }
 .wax-seal{
   position:absolute;
   left:50%;
-  top:50%;
+  top:60%;
   transform:translate(-50%,-50%);
-  z-index:3;
-  width:5.5rem;
-  height:5.5rem;
+  z-index:10;
+  width:4.75rem;
+  height:4.75rem;
   border:1px solid rgba(65,0,28,0.15);
   border-radius:50%;
   background:#f7efe2;
@@ -572,9 +574,10 @@ body.no-scroll{overflow:hidden}
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:0.8rem;
+  padding:0.7rem;
   box-shadow:0 8px 20px rgba(0,0,0,0.22);
   -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
 }
 .wax-seal img{width:100%;height:100%;object-fit:contain}
 .wax-seal:hover{transform:translate(-50%,-50%) scale(1.05)}
@@ -582,44 +585,39 @@ body.no-scroll{overflow:hidden}
 .wax-seal:active{transform:translate(-50%,-50%) scale(0.95)}
 
 #intro-screen.is-opening .wax-seal{
-  animation:seal-press 0.12s ease, seal-slide 0.3s ease 0.12s forwards;
+  animation:seal-press 0.12s ease, seal-fade 0.4s ease 0.2s forwards;
 }
 @keyframes seal-press{
   0%{transform:translate(-50%,-50%) scale(1)}
   100%{transform:translate(-50%,-50%) scale(0.95)}
 }
-@keyframes seal-slide{
-  0%{transform:translate(-50%,-50%) scale(0.95)}
-  100%{transform:translate(60%,-50%) scale(0.95);opacity:0}
+@keyframes seal-fade{
+  to{opacity:0;transform:translate(-50%,-50%) scale(0.8)}
 }
-#intro-screen.is-opening .burgundy-ribbon{
-  opacity:0;
-  transition:opacity 0.3s ease 0.25s;
+#intro-screen.is-opening .flap{
+  transform:rotateX(180deg);
+  transition:transform 1s cubic-bezier(0.65,0,0.35,1);
 }
-#intro-screen.is-opening .blue-panel{
-  transition:transform 0.8s cubic-bezier(0.65,0,0.35,1) 0.35s;
+#intro-screen.is-opening .bottom-piece{
+  transform:translateY(100%);
+  transition:transform 0.5s cubic-bezier(0.65,0,0.35,1) 1.2s;
 }
-#intro-screen.is-opening .blue-panel-left{transform:translateX(-100%)}
-#intro-screen.is-opening .blue-panel-right{transform:translateX(100%)}
-#intro-screen.is-photo-fading .intro-photo{transition:opacity 0.9s ease;opacity:0}
 #intro-screen.is-fading{opacity:0;transition:opacity 0.7s ease;pointer-events:none}
 #intro-screen.is-done{display:none}
 
 @media(min-width:769px){
   .wax-seal{width:8rem;height:8rem;padding:1rem}
-  .burgundy-ribbon{width:3rem}
 }
 
 @media(prefers-reduced-motion:reduce){
   #intro-screen.is-opening .wax-seal,
-  #intro-screen.is-opening .blue-panel,
-  #intro-screen.is-opening .burgundy-ribbon,
-  #intro-screen.is-photo-fading .intro-photo,
+  #intro-screen.is-opening .flap,
+  #intro-screen.is-opening .bottom-piece,
   #intro-screen.is-fading{
     transition:none;
     animation:none;
   }
   #intro-screen.is-fading{opacity:0;pointer-events:none}
-  #intro-screen.is-opening .blue-panel-left{transform:translateX(-100%)}
-  #intro-screen.is-opening .blue-panel-right{transform:translateX(100%)}
+  #intro-screen.is-opening .flap{transform:rotateX(180deg)}
+  #intro-screen.is-opening .bottom-piece{transform:translateY(100%)}
 }
