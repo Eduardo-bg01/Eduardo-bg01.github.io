@@ -1,28 +1,7 @@
-let GUESTS = [];
-
 // ========== DOM REFS ==========
 const inviteName = document.getElementById('invite-name');
 const inviteCount = document.getElementById('invite-count');
 const invitePeople = document.getElementById('invite-people');
-
-// ========== FIND GUEST ==========
-function findGuestByName(name) {
-  const q = name.trim().toLowerCase();
-  let match = GUESTS.find(g => g.name.toLowerCase() === q);
-  if (!match) match = GUESTS.find(g => g.name.toLowerCase().includes(q));
-  return match || null;
-}
-
-function findGuestById(id) {
-  return GUESTS.find(g => g.id === parseInt(id)) || null;
-}
-
-// ========== SELECT GUEST ==========
-function selectGuest(id) {
-  const guest = GUESTS.find(g => g.id === id);
-  if (!guest) return;
-  updateInvitation(guest);
-}
 
 // ========== UPDATE INVITATION CARD ==========
 function updateInvitation(guest) {
@@ -60,16 +39,6 @@ document.querySelectorAll('#side-drawer a').forEach(a => {
   });
 });
 
-// ========== INTERSECTION OBSERVER FOR FADE-IN ==========
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
-
 // ========== COUNTDOWN TIMER ==========
 (function () {
   // ponytail: fixed offset -07:00 (ceremonia 18:15 en Mexicali, oct 2026 = PDT)
@@ -104,8 +73,7 @@ document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
 // ========== INIT ==========
 (async function init() {
   try {
-    const res = await fetch('assets/guests.json');
-    GUESTS = await res.json();
+    await loadGuests();
   } catch (e) {
     console.error('Failed to load guests.json:', e);
     return;
@@ -117,7 +85,7 @@ document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
   if (guestId) {
     const match = findGuestById(guestId);
     if (match) {
-      selectGuest(match.id);
+      updateInvitation(match);
       rewriteRsvpLinks(match);
       return;
     }
@@ -127,7 +95,7 @@ document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
   if (guestName) {
     const match = findGuestByName(guestName);
     if (match) {
-      selectGuest(match.id);
+      updateInvitation(match);
       rewriteRsvpLinks(match);
     }
   }
