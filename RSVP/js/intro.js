@@ -31,7 +31,7 @@
       return;
     }
 
-    // flap + bottom open (~1.9s), hold the photo, then fade out
+    // flap + bottom open (~1.9s), hold the photo, then slide it up
     setTimeout(function () { intro.classList.add('is-fading'); }, 2200);
     setTimeout(finish, 2900);
   });
