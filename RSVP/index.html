@@ -70,15 +70,17 @@
 <section id="invitacion" class="hero">
   <div class="hero-composition">
 
-    <!-- Pass + RSVP (left) -->
+    <!-- Pass + RSVP (left): sobre que asoma la invitación al hover, la saca completa al click -->
     <a class="invitation-pass rsvp-link" href="rsvp.html">
-      <span class="pass-card">
-        <span class="font-label text-label text-on-surface-variant" id="invite-greeting">pase para</span>
+      <span class="env-card">
+        <span class="font-label text-label text-on-surface-variant">pase para</span>
         <span class="font-display text-display-lg text-primary font-bold" id="invite-count">—</span>
         <span class="font-label text-label text-on-surface-variant" id="invite-people">personas</span>
         <span class="font-display text-display-md text-primary font-semibold" id="invite-name" style="font-size:1rem;margin-top:0.5rem">Invitado</span>
       </span>
-      <span class="rsvp-strip">Confirmar asistencia</span>
+      <span class="env-body">
+        <span class="rsvp-strip">Confirmar asistencia</span>
+      </span>
     </a>
 
     <!-- Main invitation (envelope) -->
@@ -204,14 +206,17 @@
 </section>
 
 <!-- ===== SECTION: GALERÍA ===== -->
+<!-- ponytail: 05/06/07 son placeholders (recorte de welcome_pic); reemplazar con las fotos reales -->
 <section id="galeria" class="fade-section">
 <div class="section-inner">
-  <!-- ponytail: placeholders de distintos formatos, reemplazar por arte propio -->
-  <div class="gallery-grid">
-    <div class="illustration-item"><img src="assets/11_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
-    <div class="illustration-item"><img src="assets/169_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
-    <div class="illustration-item"><img src="assets/413_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
-    <div class="illustration-item"><img src="assets/916_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
+  <div class="polaroid-carousel" id="polaroid-carousel">
+    <figure class="polaroid"><img src="assets/11_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/169_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/413_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/916_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/05_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/06_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/07_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
   </div>
 </div>
 </section>
