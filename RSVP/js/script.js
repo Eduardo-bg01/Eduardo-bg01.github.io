@@ -21,6 +21,20 @@ function rewriteRsvpLinks(guest) {
   });
 }
 
+// ========== NAVBAR HIDE ON SCROLL (desktop) ==========
+(function () {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (window.innerWidth >= 768) {
+      nav.classList.toggle('nav-hidden', y > lastY && y > 120);
+    }
+    lastY = y;
+  }, { passive: true });
+})();
+
 // ========== DRAWER LOGIC ==========
 document.getElementById('menu-toggle').addEventListener('click', () => {
   document.getElementById('side-drawer').classList.remove('-translate-x-full');

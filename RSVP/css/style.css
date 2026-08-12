@@ -143,7 +143,8 @@ ul{list-style:none}
 }
 
 /* === NAVBAR === */
-#navbar{background:transparent;padding-top:env(safe-area-inset-top)}
+#navbar{background:transparent;padding-top:env(safe-area-inset-top);transition:transform 0.3s ease}
+#navbar.nav-hidden{transform:translateY(-100%)}
 #navbar a{transition:color 0.2s}
 .nav-centered{justify-content:center;flex:1}
 
@@ -374,10 +375,7 @@ section[id]{scroll-margin-top:6rem}
 
 /* === DRESS CODE === */
 .dresscode-illustrations{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2rem;
-  width:min(100%,72rem);
+  width:min(100%,30rem);
   margin-inline:auto;
 }
 .dresscode-illustrations img{
@@ -558,7 +556,6 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
     position:relative;
   }
   .info-grid{grid-template-columns:1fr;gap:1.5rem}
-  .dresscode-illustrations{grid-template-columns:1fr;gap:1.5rem}
   .polaroid-carousel{grid-template-columns:1fr;row-gap:3rem}
   .countdown-display{gap:1rem}
   .countdown-unit{min-width:3.5rem}
