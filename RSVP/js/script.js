@@ -21,6 +21,20 @@ function rewriteRsvpLinks(guest) {
   });
 }
 
+// ========== NAVBAR HIDE ON SCROLL (desktop) ==========
+(function () {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (window.innerWidth >= 768) {
+      nav.classList.toggle('nav-hidden', y > lastY && y > 120);
+    }
+    lastY = y;
+  }, { passive: true });
+})();
+
 // ========== DRAWER LOGIC ==========
 document.getElementById('menu-toggle').addEventListener('click', () => {
   document.getElementById('side-drawer').classList.remove('-translate-x-full');
@@ -38,6 +52,49 @@ document.querySelectorAll('#side-drawer a').forEach(a => {
     document.getElementById('side-drawer').classList.add('-translate-x-full');
   });
 });
+
+// ========== ENVELOPE: reveal + navigate ==========
+const envelope = document.querySelector('.invitation-pass.rsvp-link');
+if (envelope) {
+  envelope.addEventListener('click', function (e) {
+    e.preventDefault();
+    this.classList.add('open');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(() => { window.location.href = this.href; }, reduced ? 0 : 700);
+  });
+}
+
+// ========== POLAROID CAROUSEL (solo retrato) ==========
+(function () {
+  const carousel = document.getElementById('polaroid-carousel');
+  if (!carousel) return;
+  const items = Array.from(carousel.querySelectorAll('.polaroid'));
+  const mq = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+  let idx = 0;
+
+  function render() {
+    items.forEach((el, i) => {
+      let off = (i - idx) % items.length;
+      if (off > 1) off -= items.length;
+      if (off < -1) off += items.length;
+      el.dataset.pos = off === -1 ? '-1' : off === 0 ? '0' : off === 1 ? '1' : 'away';
+    });
+  }
+
+  function apply() {
+    if (mq.matches) render();
+    else items.forEach(el => delete el.dataset.pos);
+  }
+
+  mq.addEventListener('change', apply);
+  apply();
+
+  carousel.addEventListener('click', () => {
+    if (!mq.matches) return;
+    idx = (idx + 1) % items.length;
+    render();
+  });
+})();
 
 // ========== COUNTDOWN TIMER ==========
 (function () {
