@@ -106,10 +106,6 @@ if (envelope) {
   const secondsEl = document.getElementById('cd-seconds');
   if (!daysEl) return;
 
-  function pad(n, size) {
-    return String(n).padStart(size, '0');
-  }
-
   function updateCountdown() {
     let diff = target - Date.now();
     if (diff < 0) diff = 0;
@@ -117,10 +113,10 @@ if (envelope) {
     const hours = Math.floor(diff / 3600000) % 24;
     const minutes = Math.floor(diff / 60000) % 60;
     const seconds = Math.floor(diff / 1000) % 60;
-    daysEl.textContent = pad(days, 3);
-    hoursEl.textContent = pad(hours, 2);
-    minutesEl.textContent = pad(minutes, 2);
-    secondsEl.textContent = pad(seconds, 2);
+    daysEl.textContent = String(days).padStart(3, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
   }
 
   updateCountdown();
