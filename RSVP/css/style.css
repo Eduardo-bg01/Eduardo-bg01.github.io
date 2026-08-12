@@ -509,6 +509,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
+  .invitation-pass{position:relative;z-index:30}
   .invitation-pass .env-card{transform:translateY(-45%)}
   .invitation-details img{width:60%}
   .events{
