@@ -505,10 +505,11 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
   .hero-composition{flex-direction:column;gap:1.5rem}
-  .invitation-main{width:min(100%,22rem);order:-1}
+  .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
+  .invitation-pass{position:relative;z-index:2}
   .invitation-pass .env-card{transform:translateY(-45%)}
   .invitation-details img{width:60%}
   .events{
