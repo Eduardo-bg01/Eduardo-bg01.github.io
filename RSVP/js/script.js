@@ -65,14 +65,14 @@ if (envelope) {
     setTimeout(() => { window.location.href = envelope.href; }, reduced ? 0 : 700);
   }
 
-  // true drags set dataset.dragged to suppress the click that follows pointerup
+  // true drags set dataset.dragged to suppress the click that follows
   envelope.addEventListener('click', function (e) {
     e.preventDefault();
     if (envelope.dataset.dragged) { delete envelope.dataset.dragged; return; }
     navigate();
   });
 
-  // ponytail: touch-only drag; mouse keeps hover + click. CSS sets touch-action:none on coarse pointers so the page scroll can't steal the vertical drag.
+  // ponytail: touchmove preventDefault (passive:false) is the real scroll-blocker; touch-action:none in CSS is a second layer.
   function basePct() {
     const m = getComputedStyle(card).transform;
     if (m === 'none') return 0;
@@ -89,25 +89,24 @@ if (envelope) {
   }
 
   let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
-  envelope.addEventListener('pointerdown', e => {
-    if (e.pointerType !== 'touch') return;
+  envelope.addEventListener('touchstart', e => {
     delete envelope.dataset.dragged;
-    y0 = e.clientY;
+    y0 = e.touches[0].clientY;
     from = curPct = basePct();
     home = restPct();
     dragging = false;
-    envelope.setPointerCapture(e.pointerId);
-  });
-  envelope.addEventListener('pointermove', e => {
+  }, { passive: true });
+  envelope.addEventListener('touchmove', e => {
     if (y0 === null) return;
-    const dy = e.clientY - y0;
+    const dy = e.touches[0].clientY - y0;
     if (!dragging && Math.abs(dy) < 10) return;
     dragging = true;
+    e.preventDefault();
     card.style.transition = 'none';
     curPct = Math.max(ENV_OUT, Math.min(-15, from + (dy / card.offsetHeight) * 100));
     card.style.transform = `translateY(${curPct}%)`;
-  });
-  envelope.addEventListener('pointerup', () => {
+  }, { passive: false });
+  envelope.addEventListener('touchend', () => {
     if (y0 === null) return;
     y0 = null;
     if (!dragging) return;
@@ -118,6 +117,12 @@ if (envelope) {
     card.style.transform = `translateY(${out ? ENV_OUT : home}%)`;
     envelope.classList.toggle('open', out);
     setTimeout(() => { card.style.transform = ''; }, 450);
+  });
+  envelope.addEventListener('touchcancel', () => {
+    y0 = null;
+    dragging = false;
+    card.style.transition = '';
+    card.style.transform = '';
   });
 }
 
@@ -146,19 +151,38 @@ if (envelope) {
   mq.addEventListener('change', apply);
   apply();
 
-  // swipe flips photos, tap advances (portrait only)
-  let sx = null, sy = null;
-  carousel.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; });
-  carousel.addEventListener('pointerup', e => {
-    if (sx === null || !mq.matches) return;
-    const dx = e.clientX - sx, dy = e.clientY - sy;
-    sx = sy = null;
-    const tap = Math.abs(dx) < 8 && Math.abs(dy) < 8;
-    const swipe = !tap && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40;
-    if (tap) idx = (idx + 1) % items.length;
-    else if (swipe) idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length;
-    else return;
-    render();
+  // swipe flips photos, tap/click advances (portrait only)
+  // ponytail: touchmove preventDefault (passive:false) claims horizontal drags so the page can't slide; click covers taps + desktop.
+  let tx = null, ty = null, didSwipe = false;
+  carousel.addEventListener('touchstart', e => {
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    didSwipe = false;
+  }, { passive: true });
+  carousel.addEventListener('touchmove', e => {
+    if (tx === null) return;
+    const dx = e.touches[0].clientX - tx;
+    const dy = e.touches[0].clientY - ty;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+  }, { passive: false });
+  carousel.addEventListener('touchend', e => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    tx = ty = null;
+    if (!mq.matches) return;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      didSwipe = true;
+      idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length;
+      render();
+    }
+  }, { passive: true });
+  carousel.addEventListener('click', () => {
+    if (didSwipe) { didSwipe = false; return; }
+    if (mq.matches) {
+      idx = (idx + 1) % items.length;
+      render();
+    }
   });
 })();
 

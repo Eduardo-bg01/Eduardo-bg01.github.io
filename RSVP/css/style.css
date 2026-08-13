@@ -180,6 +180,7 @@ ul{list-style:none}
   width:min(11rem,24vw);
   text-align:center;
   transition:transform 0.2s;
+  touch-action:none; /* keep touch drags on the card from scrolling the page */
 }
 .invitation-pass:hover{transform:translateY(-2px)}
 /* invitación (tarjeta) escondida dentro del sobre; hover la asoma, .open la saca completa */
@@ -399,6 +400,7 @@ section[id]{scroll-margin-top:6rem}
   grid-template-columns:repeat(4,1fr);
   gap:2rem;
   align-items:center;
+  touch-action:pan-y; /* horizontal drags stay in our hands, vertical page scroll still works */
 }
 .polaroid{
   background:#ffffff;
@@ -472,11 +474,6 @@ section[id]{scroll-margin-top:6rem}
 #side-drawer{transition:transform 0.3s ease-in-out;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 #navbar img,#side-drawer img{border:0;outline:none}
 #menu-toggle,#close-drawer{background:none;border:none;padding:0;line-height:1}
-
-/* touch drag on the envelope must not start a page scroll */
-@media (pointer:coarse){
-  .invitation-pass{touch-action:none}
-}
 
 /* === FORM ELEMENTS === */
 input,select{
@@ -563,7 +560,6 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
     height:clamp(20rem,58vh,26rem);
     max-width:26rem;
     margin-inline:auto;
-    touch-action:pan-y;
   }
   .polaroid{
     position:absolute;
