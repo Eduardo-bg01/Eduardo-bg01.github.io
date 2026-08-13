@@ -131,7 +131,7 @@ if (envelope) {
   const carousel = document.getElementById('polaroid-carousel');
   if (!carousel) return;
   const items = Array.from(carousel.querySelectorAll('.polaroid'));
-  const mq = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+  const mq = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
   let idx = 0;
 
   function render() {
