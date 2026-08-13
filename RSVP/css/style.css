@@ -180,6 +180,7 @@ ul{list-style:none}
   width:min(11rem,24vw);
   text-align:center;
   transition:transform 0.2s;
+  touch-action:none; /* keep touch drags on the card from scrolling the page */
 }
 .invitation-pass:hover{transform:translateY(-2px)}
 /* invitación (tarjeta) escondida dentro del sobre; hover la asoma, .open la saca completa */
@@ -399,6 +400,7 @@ section[id]{scroll-margin-top:6rem}
   grid-template-columns:repeat(4,1fr);
   gap:2rem;
   align-items:center;
+  touch-action:pan-y; /* horizontal drags stay in our hands, vertical page scroll still works */
 }
 .polaroid{
   background:#ffffff;
@@ -505,7 +507,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
   .hero-composition{flex-direction:column;gap:1.5rem}
-  .invitation-main{width:min(100%,22rem);order:-1}
+  .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
@@ -550,8 +552,19 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .dresscode-rules li{font-size:0.72rem;letter-spacing:0.18em}
 }
 
+/* portrait tablets (iPad Pro / split view) get the centered column hero too */
+@media(min-width:769px) and (max-width:1024px) and (orientation:portrait){
+  .hero{padding-top:6.5rem}
+  .hero-composition{flex-direction:column;gap:2rem}
+  .invitation-main{width:min(100%,24rem);order:-1;position:relative;z-index:1}
+  .invitation-pass,.invitation-details{width:min(12rem,60vw)}
+  .invitation-pass{position:relative;z-index:2}
+  .invitation-pass .env-card{transform:translateY(-45%)}
+  .invitation-details img{width:60%}
+}
+
 /* === CARRUSEL POLAROID (retrato) === */
-@media(max-width:768px) and (orientation:portrait){
+@media(max-width:1024px) and (orientation:portrait){
   .polaroid-carousel{
     display:block;
     position:relative;
