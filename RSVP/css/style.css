@@ -473,6 +473,11 @@ section[id]{scroll-margin-top:6rem}
 #navbar img,#side-drawer img{border:0;outline:none}
 #menu-toggle,#close-drawer{background:none;border:none;padding:0;line-height:1}
 
+/* touch drag on the envelope must not start a page scroll */
+@media (pointer:coarse){
+  .invitation-pass{touch-action:none}
+}
+
 /* === FORM ELEMENTS === */
 input,select{
   font-family:inherit;font-size:inherit;outline:none
@@ -558,6 +563,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
     height:clamp(20rem,58vh,26rem);
     max-width:26rem;
     margin-inline:auto;
+    touch-action:pan-y;
   }
   .polaroid{
     position:absolute;

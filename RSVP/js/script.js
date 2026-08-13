@@ -53,14 +53,71 @@ document.querySelectorAll('#side-drawer a').forEach(a => {
   });
 });
 
-// ========== ENVELOPE: reveal + navigate ==========
+// ========== ENVELOPE: drag (touch) + tap (navigate) ==========
 const envelope = document.querySelector('.invitation-pass.rsvp-link');
 if (envelope) {
+  const card = envelope.querySelector('.env-card');
+  const ENV_OUT = -100;
+
+  function navigate() {
+    envelope.classList.add('open');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(() => { window.location.href = envelope.href; }, reduced ? 0 : 700);
+  }
+
+  // true drags set dataset.dragged to suppress the click that follows pointerup
   envelope.addEventListener('click', function (e) {
     e.preventDefault();
-    this.classList.add('open');
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setTimeout(() => { window.location.href = this.href; }, reduced ? 0 : 700);
+    if (envelope.dataset.dragged) { delete envelope.dataset.dragged; return; }
+    navigate();
+  });
+
+  // ponytail: touch-only drag; mouse keeps hover + click. CSS sets touch-action:none on coarse pointers so the page scroll can't steal the vertical drag.
+  function basePct() {
+    const m = getComputedStyle(card).transform;
+    if (m === 'none') return 0;
+    const y = parseFloat(m.split(',')[5]) || 0;
+    return card.offsetHeight ? (y / card.offsetHeight) * 100 : 0;
+  }
+  // resting position (what CSS gives without .open), used as the "in" snap target
+  function restPct() {
+    const wasOpen = envelope.classList.contains('open');
+    if (wasOpen) envelope.classList.remove('open');
+    const v = basePct();
+    if (wasOpen) envelope.classList.add('open');
+    return v;
+  }
+
+  let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
+  envelope.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'touch') return;
+    delete envelope.dataset.dragged;
+    y0 = e.clientY;
+    from = curPct = basePct();
+    home = restPct();
+    dragging = false;
+    envelope.setPointerCapture(e.pointerId);
+  });
+  envelope.addEventListener('pointermove', e => {
+    if (y0 === null) return;
+    const dy = e.clientY - y0;
+    if (!dragging && Math.abs(dy) < 10) return;
+    dragging = true;
+    card.style.transition = 'none';
+    curPct = Math.max(ENV_OUT, Math.min(-15, from + (dy / card.offsetHeight) * 100));
+    card.style.transform = `translateY(${curPct}%)`;
+  });
+  envelope.addEventListener('pointerup', () => {
+    if (y0 === null) return;
+    y0 = null;
+    if (!dragging) return;
+    dragging = false;
+    envelope.dataset.dragged = '1';
+    const out = curPct <= -70;
+    card.style.transition = '';
+    card.style.transform = `translateY(${out ? ENV_OUT : home}%)`;
+    envelope.classList.toggle('open', out);
+    setTimeout(() => { card.style.transform = ''; }, 450);
   });
 }
 
@@ -89,9 +146,18 @@ if (envelope) {
   mq.addEventListener('change', apply);
   apply();
 
-  carousel.addEventListener('click', () => {
-    if (!mq.matches) return;
-    idx = (idx + 1) % items.length;
+  // swipe flips photos, tap advances (portrait only)
+  let sx = null, sy = null;
+  carousel.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; });
+  carousel.addEventListener('pointerup', e => {
+    if (sx === null || !mq.matches) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    sx = sy = null;
+    const tap = Math.abs(dx) < 8 && Math.abs(dy) < 8;
+    const swipe = !tap && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40;
+    if (tap) idx = (idx + 1) % items.length;
+    else if (swipe) idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length;
+    else return;
     render();
   });
 })();
