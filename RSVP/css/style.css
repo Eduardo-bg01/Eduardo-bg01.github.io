@@ -22,7 +22,7 @@ ul{list-style:none}
 .event-name,.details-label,.map-link,.dresscode-rules li,.countdown-label,.rsvp-strip{
   font-family:Montserrat,Helvetica,sans-serif;
   font-weight:600;
-  text-transform:uppercase;
+  /* text-transform:uppercase; */
 }
 
 .text-display-lg{font-size:clamp(1.75rem,4vw,3rem);line-height:1.2;font-weight:600}
