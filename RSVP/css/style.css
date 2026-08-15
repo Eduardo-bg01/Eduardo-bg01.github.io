@@ -516,7 +516,9 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
   .invitation-pass .env-card{transform:translateY(-28%)}
   .invitation-details img{width:60%}
-  #galeria{padding-block:1.5rem}
+  #dresscode{padding-bottom:1.25rem}
+  #galeria{padding-block:0.75rem}
+  #countdown{padding-top:1.25rem}
   .events{
     grid-template-columns:1fr;
     max-width:24rem;
