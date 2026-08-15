@@ -507,15 +507,16 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 }
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
-  .hero-composition{flex-direction:column;gap:1.5rem}
+  .hero-composition{flex-direction:column;gap:2.25rem}
   .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
   .invitation-image-wrap{width:98%}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
-  .invitation-pass{position:relative;z-index:2;margin-top:1.75rem}
-  .invitation-pass .env-card{transform:translateY(-45%)}
+  .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
+  .invitation-pass .env-card{transform:translateY(-28%)}
   .invitation-details img{width:60%}
+  #galeria{padding-block:2.5rem}
   .events{
     grid-template-columns:1fr;
     max-width:24rem;
@@ -555,8 +556,9 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 }
 
 @media(max-width:768px) and (orientation:portrait){
-  .hero-composition{gap:2rem}
-  .invitation-pass{margin-top:2.5rem}
+  .hero-composition{gap:2.5rem}
+  .invitation-pass{margin-top:3.25rem}
+  .invitation-pass .env-card{transform:translateY(-24%)}
 }
 
 /* portrait tablets (iPad Pro / split view) get the centered column hero too */
