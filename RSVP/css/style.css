@@ -364,18 +364,19 @@ section[id]{scroll-margin-top:6rem}
 .map-link:hover,.map-link:focus-visible{opacity:0.6}
 
 /* === DRESS CODE === */
-.dresscode-heading,
-.dresscode-subtitle{
-  font-family:"Source Serif 4",Georgia,serif;
-  color:#41001c;
-}
 .dresscode-heading{
+  font-family:"Playfair Display",Georgia,serif;
+  color:#41001c;
   line-height:1.2;
 }
 .dresscode-subtitle{
+  font-family:"Playfair Display",Georgia,serif;
   font-size:1.25rem;
-  line-height:1.6;
+  line-height:1.4;
+  font-weight:600;
+  letter-spacing:0.06em;
   font-style:italic;
+  color:#41001c;
 }
 .dresscode-illustrations{
   width:min(100%,30rem);
