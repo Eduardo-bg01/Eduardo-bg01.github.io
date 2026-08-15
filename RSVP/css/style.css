@@ -173,6 +173,7 @@ ul{list-style:none}
   flex-shrink:0;
   width:clamp(17rem,36vw,24rem);
 }
+.invitation-image-wrap{width:17rem}
 
 .invitation-pass{
   position:relative;
@@ -508,6 +509,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero{padding-top:5.5rem}
   .hero-composition{flex-direction:column;gap:1.5rem}
   .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
+  .invitation-image-wrap{width:95%}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
@@ -550,6 +552,11 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .countdown-unit{min-width:3rem}
   .dresscode-rules{gap:1rem 1.5rem}
   .dresscode-rules li{font-size:0.72rem;letter-spacing:0.18em}
+}
+
+@media(max-width:768px) and (orientation:portrait){
+  .hero-composition{gap:2rem}
+  .invitation-pass{padding-top:0.5rem}
 }
 
 /* portrait tablets (iPad Pro / split view) get the centered column hero too */
