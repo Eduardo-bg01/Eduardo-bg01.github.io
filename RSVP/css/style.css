@@ -513,7 +513,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
-  .invitation-pass{position:relative;z-index:2}
+  .invitation-pass{position:relative;z-index:2;margin-top:1.75rem}
   .invitation-pass .env-card{transform:translateY(-45%)}
   .invitation-details img{width:60%}
   .events{
@@ -556,7 +556,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2rem}
-  .invitation-pass{padding-top:0.5rem}
+  .invitation-pass{margin-top:2.5rem}
 }
 
 /* portrait tablets (iPad Pro / split view) get the centered column hero too */
