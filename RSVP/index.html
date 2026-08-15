@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/Icons/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&family=Great+Vibes&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="preload" as="image" href="assets/169_Picture.jpg" />
@@ -28,8 +28,7 @@
   <div class="flex justify-between items-center w-full px-6" style="max-width:1200px;margin:0 auto;padding-top:1.25rem;padding-bottom:0.5rem">
     <div class="flex items-center gap-3">
       <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem">menu</button>
-      <!-- <span class="font-script text-script-lg text-primary" style="letter-spacing:0.02em">E&amp;N</span> -->
-       <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
+      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
     </div>
     <nav class="hidden md:flex items-center nav-centered" style="gap:3rem">
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
@@ -44,7 +43,6 @@
 <aside class="fixed inset-y-0 left-0 z-[100] bg-surface border-r border-outline-variant shadow-2xl -translate-x-full" id="side-drawer" style="width:20rem">
 <div class="p-8 h-full flex flex-col">
   <div class="flex justify-between items-start mb-10">
-    <!-- <span class="font-script text-script-lg text-primary">E&amp;N</span> -->
      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
     <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer">close</button>
   </div>
@@ -55,7 +53,6 @@
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-outline-variant" style="border-top-color:rgba(217,192,197,0.3)">
-    <!-- <p class="font-script text-script-md text-primary text-center">Eduardo &amp; Natalia</p> -->
      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
     <p class="font-label text-center text-on-surface-variant mt-2" style="font-size:10px;letter-spacing:0.3em">23 OCT 2026</p>
   </div>
@@ -104,8 +101,8 @@
 <!-- ===== SECTION: ORDEN DE EVENTOS ===== -->
 <section id="itinerario" class="fade-section">
 <div class="section-inner">
-  <h2 class="section-title">Orden de Eventos</h2>
-  <div class="ornamental-divider" style="max-width:20rem;margin:0 auto 4rem"></div>
+  <h2 class="section-title font-display">Orden de Eventos</h2>
+  <div class="ornamental-divider" style="max-width:20rem;margin:0 auto 2.5rem"></div>
 
   <div class="events">
     <div class="event">
@@ -174,9 +171,9 @@
 <!-- ===== SECTION: DRESS CODE ===== -->
 <section id="dresscode" class="fade-section">
 <div class="section-inner">
-  <h2 class="section-title dresscode-heading">Dresscode</h2>
+  <h2 class="section-title dresscode-heading font-display">Dresscode</h2>
   <p class="dresscode-subtitle text-center mt-4">Cóctel-Formal</p>
-  <div class="ornamental-divider" style="max-width:20rem;margin:1.5rem auto 4rem"></div>
+  <div class="ornamental-divider" style="max-width:20rem;margin:1.25rem auto 2.5rem"></div>
 
   <p class="text-body-lg text-on-surface-variant text-center" style="max-width:32rem;margin-inline:auto">
     Con todo respeto les pedimos considerar lo siguiente:
@@ -222,22 +219,22 @@
 
     <div class="countdown-display">
       <div class="countdown-unit">
-        <span class="countdown-value" id="cd-days">000</span>
+        <span class="countdown-value font-display" id="cd-days">000</span>
         <span class="countdown-label">Días</span>
       </div>
-      <span class="countdown-sep" aria-hidden="true">:</span>
+      <span class="countdown-sep font-display" aria-hidden="true">:</span>
       <div class="countdown-unit">
-        <span class="countdown-value" id="cd-hours">00</span>
+        <span class="countdown-value font-display" id="cd-hours">00</span>
         <span class="countdown-label">Horas</span>
       </div>
-      <span class="countdown-sep" aria-hidden="true">:</span>
+      <span class="countdown-sep font-display" aria-hidden="true">:</span>
       <div class="countdown-unit">
-        <span class="countdown-value" id="cd-minutes">00</span>
+        <span class="countdown-value font-display" id="cd-minutes">00</span>
         <span class="countdown-label">Minutos</span>
       </div>
-      <span class="countdown-sep" aria-hidden="true">:</span>
+      <span class="countdown-sep font-display" aria-hidden="true">:</span>
       <div class="countdown-unit">
-        <span class="countdown-value" id="cd-seconds">00</span>
+        <span class="countdown-value font-display" id="cd-seconds">00</span>
         <span class="countdown-label">Segundos</span>
       </div>
     </div>
@@ -249,7 +246,7 @@
 <section id="mensaje-final" class="fade-section">
 <div class="section-inner">
   <div class="text-center">
-    <div class="final-divider" style="max-width:24rem;margin:0 auto 4rem"></div>
+    <div class="final-divider" style="max-width:24rem;margin:0 auto 2.5rem"></div>
     <p class="text-body-lg text-on-surface-variant leading-relaxed">
       Nos emociona mucho celebrar<br />
       este día tan feliz con<br />
@@ -264,7 +261,6 @@
 
 <!-- ===== FOOTER ===== -->
 <footer class="py-16 flex flex-col items-center text-center" style="border-top:1px solid rgba(217,192,197,0.4)">
-  <!-- <span class="font-script text-script-lg text-primary">Eduardo &amp; Natalia</span> -->
   <p class="text-body-md text-on-surface-variant mt-4">23 de Octubre de 2026</p>
     <p class="text-body-md text-on-surface-variant mt-1">Mexicali, Baja California</p>
   <div class="flex gap-8 mt-4" style="flex-wrap:wrap;justify-content:center">
