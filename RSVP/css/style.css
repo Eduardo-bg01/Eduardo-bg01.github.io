@@ -423,7 +423,7 @@ section[id]{scroll-margin-top:6rem}
 .polaroid img{
   width:100%;
   height:clamp(12rem,22vw,18rem);
-  object-fit:contain;
+  object-fit:cover;
   background:#ffffff;
   display:block;
 }
@@ -497,7 +497,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 /* === RESPONSIVE === */
 @media(max-width:1024px){
   .events{grid-template-columns:repeat(3,1fr);row-gap:3rem}
-  .polaroid-carousel{grid-template-columns:repeat(2,1fr);row-gap:3rem}
+  .polaroid-carousel{grid-template-columns:repeat(2,1fr);row-gap:3rem;max-width:40rem;margin-inline:auto}
   .info-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(min-width:768px){
