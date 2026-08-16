@@ -409,10 +409,12 @@ section[id]{scroll-margin-top:6rem}
   touch-action:pan-y; /* horizontal drags stay in our hands, vertical page scroll still works */
 }
 .polaroid{
+  display:flex;
+  flex-direction:column;
   background:#ffffff;
   border:1px solid rgba(65,0,28,0.12);
   border-radius:0.15rem;
-  padding:0.7rem 0.7rem 2.75rem;
+  padding:0.7rem;
   box-shadow:0 6px 18px rgba(65,0,28,0.12);
   transition:transform 0.3s ease,box-shadow 0.3s ease;
 }
@@ -435,9 +437,11 @@ section[id]{scroll-margin-top:6rem}
   font-size:0.7rem;
   letter-spacing:0.25em;
   text-transform:uppercase;
-  text-align:center;
   color:#41001c;
-  margin-top:0.9rem;
+  height:2.75rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 /* === COUNTDOWN === */
@@ -603,10 +607,11 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
     top:50%;
     width:52%;
     margin:0;
-    padding:0.6rem 0.6rem 2.4rem;
+    padding:0.6rem;
     transition:transform 0.6s cubic-bezier(0.22,0.97,0.36,1),opacity 0.6s ease;
     pointer-events:none;
   }
+  .polaroid figcaption{height:2.4rem}
   .polaroid[data-pos="-1"]{
     transform:translate(calc(-50% - 55%),-46%) rotate(-8deg) scale(0.8);
     opacity:0.55;

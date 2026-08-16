@@ -203,7 +203,7 @@ if (envelope) {
     const hours = Math.floor(diff / 3600000) % 24;
     const minutes = Math.floor(diff / 60000) % 60;
     const seconds = Math.floor(diff / 1000) % 60;
-    daysEl.textContent = String(days).padStart(3, '0');
+    daysEl.textContent = String(days).padStart(2, '0');
     hoursEl.textContent = String(hours).padStart(2, '0');
     minutesEl.textContent = String(minutes).padStart(2, '0');
     secondsEl.textContent = String(seconds).padStart(2, '0');
