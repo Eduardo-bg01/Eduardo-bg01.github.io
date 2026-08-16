@@ -419,7 +419,7 @@ section[id]{scroll-margin-top:6rem}
 .polaroid img{
   width:100%;
   height:clamp(12rem,22vw,18rem);
-  object-fit:contain;
+  object-fit:cover;
   background:#ffffff;
   display:block;
 }
