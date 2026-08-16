@@ -196,7 +196,7 @@ ul{list-style:none}
   gap:0.15rem;
   background:#ffffff;
   border:1px solid rgba(65,0,28,0.25);
-  border-radius:0.25rem;
+  border-radius:50%;
   box-shadow:0 8px 24px rgba(0,0,0,0.1);
   padding:1rem 0.75rem;
   transform:translateY(0);
@@ -390,7 +390,7 @@ section[id]{scroll-margin-top:6rem}
   letter-spacing:0.3em;
   color:#41001c;
   position:relative;
-  padding-left:1.4rem;
+  padding-left:0.6rem;
 }
 .dresscode-rules li::before{
   content:'•';
