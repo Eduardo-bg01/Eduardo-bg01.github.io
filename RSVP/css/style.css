@@ -17,12 +17,10 @@ ul{list-style:none}
 
 /* === FONT UTILITY CLASSES === */
 .font-display{font-family:"Playfair Display",Georgia,serif}
-.font-label{font-family:Montserrat,Helvetica,sans-serif;text-transform:uppercase}
-.font-script{font-family:"Great Vibes",cursive}
+.font-label{font-family:Montserrat,Helvetica,sans-serif}
 .event-name,.details-label,.map-link,.dresscode-rules li,.countdown-label,.rsvp-strip{
   font-family:Montserrat,Helvetica,sans-serif;
   font-weight:600;
-  text-transform:uppercase;
 }
 
 .text-display-lg{font-size:clamp(1.75rem,4vw,3rem);line-height:1.2;font-weight:600}
@@ -30,8 +28,6 @@ ul{list-style:none}
 .text-body-lg{font-size:1.125rem;line-height:1.6;letter-spacing:0.02em}
 .text-body-md{font-size:1rem;line-height:1.6}
 .text-label{font-size:0.75rem;line-height:1.5;letter-spacing:0.15em;font-weight:600;text-transform:uppercase}
-.text-script-lg{font-size:clamp(1.5rem,4vw,2.5rem)}
-.text-script-md{font-size:1.5rem}
 
 /* === COLORS === */
 .text-primary{color:#41001c}
@@ -173,6 +169,7 @@ ul{list-style:none}
   flex-shrink:0;
   width:clamp(17rem,36vw,24rem);
 }
+.invitation-image-wrap{width:17rem}
 
 .invitation-pass{
   position:relative;
@@ -273,7 +270,7 @@ ul{list-style:none}
 /* === SECTIONS === */
 section{
   width:100%;
-  padding-block:clamp(3.5rem,7vw,6rem);
+  padding-block:clamp(2.5rem,5vw,4rem);
 }
 section[id]{scroll-margin-top:6rem}
 .section-inner{
@@ -281,11 +278,9 @@ section[id]{scroll-margin-top:6rem}
   margin-inline:auto;
 }
 .section-title{
-  font-family:"Playfair Display",Georgia,serif;
   font-size:clamp(1.75rem,4vw,2.75rem);
   font-weight:500;
   letter-spacing:0.25em;
-  text-transform:uppercase;
   text-align:center;
   color:#41001c;
 }
@@ -323,7 +318,6 @@ section[id]{scroll-margin-top:6rem}
   color:#41001c;
 }
 .event-time{
-  font-family:"Playfair Display",Georgia,serif;
   font-size:1.125rem;
   color:#7c5726;
   letter-spacing:0.05em;
@@ -363,6 +357,16 @@ section[id]{scroll-margin-top:6rem}
 .map-link:hover,.map-link:focus-visible{opacity:0.6}
 
 /* === DRESS CODE === */
+.dresscode-heading{
+  line-height:1.2;
+}
+.dresscode-subtitle{
+  font-size:1.25rem;
+  line-height:1.4;
+  font-weight:600;
+  letter-spacing:0.06em;
+  color:#41001c;
+}
 .dresscode-illustrations{
   width:min(100%,30rem);
   margin-inline:auto;
@@ -372,7 +376,7 @@ section[id]{scroll-margin-top:6rem}
   height:auto;
 }
 .dresscode-rules{
-  margin:3rem auto;
+  margin:2rem auto;
   max-width:32rem;
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -426,7 +430,7 @@ section[id]{scroll-margin-top:6rem}
 
 /* === COUNTDOWN === */
 .countdown-display{
-  margin-top:3rem;
+  margin-top:2rem;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -441,7 +445,6 @@ section[id]{scroll-margin-top:6rem}
   min-width:4.5rem;
 }
 .countdown-value{
-  font-family:"Playfair Display",Georgia,serif;
   font-size:clamp(2.25rem,6vw,3.75rem);
   font-weight:500;
   line-height:1;
@@ -454,7 +457,6 @@ section[id]{scroll-margin-top:6rem}
   color:#544246;
 }
 .countdown-sep{
-  font-family:"Playfair Display",Georgia,serif;
   font-size:clamp(1.5rem,4vw,2.25rem);
   color:#d9c0c5;
   margin-bottom:1.5rem;
@@ -483,7 +485,6 @@ input,select{
 
 /* === FOOTER === */
 footer a{transition:color 0.2s}
-#mensaje-final{padding-bottom:1.5rem}
 footer.py-16{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 footer .rsvp-link{
   background:#41001c;
@@ -506,13 +507,14 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 }
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
-  .hero-composition{flex-direction:column;gap:1.5rem}
+  .hero-composition{flex-direction:column;gap:2.25rem}
   .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
+  .invitation-image-wrap{width:98%}
   .invitation-pass,.invitation-details{
     width:min(10rem,60vw);
   }
-  .invitation-pass{position:relative;z-index:30}
-  .invitation-pass .env-card{transform:translateY(-45%)}
+  .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
+  .invitation-pass .env-card{transform:translateY(-28%)}
   .invitation-details img{width:60%}
   .events{
     grid-template-columns:1fr;
@@ -550,6 +552,17 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .countdown-unit{min-width:3rem}
   .dresscode-rules{gap:1rem 1.5rem}
   .dresscode-rules li{font-size:0.72rem;letter-spacing:0.18em}
+}
+
+@media(max-width:768px) and (orientation:portrait){
+  .hero-composition{gap:2.5rem}
+  .invitation-pass{margin-top:3.25rem}
+  .invitation-pass .env-card{transform:translateY(-24%)}
+}
+
+@media(max-width:1024px) and (orientation:landscape){
+  .dresscode-heading{font-size:clamp(1.75rem,4vw,2.75rem)}
+  .dresscode-subtitle{font-size:1.25rem}
 }
 
 /* portrait tablets (iPad Pro / split view) get the centered column hero too */

@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/Icons/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&family=Great+Vibes&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="preload" as="image" href="assets/169_Picture.jpg" />
@@ -28,8 +28,7 @@
   <div class="flex justify-between items-center w-full px-6" style="max-width:1200px;margin:0 auto;padding-top:1.25rem;padding-bottom:0.5rem">
     <div class="flex items-center gap-3">
       <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem">menu</button>
-      <!-- <span class="font-script text-script-lg text-primary" style="letter-spacing:0.02em">E&amp;N</span> -->
-       <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
+      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
     </div>
     <nav class="hidden md:flex items-center nav-centered" style="gap:3rem">
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
@@ -44,7 +43,6 @@
 <aside class="fixed inset-y-0 left-0 z-[100] bg-surface border-r border-outline-variant shadow-2xl -translate-x-full" id="side-drawer" style="width:20rem">
 <div class="p-8 h-full flex flex-col">
   <div class="flex justify-between items-start mb-10">
-    <!-- <span class="font-script text-script-lg text-primary">E&amp;N</span> -->
      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
     <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer">close</button>
   </div>
@@ -55,7 +53,6 @@
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-outline-variant" style="border-top-color:rgba(217,192,197,0.3)">
-    <!-- <p class="font-script text-script-md text-primary text-center">Eduardo &amp; Natalia</p> -->
      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
     <p class="font-label text-center text-on-surface-variant mt-2" style="font-size:10px;letter-spacing:0.3em">23 OCT 2026</p>
   </div>
@@ -85,18 +82,8 @@
     <div class="invitation-main">
       <div class="relative" style="aspect-ratio:4/5;display:flex;align-items:center;justify-content:center">
         <div class="relative" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">
-          <div class="absolute bottom-0 bg-primary shadow-xl rounded-sm" style="width:90%;height:70%">
-            <div class="absolute inset-0" style="background-image:url('https://www.transparenttextures.com/patterns/linen-white.png');opacity:0.15"></div>
-          </div>
-          <div class="relative z-10 bg-surface border shadow-lg p-8 flex flex-col items-center justify-center" style="width:17rem;height:21rem;border-color:rgba(65,0,28,0.2);border-radius:50% 50% 0 0">
-            <div class="absolute inset-0" style="background-image:url('https://www.transparenttextures.com/patterns/floral-paper.png');opacity:0.08"></div>
-            <p class="font-script text-script-lg text-primary text-center">Eduardo &amp; Natalia</p>
-            <div class="ornamental-divider" style="max-width:12rem;margin:0.75rem auto"></div>
-            <p class="font-label text-label text-primary text-center" style="letter-spacing:0.2em">23 DE OCTUBRE 2026</p>
-            <p class="font-label text-label text-on-surface-variant text-center mt-2" style="font-size:10px;letter-spacing:0.15em">MEXICALI, BAJA CALIFORNIA</p>
-          </div>
-          <div class="absolute bottom-0 z-20 flex items-end justify-center pb-4" style="width:90%;height:50%;background:rgba(65,0,28,0.95);border-top:1px solid rgba(255,255,255,0.1)">
-            <span class="font-display text-on-primary/30" style="font-size:1.125rem;letter-spacing:0.2em;font-style:italic">E &amp; N</span>
+          <div class="invitation-image-wrap relative z-10">
+            <img src="assets/invitacion_wed.png" alt="Invitación de boda" style="width:100%;height:auto;display:block" />
           </div>
         </div>
       </div>
@@ -145,14 +132,14 @@
 <!-- ===== SECTION: ORDEN DE EVENTOS ===== -->
 <section id="itinerario" class="fade-section">
 <div class="section-inner">
-  <h2 class="section-title">Orden de Eventos</h2>
-  <div class="ornamental-divider" style="max-width:20rem;margin:0 auto 4rem"></div>
+  <h2 class="section-title font-display">Orden de Eventos</h2>
+  <div class="ornamental-divider" style="max-width:20rem;margin:0 auto 2.5rem"></div>
 
   <div class="events">
     <div class="event">
       <div class="event-icon"><img src="assets/Icons/rings.PNG" alt="Ceremonia" /></div>
       <p class="event-name">Ceremonia</p>
-      <p class="event-time">6:15 PM</p>
+      <p class="event-time">6:00 PM</p>
     </div>
     <div class="event">
       <div class="event-icon"><img src="assets/Icons/cocktail.png" alt="Cocktail" /></div>
@@ -186,10 +173,15 @@
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">card_giftcard</span>
       <h3 class="font-label text-label text-primary info-title">Regalos</h3>
-      <p class="text-body-md text-on-surface-variant">BBVA: 4152 3141 6673 7000</p>
-      <p class="text-body-md text-on-surface-variant">Venmo: @nataliatrevini</p>
-      <p class="text-body-md text-on-surface-variant">Tambien puedes ver nuestra lista de regalos en:</p>
+      <p class="text-body-md text-on-surface-variant">Puedes ver nuestra lista de regalos en:</p>
       <a class="map-link" href="https://natbynat.my.canva.site" target="_blank" rel="noopener noreferrer">VER LISTA DE REGALOS</a>
+      <p></p>
+      <p class="text-body-md text-on-surface-variant"><b>Eduardo Beltran Garcia</b></p>
+      <p class="text-body-md text-on-surface-variant">Numero de tarjeta BBVA:</p>
+      <p class="text-body-md text-on-surface-variant"><b>4152 3141 6673 7000</b></p>
+      <p class="text-body-md text-on-surface-variant">Venmo: @nataliatrevini</p>
+      <p></p>
+      <p class="text-body-md text-on-surface-variant">(Efectivo Preferido)</p>
     </div>
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">location_on</span>
@@ -210,9 +202,9 @@
 <!-- ===== SECTION: DRESS CODE ===== -->
 <section id="dresscode" class="fade-section">
 <div class="section-inner">
-  <h2 class="section-title">Dresscode</h2>
-  <p class="font-display text-secondary text-center mt-4" style="font-size:1.25rem;font-style:italic">Cóctel-Formal</p>
-  <div class="ornamental-divider" style="max-width:20rem;margin:1.5rem auto 4rem"></div>
+  <h2 class="section-title dresscode-heading font-display">Dresscode</h2>
+  <p class="dresscode-subtitle text-center mt-4">Cóctel-Formal</p>
+  <div class="ornamental-divider" style="max-width:20rem;margin:1.25rem auto 2.5rem"></div>
 
   <p class="text-body-lg text-on-surface-variant text-center" style="max-width:32rem;margin-inline:auto">
     Con todo respeto les pedimos considerar lo siguiente:
@@ -226,7 +218,7 @@
   </ul>
 
   <div class="dresscode-illustrations">
-    <img src="assets/dresscode_draw.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
+    <img src="assets/dresscode_final_draw.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
   </div>
   <p></p>
   <p class="text-body-md italic text-secondary text-center mt-10">
@@ -256,7 +248,7 @@
 <section id="mensaje-final" class="fade-section">
 <div class="section-inner">
   <div class="text-center">
-    <div class="final-divider" style="max-width:24rem;margin:0 auto 4rem"></div>
+    <div class="final-divider" style="max-width:24rem;margin:0 auto 2.5rem"></div>
     <p class="text-body-lg text-on-surface-variant leading-relaxed">
       Nos emociona mucho celebrar<br />
       este día tan feliz con<br />
@@ -271,7 +263,6 @@
 
 <!-- ===== FOOTER ===== -->
 <footer class="py-16 flex flex-col items-center text-center" style="border-top:1px solid rgba(217,192,197,0.4)">
-  <!-- <span class="font-script text-script-lg text-primary">Eduardo &amp; Natalia</span> -->
   <p class="text-body-md text-on-surface-variant mt-4">23 de Octubre de 2026</p>
     <p class="text-body-md text-on-surface-variant mt-1">Mexicali, Baja California</p>
   <div class="flex gap-8 mt-4" style="flex-wrap:wrap;justify-content:center">
