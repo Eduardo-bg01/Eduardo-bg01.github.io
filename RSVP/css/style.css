@@ -17,7 +17,7 @@ ul{list-style:none}
 
 /* === FONT UTILITY CLASSES === */
 .font-display{font-family:"Playfair Display",Georgia,serif}
-.font-label{font-family:Montserrat,Helvetica,sans-serif}
+.font-label{font-family:Montserrat,Helvetica,sans-serif;text-transform:uppercase}
 .font-script{font-family:"Great Vibes",cursive}
 .event-name,.details-label,.map-link,.dresscode-rules li,.countdown-label,.rsvp-strip{
   font-family:Montserrat,Helvetica,sans-serif;
@@ -451,7 +451,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 /* === RESPONSIVE === */
 @media(max-width:1024px){
   .events{grid-template-columns:repeat(3,1fr);row-gap:3rem}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);row-gap:3rem}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);row-gap:3rem;max-width:40rem;margin-inline:auto}
   .info-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(min-width:768px){
