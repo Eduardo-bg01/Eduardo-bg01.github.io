@@ -428,6 +428,16 @@ section[id]{scroll-margin-top:6rem}
   background:#ffffff;
   display:block;
 }
+.polaroid figcaption{
+  font-family:Montserrat,Helvetica,sans-serif;
+  font-weight:600;
+  font-size:0.7rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  text-align:center;
+  color:#41001c;
+  margin-top:0.9rem;
+}
 
 /* === COUNTDOWN === */
 .countdown-display{
