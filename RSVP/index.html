@@ -15,7 +15,7 @@
 <body>
 
 <!-- ===== INTRO ===== -->
- <div id="intro-screen">
+<div id="intro-screen">
   <div class="bottom-piece"></div>
   <div class="flap"></div>
   <button class="wax-seal" aria-label="Abrir invitación">
@@ -69,15 +69,16 @@
 <section id="invitacion" class="hero">
   <div class="hero-composition">
 
-    <!-- Pass + RSVP (left) -->
     <a class="invitation-pass rsvp-link" href="rsvp.html">
-      <span class="pass-card">
-        <span class="font-label text-label text-on-surface-variant" id="invite-greeting">pase para</span>
+      <span class="env-card">
+        <span class="font-label text-label text-on-surface-variant">pase para</span>
         <span class="font-display text-display-lg text-primary font-bold" id="invite-count">—</span>
         <span class="font-label text-label text-on-surface-variant" id="invite-people">personas</span>
         <span class="font-display text-display-md text-primary font-semibold" id="invite-name" style="font-size:1rem;margin-top:0.5rem">Invitado</span>
       </span>
-      <span class="rsvp-strip">Confirmar asistencia</span>
+      <span class="env-body">
+        <span class="rsvp-strip">Confirmar asistencia</span>
+      </span>
     </a>
 
     <!-- Main invitation (envelope) -->
@@ -127,7 +128,7 @@
       <p class="event-name">Cocktail</p>
       <p class="event-time">7:00 PM</p>
     </div>
-    <!-- ponytail: icono placeholder, reemplazar por arte real de CENA -->
+    
     <div class="event">
       <div class="event-icon"><img src="assets/Icons/salt_pepper.PNG" alt="Cena" /></div>
       <p class="event-name">Cena</p>
@@ -154,7 +155,9 @@
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">card_giftcard</span>
       <h3 class="font-label text-label text-primary info-title">Regalos</h3>
-      <p class="text-body-md text-on-surface-variant">Tu presencia es el mejor regalo.</p>
+      <p class="text-body-md text-on-surface-variant">BBVA: 4152 3141 6673 7000</p>
+      <p class="text-body-md text-on-surface-variant">Venmo: @nataliatrevini</p>
+      <p class="text-body-md text-on-surface-variant">Tambien puedes ver nuestra lista de regalos en:</p>
       <a class="map-link" href="https://natbynat.my.canva.site" target="_blank" rel="noopener noreferrer">VER LISTA DE REGALOS</a>
     </div>
     <div class="info-block">
@@ -167,7 +170,7 @@
     <div class="info-block">
       <span class="material-symbols-outlined info-icon" aria-hidden="true">favorite</span>
       <h3 class="font-label text-label text-primary info-title">No niños</h3>
-      <p class="text-body-md text-on-surface-variant">Queremos que disfrutes la fiesta y que tus hijos no corran peligro. Este evento es sin niños.</p>
+      <p class="text-body-md text-on-surface-variant">Queremos que disfrutes la fiesta al máximo y que puedas celebrar con nosotros. Por eso, este será un evento exclusivo para adultos. ¡Esperamos contar contigo!</p>
     </div>
   </div>
 </div>
@@ -188,14 +191,13 @@
     <li>No mezclilla</li>
     <li>No guayabera</li>
     <li>No mini vestidos</li>
-    <li>Evitar camisas Hawaianas</li>
+    <li>Evitar camisas estampadas</li>
   </ul>
 
   <div class="dresscode-illustrations">
-    <img src="assets/dresscode_f.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
-    <img src="assets/dresscode_m.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
+    <img src="assets/dresscode_draw.png" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
   </div>
-
+  <p></p>
   <p class="text-body-md italic text-secondary text-center mt-10">
     Dejemos el color Blanco y derivados para los novios.
   </p>
@@ -205,12 +207,14 @@
 <!-- ===== SECTION: GALERÍA ===== -->
 <section id="galeria" class="fade-section">
 <div class="section-inner">
-  <!-- ponytail: placeholders de distintos formatos, reemplazar por arte propio -->
-  <div class="gallery-grid">
-    <div class="illustration-item"><img src="assets/11_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
-    <div class="illustration-item"><img src="assets/169_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
-    <div class="illustration-item"><img src="assets/413_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
-    <div class="illustration-item"><img src="assets/916_Picture.jpg" alt="Ilustración" loading="lazy" decoding="async" /></div>
+  <div class="polaroid-carousel" id="polaroid-carousel">
+    <figure class="polaroid"><img src="assets/11_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/169_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/413_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/916_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/05_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/06_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
+    <figure class="polaroid"><img src="assets/07_Picture.jpg" alt="Foto de la pareja" loading="lazy" decoding="async" /></figure>
   </div>
 </div>
 </section>
@@ -219,7 +223,7 @@
 <section id="countdown" class="fade-section">
 <div class="section-inner">
   <div class="text-center">
-    <p class="font-script text-script-lg text-primary">nuestra nueva era comienza en</p>
+    <p class="text-body-md text-on-surface-variant mt-4">Nuestra nueva era comienza en</p>
 
     <div class="countdown-display">
       <div class="countdown-unit">
@@ -265,8 +269,9 @@
 
 <!-- ===== FOOTER ===== -->
 <footer class="py-16 flex flex-col items-center text-center" style="border-top:1px solid rgba(217,192,197,0.4)">
-  <span class="font-script text-script-lg text-primary">Eduardo &amp; Natalia</span>
-  <p class="text-body-md text-on-surface-variant mt-4">23 de Octubre de 2026 — Mexicali, Baja California</p>
+  <!-- <span class="font-script text-script-lg text-primary">Eduardo &amp; Natalia</span> -->
+  <p class="text-body-md text-on-surface-variant mt-4">23 de Octubre de 2026</p>
+    <p class="text-body-md text-on-surface-variant mt-1">Mexicali, Baja California</p>
   <div class="flex gap-8 mt-4" style="flex-wrap:wrap;justify-content:center">
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#itinerario">Itinerario</a>
