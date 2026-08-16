@@ -17,10 +17,11 @@ ul{list-style:none}
 
 /* === FONT UTILITY CLASSES === */
 .font-display{font-family:"Playfair Display",Georgia,serif}
-.font-label{font-family:Montserrat,Helvetica,sans-serif}
+.font-label{font-family:Montserrat,Helvetica,sans-serif;text-transform:uppercase}
 .event-name,.details-label,.map-link,.dresscode-rules li,.countdown-label,.rsvp-strip{
   font-family:Montserrat,Helvetica,sans-serif;
   font-weight:600;
+  text-transform:uppercase;
 }
 
 .text-display-lg{font-size:clamp(1.75rem,4vw,3rem);line-height:1.2;font-weight:600}
