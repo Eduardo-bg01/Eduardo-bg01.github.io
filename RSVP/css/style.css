@@ -561,6 +561,24 @@ footer .rsvp-link{
 }
 footer .rsvp-link:hover{background:#611031;color:#fff}
 
+/* === RSVP OVAL === */
+#rsvp-oval{
+  background:#41001c;
+  border-radius:50%;
+  width:min(28rem,90%);
+  aspect-ratio:4/3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:2.5rem 2rem;
+  box-shadow:0 12px 36px rgba(65,0,28,0.3),inset 0 0 40px rgba(255,255,255,0.04);
+}
+#rsvp-oval *{color:#fff}
+#rsvp-oval .rsvp-no{border-color:rgba(255,255,255,0.5)}
+#rsvp-oval select{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.1)}
+#rsvp-oval div[style*="height:1px"]{background:rgba(255,255,255,0.3) !important}
+
 /* === RESPONSIVE === */
 @media(max-width:1024px){
   .events{grid-template-columns:repeat(3,1fr);row-gap:3rem}
@@ -627,10 +645,11 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .play-toggle{top:calc(50% + 2rem - 11px)}
   .player-icon{width:90%;margin:0 auto}
   .play-toggle{left:calc(45% + 1px)}
-  .env-card{left:30%;right:30%;bottom:22%;height:50%;border-radius:50%/38%}
+  .env-card{left:30%;right:30%;bottom:22%;height:50%;border-radius:50%/25%}
   .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
   .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
   .player-caption{margin-top:3rem}
+  .custom-player{width:90%;margin:0 auto}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
