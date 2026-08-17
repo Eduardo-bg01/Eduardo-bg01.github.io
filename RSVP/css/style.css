@@ -625,6 +625,12 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
   .play-toggle{top:calc(50% + 2rem - 11px)}
+  .player-icon{width:90%;margin:0 auto}
+  .play-toggle{left:calc(45% + 1px)}
+  .env-card{left:30%;right:30%;bottom:22%;height:50%;border-radius:50%/38%}
+  .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
+  .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
+  .player-caption{margin-top:3rem}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
