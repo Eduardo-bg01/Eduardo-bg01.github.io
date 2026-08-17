@@ -48,5 +48,6 @@
   { "id": 47, "name": "Patricia Viniegra",              "party": 2 },
   { "id": 48, "name": "Paulina",                        "party": 2 },
   { "id": 49, "name": "Sandra",                         "party": 2 },
-  { "id": 50, "name": "Rivas Pamela",                   "party": 2 }
+  { "id": 50, "name": "Rivas Pamela",                   "party": 2 },
+  { "id": 51, "name": "Test Guest",                     "party": 2 }
 ]

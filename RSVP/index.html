@@ -230,7 +230,14 @@
 <!-- ===== SECTION: GALERÍA ===== -->
 <section id="galeria" class="fade-section">
 <div class="section-inner">
-  <audio controls src="assets/lovely-mess.mp3" preload="none" style="display:block;margin:0 auto 2rem"></audio>
+  <div class="custom-player" style="margin:0 auto 2rem;text-align:center">
+    <button class="play-toggle" aria-label="Play/Pause" style="background:none;border:0;cursor:pointer;padding:0.5rem">
+      <img class="play-icon" src="assets/Icons/play.png" alt="" style="width:2.5rem;height:2.5rem" />
+      <img class="pause-icon" src="assets/Icons/pause.png" alt="" style="width:2.5rem;height:2.5rem;display:none" />
+    </button>
+    <img src="assets/Icons/music_con.png" alt="Música" style="width:4rem;height:4rem;margin:0 auto" />
+  </div>
+  <audio id="bg-music" src="assets/lovely-mess.mp3" preload="none" style="display:none"></audio>
   <div class="polaroid-carousel" id="polaroid-carousel">
     <figure class="polaroid"><img src="assets/polaroid/2018.jpg" alt="Eduardo y Natalia 2018" loading="lazy" decoding="async" /><figcaption>2018</figcaption></figure>
     <figure class="polaroid"><img src="assets/polaroid/2019.jpg" alt="Eduardo y Natalia 2019" loading="lazy" decoding="async" /><figcaption>2019</figcaption></figure>

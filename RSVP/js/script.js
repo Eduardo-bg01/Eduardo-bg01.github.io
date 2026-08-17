@@ -213,6 +213,19 @@ if (envelope) {
   setInterval(updateCountdown, 1000);
 })();
 
+// ========== MUSIC PLAYER ==========
+(function () {
+  const audio = document.getElementById('bg-music');
+  const btn = document.querySelector('.play-toggle');
+  if (!audio || !btn) return;
+  const playIcon = btn.querySelector('.play-icon');
+  const pauseIcon = btn.querySelector('.pause-icon');
+  btn.addEventListener('click', () => {
+    if (audio.paused) { audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block'; }
+    else { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
+  });
+})();
+
 // ========== INIT ==========
 (async function init() {
   try {
