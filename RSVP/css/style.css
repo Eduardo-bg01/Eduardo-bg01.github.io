@@ -367,7 +367,7 @@ section[id]{scroll-margin-top:6rem}
   color:#41001c;
 }
 .dresscode-illustrations{
-  width:min(100%,30rem);
+  width:min(100%,38rem);
   margin-inline:auto;
 }
 .dresscode-illustrations img{
@@ -603,11 +603,16 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
+  .play-toggle{top:calc(50% + 2rem - 2px)}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
+  .hero{overflow:visible}
+  .invitation-pass .sobre-layer{inset:-5%}
+  .invitation-pass{margin:0 auto}
   .dresscode-heading{font-size:clamp(1.75rem,4vw,2.75rem)}
   .dresscode-subtitle{font-size:1.25rem}
+  .dresscode-illustrations{width:min(100%,42rem)}
 }
 
 /* portrait tablets (iPad Pro / split view) get the centered column hero too */
@@ -617,6 +622,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .invitation-main{width:min(100%,24rem);order:-1;position:relative;z-index:1}
   .invitation-pass,.invitation-details{width:min(39rem,92vw)}
   .invitation-pass{position:relative;z-index:2}
+  .invitation-pass .sobre-layer{inset:-7%;left:50%;transform:translateX(-50%);width:114%}
   .invitation-details img{width:60%}
 }
 
