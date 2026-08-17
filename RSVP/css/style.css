@@ -202,7 +202,7 @@ ul{list-style:none}
   background:#41001c;
   opacity:0.9;
   border:1px solid rgba(255,255,255,0.3);
-  border-radius:50%/25%;
+  border-radius:50%;
   box-shadow:0 8px 24px rgba(0,0,0,0.1);
   padding:0.75rem 0.5rem;
 }
@@ -650,7 +650,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .play-toggle{top:calc(50% + 2rem - 11px)}
   .player-icon{width:103.5%;margin:0 auto}
   .play-toggle{left:calc(45% + 1px)}
-  .env-card{left:30%;right:30%;bottom:22%;height:50%;border-radius:50%/25%}
+  .env-card{left:30%;right:30%;bottom:20%;height:48%;border-radius:50%}
   .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
   .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
   .player-caption{margin-top:3rem}
