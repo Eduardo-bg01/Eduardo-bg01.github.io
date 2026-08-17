@@ -192,7 +192,7 @@ ul{list-style:none}
   left:24%;
   right:24%;
   bottom:14%;
-  height:72%;
+  height:78%;
   z-index:2;
   display:flex;
   flex-direction:column;
@@ -202,13 +202,13 @@ ul{list-style:none}
   background:#41001c;
   opacity:0.9;
   border:1px solid rgba(255,255,255,0.3);
-  border-radius:50%/38%;
+  border-radius:50%/25%;
   box-shadow:0 8px 24px rgba(0,0,0,0.1);
   padding:0.75rem 0.5rem;
 }
 .env-card .text-label{font-size:0.75rem;letter-spacing:0.18em}
-.env-card .text-display-lg{font-size:clamp(3.5rem,9vw,6rem)}
-.env-card .text-display-md{font-size:clamp(1.4rem,3vw,2rem)}
+.env-card .text-display-lg{font-size:clamp(4.5rem,12vw,8rem)}
+.env-card .text-display-md{font-size:clamp(0.9rem,2vw,1.2rem)}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
@@ -439,7 +439,7 @@ section[id]{scroll-margin-top:6rem}
   align-self:start;
   justify-self:center;
   text-align:center;z-index:2;pointer-events:none;
-  display:flex;flex-direction:column;gap:0.15rem;
+  display:flex;flex-direction:column;gap:0.15rem;margin-top:4rem;
 }
 .player-caption-title{
   font-family:"Playfair Display",Georgia,serif;font-weight:700;
