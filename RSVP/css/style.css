@@ -603,13 +603,15 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 2rem - 2px)}
+  .play-toggle{top:calc(50% + 2rem - 4px)}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
   .hero{overflow:visible}
   .invitation-pass .sobre-layer{inset:-5%}
   .invitation-pass{margin:0 auto}
+  .env-card{left:10%;right:30%}
+  .invitation-pass .rsvp-strip{left:10%;width:40%}
   .dresscode-heading{font-size:clamp(1.75rem,4vw,2.75rem)}
   .dresscode-subtitle{font-size:1.25rem}
   .dresscode-illustrations{width:min(100%,42rem)}
