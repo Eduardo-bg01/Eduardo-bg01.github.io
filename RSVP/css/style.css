@@ -414,7 +414,7 @@ section[id]{scroll-margin-top:6rem}
 .play-toggle{
   position:absolute;
   top:calc(50% + 2rem + 1px);
-  left:calc(50% + 3px);
+  left:calc(50% + 1px);
   transform:translate(-50%,-50%);
   width:auto;
   height:auto;
