@@ -562,21 +562,24 @@ footer .rsvp-link{
 footer .rsvp-link:hover{background:#611031;color:#fff}
 
 /* === RSVP OVAL === */
-#rsvp-oval{
-  background:#41001c;
-  border-radius:60%;
-  width:90%;
-  max-width:20rem;
-  aspect-ratio:200/270;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:1.5rem 2rem;
-  border:none;
-  box-shadow:0 8px 30px rgba(65,0,28,0.3);
-  margin:0 auto;
+#rsvp-oval {
+  background: #41001c;
+  border-radius: 50%;
+  width: 90%;
+  max-width: 20rem;
+  aspect-ratio: 200 / 270;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(65, 0, 28, 0.3);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 #rsvp-oval *{color:#fff}
 #rsvp-oval .rsvp-no{border:1px solid rgba(255,255,255,0.5);background:transparent;color:#fff;transition:0.2s}
