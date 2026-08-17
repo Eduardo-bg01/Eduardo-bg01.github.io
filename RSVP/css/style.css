@@ -33,7 +33,6 @@ ul{list-style:none}
 
 /* === COLORS === */
 .text-primary{color:#41001c}
-.text-secondary{color:#7c5726}
 .text-on-surface-variant{color:#544246}
 .text-on-primary{color:#ffffff}
 
@@ -41,32 +40,25 @@ ul{list-style:none}
 .bg-surface{background-color:#fff8f8}
 
 .border-outline-variant{border-color:#d9c0c5}
-.text-on-primary\/30{color:rgba(255,255,255,0.3)}
 /* === LAYOUT === */
 .flex{display:flex}
 .flex-col{flex-direction:column}
 .flex-wrap{flex-wrap:wrap}
 .items-center{align-items:center}
 .items-start{align-items:flex-start}
-.items-end{align-items:flex-end}
 .justify-center{justify-content:center}
 .justify-between{justify-content:space-between}
 .gap-3{gap:0.75rem}
 .gap-4{gap:1rem}
 .gap-6{gap:1.5rem}
 .gap-8{gap:2rem}
-.grid{display:grid}
 .hidden{display:none}
 .relative{position:relative}
-.absolute{position:absolute}
 .fixed{position:fixed}
-.inset-0{inset:0}
 .inset-y-0{top:0;bottom:0}
 .left-0{left:0}
 .top-0{top:0}
-.bottom-0{bottom:0}
 .z-10{z-index:10}
-.z-20{z-index:20}
 .z-50{z-index:50}
 .z-\[100\]{z-index:100}
 .w-full{width:100%}
@@ -79,7 +71,6 @@ ul{list-style:none}
 .py-16{padding-top:4rem;padding-bottom:4rem}
 .p-8{padding:2rem}
 .pt-8{padding-top:2rem}
-.pb-4{padding-bottom:1rem}
 .mt-2{margin-top:0.5rem}
 .mt-4{margin-top:1rem}
 .mt-8{margin-top:2rem}
@@ -90,10 +81,8 @@ ul{list-style:none}
 
 /* === SHADOWS & BORDERS === */
 .shadow-lg{box-shadow:0 8px 24px rgba(0,0,0,0.12)}
-.shadow-xl{box-shadow:0 12px 36px rgba(0,0,0,0.15)}
 .shadow-2xl{box-shadow:0 20px 60px rgba(0,0,0,0.2)}
 .rounded-lg{border-radius:0.25rem}
-.rounded-sm{border-radius:0.125rem}
 .rounded-full{border-radius:9999px}
 .border{border:1px solid}
 .border-t{border-top:1px solid}
@@ -107,6 +96,8 @@ ul{list-style:none}
 .font-semibold{font-weight:600}
 
 /* === MISC === */
+.logo-sm{width:2.5rem;height:2.5rem}
+.navbar-inner{max-width:1200px;margin:0 auto;padding-top:1.25rem;padding-bottom:0.5rem}
 .-translate-x-full{transform:translateX(-100%)}
 .hover\:text-primary:hover{color:#41001c}
 .material-symbols,.material-symbols-outlined{
@@ -187,33 +178,31 @@ ul{list-style:none}
 .sobre-low{z-index:4;opacity:1}
 .sobre-upper{z-index:1}
 /* invitación (tarjeta) escondida dentro del sobre; hover la asoma, .open la saca completa */
-.env-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 46%;
-  aspect-ratio: 200 / 270;
-  height: auto;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.15rem;
-  background: #41001c;
-  opacity: 0.9;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  padding: 0.75rem 0.5rem;
+.env-card{
+  position:absolute;
+  left:24%;
+  right:24%;
+  bottom:14%;
+  height:78%;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:0.15rem;
+  background:#41001c;
+  opacity:0.9;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:50%/25%;
+  box-shadow:0 8px 24px rgba(0,0,0,0.1);
+  padding:0.75rem 0.5rem;
 }
 .env-card .text-label{font-size:0.75rem;letter-spacing:0.18em}
 .env-card .text-display-lg{font-size:clamp(4.5rem,12vw,8rem)}
 .env-card .text-display-md{font-size:clamp(0.9rem,2vw,1.2rem)}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
-.invitation-pass:hover .env-card{transform: translate(-50%, calc(-50% - 52%));}
-.invitation-pass.open .env-card{ transform: translate(-50%, calc(-50% - 100%));}
+.invitation-pass:hover .env-card{transform:translateY(-52%)}
+.invitation-pass.open .env-card{transform:translateY(-100%)}
 .invitation-pass .rsvp-strip{
   position:absolute;
   left:30%;
@@ -553,6 +542,7 @@ input,select{
 #rsvp-party-count option{padding:0.5rem}
 
 /* === FOOTER === */
+footer{border-top:1px solid rgba(217,192,197,0.4)}
 footer a{transition:color 0.2s}
 footer.py-16{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 footer .rsvp-link{
@@ -627,7 +617,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
   .play-toggle{top:calc(50% + 2rem - 11px)}
-  .player-icon{width:115%;justify-self:center;transform:translateX(-2rem)}
+  .player-icon{width:115%;justify-self:center;transform:translateX(-1rem)}
   .play-toggle{left:calc(45% + 1px)}
   .env-card{left:33%;right:33%;bottom:18%;height:57%;border-radius:60%}
   .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}

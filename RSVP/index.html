@@ -25,10 +25,10 @@
 
 <!-- ===== NAVBAR ===== -->
 <header class="fixed top-0 w-full z-50" id="navbar">
-  <div class="flex justify-between items-center w-full px-6" style="max-width:1200px;margin:0 auto;padding-top:1.25rem;padding-bottom:0.5rem">
+  <div class="flex justify-between items-center w-full px-6 navbar-inner">
     <div class="flex items-center gap-3">
       <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem">menu</button>
-      <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
+      <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
     </div>
     <nav class="hidden md:flex items-center nav-centered" style="gap:3rem">
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
@@ -43,7 +43,7 @@
 <aside class="fixed inset-y-0 left-0 z-[100] bg-surface border-r border-outline-variant shadow-2xl -translate-x-full" id="side-drawer" style="width:20rem">
 <div class="p-8 h-full flex flex-col">
   <div class="flex justify-between items-start mb-10">
-     <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
+     <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
     <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer">close</button>
   </div>
   <nav class="flex flex-col gap-6">
@@ -53,7 +53,7 @@
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-outline-variant" style="border-top-color:rgba(217,192,197,0.3)">
-     <img style="width:2.5rem;height:2.5rem" src="assets/Icons/logo.png" alt="Logo" />
+     <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
     <p class="font-label text-center text-on-surface-variant mt-2" style="font-size:10px;letter-spacing:0.3em">23 OCT 2026</p>
   </div>
 </div>
@@ -80,12 +80,8 @@
 
     <!-- Main invitation (envelope) -->
     <div class="invitation-main">
-      <div class="relative" style="aspect-ratio:4/5;display:flex;align-items:center;justify-content:center">
-        <div class="relative" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">
-          <div class="invitation-image-wrap relative z-10">
-            <img src="assets/invitacion_wed.png" alt="Invitación de boda" style="width:100%;height:auto;display:block" />
-          </div>
-        </div>
+      <div class="invitation-image-wrap relative z-10">
+        <img src="assets/invitacion_wed.png" alt="Invitación de boda" style="width:100%" />
       </div>
     </div>
 
@@ -175,12 +171,10 @@
       <h3 class="font-label text-label text-primary info-title">Regalos</h3>
       <p class="text-body-md text-on-surface-variant">Puedes ver nuestra lista de regalos en:</p>
       <a class="map-link" href="https://natbynat.my.canva.site" target="_blank" rel="noopener noreferrer">VER LISTA DE REGALOS</a>
-      <p></p>
       <p class="text-body-md text-on-surface-variant"><b>Eduardo Beltran Garcia</b></p>
       <p class="text-body-md text-on-surface-variant">Numero de tarjeta BBVA:</p>
       <p class="text-body-md text-on-surface-variant"><b>4152 3141 6673 7000</b></p>
       <p class="text-body-md text-on-surface-variant">Venmo: @nataliatrevini</p>
-      <p></p>
       <p class="text-body-md text-on-surface-variant">(Efectivo Preferido)</p>
     </div>
     <div class="info-block">
@@ -220,7 +214,6 @@
   <div class="dresscode-illustrations">
     <img src="assets/dresscode.PNG" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
   </div>
-  <p></p>
   <p class="text-body-md italic text-on-surface-variant text-center mt-10">
     Dejemos el color Blanco, Beige, Ivory y derivados para los novios.
   </p>
@@ -274,7 +267,7 @@
 </main>
 
 <!-- ===== FOOTER ===== -->
-<footer class="py-16 flex flex-col items-center text-center" style="border-top:1px solid rgba(217,192,197,0.4)">
+<footer class="py-16 flex flex-col items-center text-center">
   <p class="text-body-md text-on-surface-variant mt-4">23 de Octubre de 2026</p>
     <p class="text-body-md text-on-surface-variant mt-1">Mexicali, Baja California</p>
   <div class="flex gap-8 mt-4" style="flex-wrap:wrap;justify-content:center">
