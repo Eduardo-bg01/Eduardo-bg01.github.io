@@ -187,31 +187,33 @@ ul{list-style:none}
 .sobre-low{z-index:4;opacity:1}
 .sobre-upper{z-index:1}
 /* invitación (tarjeta) escondida dentro del sobre; hover la asoma, .open la saca completa */
-.env-card{
-  position:absolute;
-  left:24%;
-  right:24%;
-  bottom:14%;
-  height:78%;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:0.15rem;
-  background:#41001c;
-  opacity:0.9;
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:50%;
-  box-shadow:0 8px 24px rgba(0,0,0,0.1);
-  padding:0.75rem 0.5rem;
+.env-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46%;
+  aspect-ratio: 200 / 270;
+  height: auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  background: #41001c;
+  opacity: 0.9;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0.5rem;
 }
 .env-card .text-label{font-size:0.75rem;letter-spacing:0.18em}
 .env-card .text-display-lg{font-size:clamp(4.5rem,12vw,8rem)}
 .env-card .text-display-md{font-size:clamp(0.9rem,2vw,1.2rem)}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
-.invitation-pass:hover .env-card{transform:translateY(-52%)}
-.invitation-pass.open .env-card{transform:translateY(-100%)}
+.invitation-pass:hover .env-card{transform: translate(-50%, calc(-50% - 52%));}
+.invitation-pass.open .env-card{ transform: translate(-50%, calc(-50% - 100%));}
 .invitation-pass .rsvp-strip{
   position:absolute;
   left:30%;
@@ -625,9 +627,9 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
   .play-toggle{top:calc(50% + 2rem - 11px)}
-  .player-icon{width:115%;justify-self:center}
+  .player-icon{width:115%;justify-self:center;transform:translateX(-2rem)}
   .play-toggle{left:calc(45% + 1px)}
-  .env-card{left:33%;right:33%;bottom:18%;height:55%;border-radius:60%}
+  .env-card{left:33%;right:33%;bottom:18%;height:57%;border-radius:60%}
   .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
   .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
   .player-caption{margin-top:3rem}
