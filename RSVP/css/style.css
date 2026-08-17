@@ -654,7 +654,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
   .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
   .player-caption{margin-top:3rem}
-  .custom-player{width:90%;margin:0 auto}
+  .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
