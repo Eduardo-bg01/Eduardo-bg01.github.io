@@ -627,11 +627,12 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
   .play-toggle{top:calc(50% + 2rem - 11px)}
-  .player-icon{width:115%;justify-self:center;transform:translateX(-2rem)}
+  .player-icon{width:115%;justify-self:center;transform:translateX(-4rem)}
   .play-toggle{left:calc(45% + 1px)}
-  .env-card{left:33%;right:33%;bottom:18%;height:57%;border-radius:60%}
-  .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
-  .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
+  .env-card{left:30%;right:30%;bottom:18%;height:57%;border-radius:60%}
+  .env-card .text-label{font-size:0.6rem;letter-spacing:0.15em}
+  .env-card .text-display-lg{font-size:clamp(3rem,9vw,5.5rem)}
+  .env-card .text-display-md{font-size:clamp(0.7rem,1.6vw,0.9rem)}
   .player-caption{margin-top:3rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
 }
