@@ -561,32 +561,6 @@ footer .rsvp-link{
 }
 footer .rsvp-link:hover{background:#611031;color:#fff}
 
-/* === RSVP OVAL === */
-#rsvp-oval {
-  background: #41001c;
-  border-radius: 50%;
-  width: 90%;
-  max-width: 20rem;
-  aspect-ratio: 200 / 270;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 8px 30px rgba(65, 0, 28, 0.3);
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-#rsvp-oval *{color:#fff}
-#rsvp-oval .rsvp-no{border:1px solid rgba(255,255,255,0.5);background:transparent;color:#fff;transition:0.2s}
-#rsvp-oval .rsvp-no:hover{background:#fff;color:#41001c}
-#rsvp-oval select{border:1px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.1);color:#fff}
-#rsvp-oval div[style*="height:1px"]{background:rgba(255,255,255,0.3) !important}
-
 /* === RESPONSIVE === */
 @media(max-width:1024px){
   .events{grid-template-columns:repeat(3,1fr);row-gap:3rem}
@@ -651,9 +625,9 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
   .play-toggle{top:calc(50% + 2rem - 11px)}
-  .player-icon{width:115%;margin:0 auto}
+  .player-icon{width:115%;justify-self:center}
   .play-toggle{left:calc(45% + 1px)}
-  .env-card{left:30%;right:30%;bottom:20%;height:48%;border-radius:50%}
+  .env-card{left:33%;right:33%;bottom:18%;height:55%;border-radius:60%}
   .env-card .text-display-lg{font-size:clamp(4rem,11vw,7rem)}
   .env-card .text-display-md{font-size:clamp(0.8rem,1.8vw,1rem)}
   .player-caption{margin-top:3rem}
