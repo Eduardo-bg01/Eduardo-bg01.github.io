@@ -175,7 +175,7 @@ ul{list-style:none}
 .invitation-pass{
   position:relative;
   display:block;
-  width:min(11rem,24vw);
+  width:min(39rem,57vw);
   text-align:center;
   aspect-ratio:3300/2550;
   transition:transform 0.2s;
@@ -183,15 +183,15 @@ ul{list-style:none}
 }
 .invitation-pass:hover{transform:translateY(-2px)}
 .sobre-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
-.sobre-low{z-index:1}
-.sobre-upper{z-index:4;clip-path:inset(0 0 35% 0)}
+.sobre-low{z-index:4}
+.sobre-upper{z-index:1}
 /* invitación (tarjeta) escondida dentro del sobre; hover la asoma, .open la saca completa */
 .env-card{
   position:absolute;
-  left:15%;
-  right:15%;
-  top:40%;
-  bottom:10%;
+  left:10%;
+  right:10%;
+  top:5%;
+  bottom:12%;
   z-index:2;
   display:flex;
   flex-direction:column;
@@ -212,15 +212,15 @@ ul{list-style:none}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
 .invitation-pass .rsvp-strip{
   position:absolute;
-  left:0.625rem;
-  right:0.625rem;
+  left:15%;
+  width:70%;
   bottom:0.75rem;
   z-index:3;
 }
 .rsvp-strip{
   background:#41001c;
   color:#ffffff;
-  border-radius:0.25rem;
+  border-radius:9999px;
   padding:0.85rem 0.75rem;
   font-size:0.65rem;
   letter-spacing:0.25em;
@@ -409,7 +409,7 @@ section[id]{scroll-margin-top:6rem}
 }
 .play-toggle{
   position:absolute;
-  top:calc(50% + 2rem + 3px);
+  top:calc(50% + 2rem + 1px);
   left:50%;
   transform:translate(-50%,-50%);
   width:auto;
@@ -556,7 +556,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
   .invitation-image-wrap{width:98%}
   .invitation-pass,.invitation-details{
-    width:min(10rem,60vw);
+    width:min(35rem,92vw);
   }
   .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
   .invitation-details img{width:60%}
@@ -613,7 +613,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .hero{padding-top:6.5rem}
   .hero-composition{flex-direction:column;gap:2rem}
   .invitation-main{width:min(100%,24rem);order:-1;position:relative;z-index:1}
-  .invitation-pass,.invitation-details{width:min(12rem,60vw)}
+  .invitation-pass,.invitation-details{width:min(39rem,92vw)}
   .invitation-pass{position:relative;z-index:2}
   .invitation-details img{width:60%}
 }
