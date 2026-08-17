@@ -265,6 +265,7 @@ section[id]{scroll-margin-top:6rem}
   width:min(100% - 3rem,1200px);
   margin-inline:auto;
 }
+#galeria{padding-block:clamp(1rem,2vw,1.5rem)}
 .section-title{
   font-size:clamp(1.75rem,4vw,2.75rem);
   font-weight:500;
@@ -401,7 +402,7 @@ section[id]{scroll-margin-top:6rem}
   position:relative;
   width:95%;
   max-width:40rem;
-  margin:0 auto 2rem;
+  margin:0 auto 0.5rem;
 }
 .player-icon{
   width:100%;
@@ -428,6 +429,19 @@ section[id]{scroll-margin-top:6rem}
 .play-toggle:hover{transform:translate(-50%,-50%) scale(1.1)}
 .play-toggle:active{transform:translate(-50%,-50%) scale(0.95)}
 .play-icon,.pause-icon{width:clamp(12rem,34vw,20rem);height:auto}
+.player-caption{
+  position:absolute;top:8%;left:50%;transform:translateX(-50%);
+  text-align:center;z-index:2;pointer-events:none;
+  display:flex;flex-direction:column;gap:0.15rem;
+}
+.player-caption-title{
+  font-family:"Playfair Display",Georgia,serif;font-weight:700;
+  font-size:clamp(0.85rem,2.2vw,1.3rem);color:#41001c;
+}
+.player-caption-sub{
+  font-family:Montserrat,Helvetica,sans-serif;font-style:italic;
+  font-size:clamp(0.55rem,1.4vw,0.8rem);color:#41001c;opacity:0.85;
+}
 .pause-icon{display:none}
 
 /* === GALLERY (polaroids) === */
@@ -603,7 +617,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 2rem - 4px)}
+  .play-toggle{top:calc(50% + 2rem - 7px)}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
