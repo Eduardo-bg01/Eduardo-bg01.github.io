@@ -430,7 +430,7 @@ section[id]{scroll-margin-top:6rem}
 .play-toggle:active{transform:translate(-50%,-50%) scale(0.95)}
 .play-icon,.pause-icon{width:clamp(12rem,34vw,20rem);height:auto}
 .player-caption{
-  position:absolute;top:8%;left:50%;transform:translateX(-50%);
+  position:absolute;top:3%;left:50%;transform:translateX(-50%);
   text-align:center;z-index:2;pointer-events:none;
   display:flex;flex-direction:column;gap:0.15rem;
 }
@@ -448,7 +448,7 @@ section[id]{scroll-margin-top:6rem}
 .polaroid-carousel{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:2rem;
+  gap:1.25rem;
   align-items:center;
   touch-action:pan-y; /* horizontal drags stay in our hands, vertical page scroll still works */
 }
@@ -617,7 +617,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 2rem - 7px)}
+  .play-toggle{top:calc(50% + 2rem - 9px)}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
