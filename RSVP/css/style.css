@@ -399,12 +399,14 @@ section[id]{scroll-margin-top:6rem}
 
 /* === CUSTOM MUSIC PLAYER === */
 .custom-player{
+  display:grid;
   position:relative;
   width:95%;
   max-width:40rem;
   margin:0 auto 0.5rem;
 }
 .player-icon{
+  grid-area:1/1;
   width:100%;
   height:auto;
   display:block;
@@ -412,7 +414,7 @@ section[id]{scroll-margin-top:6rem}
 .play-toggle{
   position:absolute;
   top:calc(50% + 2rem + 1px);
-  left:50%;
+  left:calc(50% + 3px);
   transform:translate(-50%,-50%);
   width:auto;
   height:auto;
@@ -430,7 +432,11 @@ section[id]{scroll-margin-top:6rem}
 .play-toggle:active{transform:translate(-50%,-50%) scale(0.95)}
 .play-icon,.pause-icon{width:clamp(12rem,34vw,20rem);height:auto}
 .player-caption{
-  position:absolute;top:3%;left:50%;transform:translateX(-50%);
+  grid-area:1/1;
+  position:relative;
+  align-self:start;
+  justify-self:center;
+  margin-top:3%;
   text-align:center;z-index:2;pointer-events:none;
   display:flex;flex-direction:column;gap:0.15rem;
 }
@@ -617,7 +623,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 2rem - 9px)}
+  .play-toggle{top:calc(50% + 2rem - 11px)}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
