@@ -184,14 +184,14 @@ ul{list-style:none}
 .invitation-pass:hover{transform:translateY(-2px)}
 .sobre-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
 .sobre-low{z-index:1}
-.sobre-upper{z-index:4;clip-path:inset(0 0 45% 0)}
+.sobre-upper{z-index:4;clip-path:inset(0 0 35% 0)}
 /* invitación (tarjeta) escondida dentro del sobre; hover la asoma, .open la saca completa */
 .env-card{
   position:absolute;
   left:15%;
   right:15%;
-  top:30%;
-  bottom:18%;
+  top:40%;
+  bottom:10%;
   z-index:2;
   display:flex;
   flex-direction:column;
@@ -208,7 +208,7 @@ ul{list-style:none}
   transition:transform 0.45s cubic-bezier(0.22,0.97,0.36,1);
 }
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
-.invitation-pass:hover .env-card{transform:translateY(-52%)}
+.invitation-pass:hover .env-card{transform:translateY(-45%)}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
 .invitation-pass .rsvp-strip{
   position:absolute;
@@ -298,6 +298,17 @@ section[id]{scroll-margin-top:6rem}
   height:auto;
   object-fit:contain;
   opacity:0.85;
+  filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px #fff) drop-shadow(2px 3px 4px rgba(65,0,28,0.2));
+  transition:transform 0.25s ease,filter 0.25s ease;
+}
+.event:nth-child(1) .event-icon img{transform:rotate(-3deg)}
+.event:nth-child(2) .event-icon img{transform:rotate(2deg)}
+.event:nth-child(3) .event-icon img{transform:rotate(-1deg)}
+.event:nth-child(4) .event-icon img{transform:rotate(4deg)}
+.event:nth-child(5) .event-icon img{transform:rotate(-2deg)}
+.event-icon img:hover{
+  transform:scale(1.08) rotate(0deg) !important;
+  filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #fff) drop-shadow(3px 5px 6px rgba(65,0,28,0.3));
 }
 .event-name{
   font-size:0.75rem;
@@ -383,6 +394,40 @@ section[id]{scroll-margin-top:6rem}
   left:0;
   color:#D9AA71;
 }
+
+/* === CUSTOM MUSIC PLAYER === */
+.custom-player{
+  position:relative;
+  width:95%;
+  max-width:40rem;
+  margin:0 auto 2rem;
+}
+.player-icon{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.play-toggle{
+  position:absolute;
+  top:calc(50% + 2rem + 3px);
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:auto;
+  height:auto;
+  border-radius:0;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  transition:transform 0.2s ease;
+}
+.play-toggle:hover{transform:translate(-50%,-50%) scale(1.1)}
+.play-toggle:active{transform:translate(-50%,-50%) scale(0.95)}
+.play-icon,.pause-icon{width:clamp(12rem,34vw,20rem);height:auto}
+.pause-icon{display:none}
 
 /* === GALLERY (polaroids) === */
 .polaroid-carousel{
