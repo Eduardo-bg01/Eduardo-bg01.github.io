@@ -417,7 +417,7 @@ section[id]{scroll-margin-top:6rem}
 .play-toggle{
   position:absolute;
   top:calc(50% + 1rem + 8px);
-  left:calc(50% - 3rem + 2px);
+  left:calc(50% - 3rem);
   transform:translate(-50%,-50%);
   width:auto;
   height:auto;
@@ -441,7 +441,7 @@ section[id]{scroll-margin-top:6rem}
   align-self:start;
   justify-self:center;
   text-align:left;z-index:2;pointer-events:none;
-  display:flex;flex-direction:column;gap:0.15rem;margin-top:5rem;margin-left:3rem;
+  display:flex;flex-direction:column;gap:0.15rem;margin-top:calc(5rem - 4px);margin-left:3rem;
 }
 .player-caption-title{
   font-family:Montserrat,Helvetica,sans-serif;font-weight:700;
@@ -627,14 +627,14 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 5px)}
+  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 3px)}
   .player-icon{width:115%;justify-self:center;margin-left:-2rem}
-  .play-toggle{left:calc(45% + 5px)}
+  .play-toggle{left:calc(45% + 3px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.6rem}
   .env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(7rem,21vw,10rem)}
   .env-card .text-display-md{font-family:"Great Vibes",cursive;font-size:0.8rem}
-  .player-caption{margin-top:4rem;margin-left:4rem}
+  .player-caption{margin-top:calc(4rem - 4px);margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
 }
 
