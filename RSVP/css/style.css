@@ -204,7 +204,7 @@ ul{list-style:none}
   box-sizing:border-box;
 }
 .env-card .text-label{font-size:0.6rem;letter-spacing:0.18em}
-.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(4.5rem,10vw,8rem)}
+.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(5rem,11vw,8.8rem)}
 .env-card .text-display-md{font-size:0.6rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
@@ -407,7 +407,7 @@ section[id]{scroll-margin-top:6rem}
 }
 .player-icon{
   grid-area:1/1;
-  width:100%;
+  width:110%;
   height:auto;
   display:block;
   margin-left:-3rem;
