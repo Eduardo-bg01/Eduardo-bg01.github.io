@@ -191,24 +191,24 @@ ul{list-style:none}
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
+  justify-content:start;
   text-align:center;
-  gap:0.05rem;
+  gap:0;
   background:#41001c;
   color:#ffffff;
   border:none;
   box-shadow:0 8px 30px rgba(65,0,28,0.3);
-  padding:1rem 1.5rem;
+  padding:1.25rem 1.5rem;
   margin:0 auto;
   overflow:hidden;
   box-sizing:border-box;
 }
-.env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em}
-.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(7rem,15vw,11rem)}
+.env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em;margin-top:-4px}
+.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(7rem,15vw,11rem);margin-top:-6px}
 .env-card .text-display-md{font-family:"Great Vibes",cursive;font-size:0.9rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
-#invite-people{margin-top:-10px}
-#invite-name{margin-top:4px;padding:0 1rem}
+#invite-people{margin-top:-6px;padding:0 0.5rem}
+#invite-name{margin-top:8px;padding:0 1rem}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
 .invitation-pass .rsvp-strip{
