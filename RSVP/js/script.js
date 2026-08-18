@@ -6,6 +6,9 @@ const invitePeople = document.getElementById('invite-people');
 // ========== UPDATE INVITATION CARD ==========
 function updateInvitation(guest) {
   inviteName.textContent = guest.name;
+  const nameLen = guest.name.length;
+  inviteName.style.fontSize = nameLen <= 10 ? '0.9rem' : nameLen <= 16 ? '0.75rem' : '0.6rem';
+  inviteName.style.fontFamily = '"Playfair Display", Georgia, serif';
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';
   const card = document.querySelector('.invitation-pass');
