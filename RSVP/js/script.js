@@ -1,98 +1,49 @@
-let GUESTS = [];
-let currentGuest = null;
-
 // ========== DOM REFS ==========
 const inviteName = document.getElementById('invite-name');
 const inviteCount = document.getElementById('invite-count');
 const invitePeople = document.getElementById('invite-people');
-const inviteGreeting = document.getElementById('invite-greeting');
-
-const rsvpNotFound = document.getElementById('rsvp-not-found');
-const rsvpFound = document.getElementById('rsvp-found');
-const rsvpGuestName = document.getElementById('rsvp-guest-name');
-const rsvpPartyInfo = document.getElementById('rsvp-party-info');
-const rsvpButtons = document.getElementById('rsvp-buttons');
-const rsvpResponse = document.getElementById('rsvp-response');
-const rsvpResponseText = document.getElementById('rsvp-response-text');
-const rsvpPartySelect = document.getElementById('rsvp-party-select');
-const rsvpPartyCount = document.getElementById('rsvp-party-count');
-
-// ========== FIND GUEST ==========
-function findGuestByName(name) {
-  const q = name.trim().toLowerCase();
-  let match = GUESTS.find(g => g.name.toLowerCase() === q);
-  if (!match) match = GUESTS.find(g => g.name.toLowerCase().includes(q));
-  return match || null;
-}
-
-function findGuestById(id) {
-  return GUESTS.find(g => g.id === parseInt(id)) || null;
-}
-
-// ========== SELECT GUEST ==========
-function selectGuest(id) {
-  const guest = GUESTS.find(g => g.id === id);
-  if (!guest) return;
-  currentGuest = guest;
-  updateInvitation(guest);
-  updateRsvp(guest);
-}
 
 // ========== UPDATE INVITATION CARD ==========
 function updateInvitation(guest) {
-  inviteName.textContent = guest.name;
+  const raw = guest.name;
+  const parts = raw.split(/\s+[yY]\s+/);
+  if (parts.length > 1) {
+    inviteName.innerHTML = parts.join('<br>');
+    const longest = Math.max(...parts.map(p => p.length));
+    inviteName.style.fontSize = longest <= 8 ? '0.8rem' : longest <= 12 ? '0.65rem' : '0.5rem';
+  } else {
+    inviteName.textContent = raw;
+    inviteName.style.fontSize = raw.length <= 8 ? '0.85rem' : raw.length <= 14 ? '0.7rem' : '0.6rem';
+  }
+  inviteName.style.fontFamily = '"Playfair Display", Georgia, serif';
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';
-  const card = document.querySelector('.invitation-label');
+  const card = document.querySelector('.invitation-pass');
   card.style.animation = 'none';
   void card.offsetHeight;
   card.style.animation = 'slideUp 1.2s cubic-bezier(0.22, 0.97, 0.36, 1) forwards';
 }
 
-// ========== UPDATE RSVP ==========
-function updateRsvp(guest) {
-  rsvpNotFound.style.display = 'none';
-  rsvpFound.style.display = 'block';
-  rsvpResponse.style.display = 'none';
-  rsvpButtons.style.display = 'flex';
-  rsvpGuestName.textContent = guest.name;
-  const p = guest.party === 1 ? 'persona' : 'personas';
-  rsvpPartyInfo.textContent = `Invitación para ${guest.party} ${p}`;
-  if (guest.party > 1) {
-    rsvpPartySelect.style.display = 'block';
-    rsvpPartyCount.innerHTML = '';
-    for (let i = guest.party; i >= 1; i--) {
-      const opt = document.createElement('option');
-      opt.value = i;
-      opt.textContent = `${i} ${i === 1 ? 'persona' : 'personas'}`;
-      if (i === guest.party) opt.selected = true;
-      rsvpPartyCount.appendChild(opt);
-    }
-  } else {
-    rsvpPartySelect.style.display = 'none';
-  }
+// ========== REWRITE RSVP LINKS ==========
+function rewriteRsvpLinks(guest) {
+  document.querySelectorAll('.rsvp-link').forEach(a => {
+    a.href = `rsvp.html?id=${guest.id}`;
+  });
 }
 
-// ========== RSVP CONFIRM / DECLINE ==========
-document.querySelector('.rsvp-yes')?.addEventListener('click', function () {
-  if (!currentGuest) return;
-  const count = rsvpPartyCount.value ? parseInt(rsvpPartyCount.value) : currentGuest.party;
-  rsvpPartySelect.style.display = 'none';
-  rsvpButtons.style.display = 'none';
-  rsvpResponse.style.display = 'block';
-  const msg = count === 1 ? 'persona' : 'personas';
-  rsvpResponseText.textContent = `¡Qué emoción! ${currentGuest.name}, confirmamos ${count} ${msg}.`;
-  console.log('RSVP: CONFIRMED', { guest: currentGuest, attending: count });
-});
-
-document.querySelector('.rsvp-no')?.addEventListener('click', function () {
-  if (!currentGuest) return;
-  rsvpPartySelect.style.display = 'none';
-  rsvpButtons.style.display = 'none';
-  rsvpResponse.style.display = 'block';
-  rsvpResponseText.textContent = `${currentGuest.name}, lamentamos que no puedas acompañarnos.`;
-  console.log('RSVP: DECLINED', currentGuest);
-});
+// ========== NAVBAR HIDE ON SCROLL (desktop) ==========
+(function () {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (window.innerWidth >= 768) {
+      nav.classList.toggle('nav-hidden', y > lastY && y > 120);
+    }
+    lastY = y;
+  }, { passive: true });
+})();
 
 // ========== DRAWER LOGIC ==========
 document.getElementById('menu-toggle').addEventListener('click', () => {
@@ -112,49 +63,196 @@ document.querySelectorAll('#side-drawer a').forEach(a => {
   });
 });
 
-// ========== INTERSECTION OBSERVER FOR FADE-IN ==========
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+// ========== ENVELOPE: drag (touch) + tap (navigate) ==========
+const envelope = document.querySelector('.invitation-pass.rsvp-link');
+if (envelope) {
+  const card = envelope.querySelector('.env-card');
+  const ENV_OUT = -100;
+
+  function navigate() {
+    envelope.classList.add('open');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(() => { window.location.href = envelope.href; }, reduced ? 0 : 700);
+  }
+
+  // true drags set dataset.dragged to suppress the click that follows
+  envelope.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (envelope.dataset.dragged) { delete envelope.dataset.dragged; return; }
+    navigate();
+  });
+
+  // ponytail: touchmove preventDefault (passive:false) is the real scroll-blocker; touch-action:none in CSS is a second layer.
+  function basePct() {
+    const m = getComputedStyle(card).transform;
+    if (m === 'none') return 0;
+    const y = parseFloat(m.split(',')[5]) || 0;
+    return card.offsetHeight ? (y / card.offsetHeight) * 100 : 0;
+  }
+  // resting position (what CSS gives without .open), used as the "in" snap target
+  function restPct() {
+    const wasOpen = envelope.classList.contains('open');
+    if (wasOpen) envelope.classList.remove('open');
+    const v = basePct();
+    if (wasOpen) envelope.classList.add('open');
+    return v;
+  }
+
+  let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
+  envelope.addEventListener('touchstart', e => {
+    delete envelope.dataset.dragged;
+    y0 = e.touches[0].clientY;
+    from = curPct = basePct();
+    home = restPct();
+    dragging = false;
+  }, { passive: true });
+  envelope.addEventListener('touchmove', e => {
+    if (y0 === null) return;
+    const dy = e.touches[0].clientY - y0;
+    if (!dragging && Math.abs(dy) < 10) return;
+    dragging = true;
+    e.preventDefault();
+    card.style.transition = 'none';
+    curPct = Math.max(ENV_OUT, Math.min(-15, from + (dy / card.offsetHeight) * 100));
+    card.style.transform = `translateY(${curPct}%)`;
+  }, { passive: false });
+  envelope.addEventListener('touchend', () => {
+    if (y0 === null) return;
+    y0 = null;
+    if (!dragging) return;
+    dragging = false;
+    envelope.dataset.dragged = '1';
+    const out = curPct <= -70;
+    card.style.transition = '';
+    card.style.transform = `translateY(${out ? ENV_OUT : home}%)`;
+    envelope.classList.toggle('open', out);
+    setTimeout(() => { card.style.transform = ''; }, 450);
+  });
+  envelope.addEventListener('touchcancel', () => {
+    y0 = null;
+    dragging = false;
+    card.style.transition = '';
+    card.style.transform = '';
+  });
+}
+
+// ========== POLAROID CAROUSEL (solo retrato) ==========
+(function () {
+  const carousel = document.getElementById('polaroid-carousel');
+  if (!carousel) return;
+  const items = Array.from(carousel.querySelectorAll('.polaroid'));
+  const mq = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
+  let idx = 0;
+
+  function render() {
+    items.forEach((el, i) => {
+      let off = (i - idx) % items.length;
+      if (off > 1) off -= items.length;
+      if (off < -1) off += items.length;
+      el.dataset.pos = off === -1 ? '-1' : off === 0 ? '0' : off === 1 ? '1' : 'away';
+    });
+  }
+
+  function apply() {
+    if (mq.matches) render();
+    else items.forEach(el => delete el.dataset.pos);
+  }
+
+  mq.addEventListener('change', apply);
+  apply();
+
+  // swipe flips photos, tap/click advances (portrait only)
+  // ponytail: touchmove preventDefault (passive:false) claims horizontal drags so the page can't slide; click covers taps + desktop.
+  let tx = null, ty = null, didSwipe = false;
+  carousel.addEventListener('touchstart', e => {
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    didSwipe = false;
+  }, { passive: true });
+  carousel.addEventListener('touchmove', e => {
+    if (tx === null) return;
+    const dx = e.touches[0].clientX - tx;
+    const dy = e.touches[0].clientY - ty;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+  }, { passive: false });
+  carousel.addEventListener('touchend', e => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    tx = ty = null;
+    if (!mq.matches) return;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      didSwipe = true;
+      idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length;
+      render();
+    }
+  }, { passive: true });
+  carousel.addEventListener('click', () => {
+    if (didSwipe) { didSwipe = false; return; }
+    if (mq.matches) {
+      idx = (idx + 1) % items.length;
+      render();
     }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
+})();
 
 // ========== COUNTDOWN TIMER ==========
-(function() {
-  const el = document.getElementById('countdown');
-  if (!el) return;
-  const target = new Date('2026-10-23T00:00:00');
-  const now = new Date();
-  const diff = target - now;
-  if (diff > 0) {
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    el.textContent = `FALTAN ${days} DÍAS`;
-  } else {
-    el.textContent = '¡HOY ES EL GRAN DÍA!';
+(function () {
+  // ponytail: fixed offset -07:00 (ceremonia 18:15 en Mexicali, oct 2026 = PDT)
+  const target = new Date('2026-10-23T18:15:00-07:00');
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minutesEl = document.getElementById('cd-minutes');
+  const secondsEl = document.getElementById('cd-seconds');
+  if (!daysEl) return;
+
+  function updateCountdown() {
+    let diff = target - Date.now();
+    if (diff < 0) diff = 0;
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
   }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+
+// ========== MUSIC PLAYER ==========
+(function () {
+  const audio = document.getElementById('bg-music');
+  const btn = document.querySelector('.play-toggle');
+  if (!audio || !btn) return;
+  const playIcon = btn.querySelector('.play-icon');
+  const pauseIcon = btn.querySelector('.pause-icon');
+  btn.addEventListener('click', () => {
+    if (audio.paused) { audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block'; }
+    else { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
+  });
 })();
 
 // ========== INIT ==========
 (async function init() {
   try {
-    const res = await fetch('assets/guests.json');
-    GUESTS = await res.json();
+    await loadGuests();
   } catch (e) {
     console.error('Failed to load guests.json:', e);
     return;
   }
 
-  // URL param auto-lookup
   const params = new URLSearchParams(window.location.search);
 
   const guestId = params.get('id');
   if (guestId) {
     const match = findGuestById(guestId);
     if (match) {
-      selectGuest(match.id);
+      updateInvitation(match);
+      rewriteRsvpLinks(match);
       return;
     }
   }
@@ -163,7 +261,8 @@ document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
   if (guestName) {
     const match = findGuestByName(guestName);
     if (match) {
-      selectGuest(match.id);
+      updateInvitation(match);
+      rewriteRsvpLinks(match);
     }
   }
 })();
