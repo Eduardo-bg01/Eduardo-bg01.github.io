@@ -203,9 +203,9 @@ ul{list-style:none}
   overflow:hidden;
   box-sizing:border-box;
 }
-.env-card .text-label{font-size:0.65rem;letter-spacing:0.18em}
-.env-card .text-display-lg{font-size:clamp(4rem,9vw,7rem)}
-.env-card .text-display-md{font-size:0.7rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
+.env-card .text-label{font-size:0.6rem;letter-spacing:0.18em}
+.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(4.5rem,10vw,8rem)}
+.env-card .text-display-md{font-size:0.6rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
@@ -442,11 +442,11 @@ section[id]{scroll-margin-top:6rem}
   display:flex;flex-direction:column;gap:0.15rem;margin-top:5rem;margin-left:3rem;
 }
 .player-caption-title{
-  font-family:"Playfair Display",Georgia,serif;font-weight:700;
-  font-size:clamp(0.85rem,2.2vw,1.3rem);color:#41001c;
+  font-family:Montserrat,Helvetica,sans-serif;font-weight:700;
+  font-size:clamp(1rem,2.8vw,1.6rem);color:#41001c;
 }
 .player-caption-sub{
-  font-family:Montserrat,Helvetica,sans-serif;font-style:italic;
+  font-family:Montserrat,Helvetica,sans-serif;
   font-size:clamp(0.55rem,1.4vw,0.8rem);color:#41001c;opacity:0.85;
 }
 .pause-icon{display:none}
@@ -625,12 +625,12 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 6px)}
+  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 5px)}
   .player-icon{width:115%;justify-self:center;margin-left:-2rem}
   .play-toggle{left:calc(45% + 5px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-size:0.55rem}
-  .env-card .text-display-lg{font-size:clamp(2.2rem,8vw,3.2rem)}
+  .env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(3.3rem,12vw,4.8rem)}
   .env-card .text-display-md{font-size:0.6rem}
   .player-caption{margin-top:4rem;margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
