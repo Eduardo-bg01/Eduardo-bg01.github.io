@@ -5,9 +5,16 @@ const invitePeople = document.getElementById('invite-people');
 
 // ========== UPDATE INVITATION CARD ==========
 function updateInvitation(guest) {
-  inviteName.textContent = guest.name;
-  const nameLen = guest.name.length;
-  inviteName.style.fontSize = nameLen <= 8 ? '0.85rem' : nameLen <= 14 ? '0.7rem' : nameLen <= 20 ? '0.55rem' : nameLen <= 25 ? '0.45rem' : '0.4rem';
+  const raw = guest.name;
+  const parts = raw.split(/\s+[yY]\s+/);
+  if (parts.length > 1) {
+    inviteName.innerHTML = parts.join('<br>');
+    const longest = Math.max(...parts.map(p => p.length));
+    inviteName.style.fontSize = longest <= 8 ? '0.8rem' : longest <= 12 ? '0.65rem' : '0.5rem';
+  } else {
+    inviteName.textContent = raw;
+    inviteName.style.fontSize = raw.length <= 8 ? '0.85rem' : raw.length <= 14 ? '0.7rem' : '0.6rem';
+  }
   inviteName.style.fontFamily = '"Playfair Display", Georgia, serif';
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';
