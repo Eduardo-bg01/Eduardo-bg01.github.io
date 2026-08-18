@@ -7,7 +7,7 @@ const invitePeople = document.getElementById('invite-people');
 function updateInvitation(guest) {
   inviteName.textContent = guest.name;
   const nameLen = guest.name.length;
-  inviteName.style.fontSize = nameLen <= 10 ? '0.9rem' : nameLen <= 16 ? '0.75rem' : '0.6rem';
+  inviteName.style.fontSize = nameLen <= 8 ? '0.85rem' : nameLen <= 14 ? '0.7rem' : nameLen <= 20 ? '0.55rem' : nameLen <= 25 ? '0.45rem' : '0.4rem';
   inviteName.style.fontFamily = '"Playfair Display", Georgia, serif';
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';

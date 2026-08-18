@@ -204,11 +204,11 @@ ul{list-style:none}
   box-sizing:border-box;
 }
 .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em}
-.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(10rem,21vw,16rem)}
+.env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(7rem,15vw,11rem)}
 .env-card .text-display-md{font-family:"Great Vibes",cursive;font-size:0.9rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 #invite-people{margin-top:-8px}
-#invite-name{margin-top:-8px}
+#invite-name{margin-top:-8px;padding:0 1rem}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
 .invitation-pass .rsvp-strip{
@@ -632,7 +632,7 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
   .play-toggle{left:calc(45% + 3px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.6rem}
-  .env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(7rem,21vw,10rem)}
+  .env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(5rem,15vw,7.5rem)}
   .env-card .text-display-md{font-family:"Great Vibes",cursive;font-size:0.8rem}
   .player-caption{margin-top:calc(4rem - 4px);margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
