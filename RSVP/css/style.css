@@ -207,6 +207,8 @@ ul{list-style:none}
 .env-card .text-display-lg{font-family:"Great Vibes",cursive;font-size:clamp(9rem,19vw,15rem)}
 .env-card .text-display-md{font-family:"Great Vibes",cursive;font-size:0.9rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
+#invite-people{margin-top:-4px}
+#invite-name{margin-top:-4px}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
 .invitation-pass.open .env-card{transform:translateY(-100%)}
 .invitation-pass .rsvp-strip{
