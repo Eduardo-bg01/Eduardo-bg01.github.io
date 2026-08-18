@@ -204,7 +204,7 @@ ul{list-style:none}
   box-sizing:border-box;
 }
 .env-card .text-label{font-size:0.85rem;letter-spacing:0.18em}
-.env-card .text-display-lg{font-size:clamp(3.5rem,8vw,6rem)}
+.env-card .text-display-lg{font-size:clamp(4rem,9vw,7rem)}
 .env-card .text-display-md{font-size:clamp(1rem,2.5vw,1.35rem);overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 .invitation-pass:hover .env-card{transform:translateY(-52%)}
@@ -414,7 +414,7 @@ section[id]{scroll-margin-top:6rem}
 }
 .play-toggle{
   position:absolute;
-  top:calc(50% + 2rem + 8px);
+  top:calc(50% + 1rem + 8px);
   left:calc(50% - 3rem + 2px);
   transform:translate(-50%,-50%);
   width:auto;
@@ -439,7 +439,7 @@ section[id]{scroll-margin-top:6rem}
   align-self:start;
   justify-self:center;
   text-align:left;z-index:2;pointer-events:none;
-  display:flex;flex-direction:column;gap:0.15rem;margin-top:6rem;margin-left:3rem;
+  display:flex;flex-direction:column;gap:0.15rem;margin-top:5rem;margin-left:3rem;
 }
 .player-caption-title{
   font-family:"Playfair Display",Georgia,serif;font-weight:700;
@@ -625,14 +625,14 @@ footer .rsvp-link:hover{background:#611031;color:#fff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 2rem + 2px);left:calc(45% + 6px)}
+  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 6px)}
   .player-icon{width:115%;justify-self:center;margin-left:-2rem}
   .play-toggle{left:calc(45% + 5px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-size:0.65rem}
-  .env-card .text-display-lg{font-size:clamp(1.8rem,7vw,2.8rem)}
+  .env-card .text-display-lg{font-size:clamp(2.2rem,8vw,3.2rem)}
   .env-card .text-display-md{font-size:clamp(0.7rem,2.2vw,0.9rem)}
-  .player-caption{margin-top:5rem;margin-left:4rem}
+  .player-caption{margin-top:4rem;margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
 }
 
