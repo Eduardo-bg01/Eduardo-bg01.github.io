@@ -148,7 +148,7 @@ ul{list-style:none}
   justify-content:center;
   background:#ffffff;
   overflow:hidden;
-  padding:7rem 1.5rem 4rem;
+  padding:5rem 1.5rem 2.5rem;
 }
 .hero-composition{
   position:relative;
@@ -156,12 +156,12 @@ ul{list-style:none}
   flex-direction:row;
   align-items:center;
   justify-content:center;
-  gap:clamp(1rem,4vw,3rem);
+  gap:clamp(0.5rem,2vw,1.5rem);
   width:min(100%,62rem);
 }
 .invitation-main{
   flex-shrink:0;
-  width:clamp(17rem,36vw,24rem);
+  width:clamp(20rem,42vw,32rem);
 }
 .invitation-image-wrap{width:17rem}
 
@@ -219,6 +219,7 @@ ul{list-style:none}
   width:40%;
   bottom:0.75rem;
   z-index:5;
+  text-align:center;
 }
 .rsvp-strip{
   background:#41001c;
@@ -343,7 +344,7 @@ section[id]{scroll-margin-top:6rem}
   background:linear-gradient(180deg,#fff8f8,#fdf4f5);
   box-shadow:0 12px 24px -8px rgba(65,0,28,0.22), 0 4px 8px rgba(65,0,28,0.06);
 }
-.info-icon{width:2.25rem;height:2.25rem;object-fit:contain;filter:drop-shadow(0.15rem 0.2rem 0.5rem rgba(65,0,28,0.15))}
+.info-icon{width:4rem;height:4rem;object-fit:contain;filter:drop-shadow(0.15rem 0.2rem 0.5rem rgba(65,0,28,0.15))}
 .info-title{
   letter-spacing:0.25em;
   font-size:0.8rem;
@@ -363,14 +364,14 @@ section[id]{scroll-margin-top:6rem}
   line-height:1.2;
 }
 .dresscode-subtitle{
-  font-size:1.25rem;
+  font-size:1.5rem;
   line-height:1.4;
   font-weight:600;
   letter-spacing:0.06em;
   color:#41001c;
 }
 .dresscode-illustrations{
-  width:min(100%,46rem);
+  width:min(100%,90vw);
   margin-inline:auto;
 }
 .dresscode-illustrations img{
@@ -382,12 +383,12 @@ section[id]{scroll-margin-top:6rem}
   max-width:32rem;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:1.5rem 2.5rem;
+  gap:2rem 3rem;
   text-align:center;
 }
 .dresscode-rules li{
   display:inline-block;
-  font-size:1rem;
+  font-size:1.2rem;
   letter-spacing:0.08em;
   color:#544246;
   position:relative;
@@ -398,7 +399,9 @@ section[id]{scroll-margin-top:6rem}
   position:absolute;
   left:0;
   color:#D9AA71;
+  font-size:1.4rem;
 }
+#dresscode .section-inner{width:min(100% - 2rem,72rem)}
 
 /* === CUSTOM MUSIC PLAYER === */
 .custom-player{
@@ -417,8 +420,8 @@ section[id]{scroll-margin-top:6rem}
 }
 .play-toggle{
   position:absolute;
-  top:calc(50% + 1rem + 15px);
-  left:calc(50% - 3rem - 3px);
+  top:calc(50% + 1rem + 19px);
+  left:calc(50% - 3rem - 1px);
   transform:translate(-50%,-50%);
   width:auto;
   height:auto;
@@ -512,6 +515,29 @@ section[id]{scroll-margin-top:6rem}
   align-items:center;
   justify-content:center;
 }
+/* === DESKTOP AUTO-CAROUSEL === */
+@keyframes polaroid-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+@media(min-width:1025px){
+  .polaroid-carousel{
+    display:flex;
+    gap:0.75rem;
+    overflow:hidden;
+    width:100%;
+    padding:1rem 0;
+    align-items:center;
+    animation:polaroid-scroll 28s linear infinite;
+  }
+  .polaroid{
+    flex:0 0 calc((100% - 3 * 0.75rem) / 4);
+    min-width:0;
+  }
+  .polaroid-carousel:hover{
+    animation-play-state:paused;
+  }
+}
 
 /* === COUNTDOWN === */
 .countdown-display{
@@ -577,12 +603,10 @@ footer{
 footer a{transition:color 0.2s}
 footer.py-10{padding-bottom:calc(2.5rem + env(safe-area-inset-bottom))}
 footer .rsvp-link{
-  background:#ffffff;
-  color:#41001c;
-  border-radius:9999px;
-  padding:0.6rem 1.6rem;
+  background:transparent;
+  color:#ffffff;
 }
-footer .rsvp-link:hover{background:#f6e9ee;color:#41001c}
+footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 
 /* === RESPONSIVE === */
 @media(max-width:1024px){
@@ -632,6 +656,7 @@ footer .rsvp-link:hover{background:#f6e9ee;color:#41001c}
     position:relative;
   }
   .info-grid{grid-template-columns:1fr;gap:1.5rem}
+  .info-icon{width:2.5rem;height:2.5rem}
   .polaroid-carousel{grid-template-columns:1fr;row-gap:3rem}
   .countdown-display{gap:1rem}
   .countdown-unit{min-width:3.5rem}
@@ -642,6 +667,7 @@ footer .rsvp-link:hover{background:#f6e9ee;color:#41001c}
   .countdown-unit{min-width:3rem}
   .dresscode-rules{gap:1rem 1.5rem}
   .dresscode-rules li{font-size:0.72rem;letter-spacing:0.08em}
+  .dresscode-rules li::before{font-size:0.9rem}
 }
 
 @media(max-width:768px) and (orientation:portrait){

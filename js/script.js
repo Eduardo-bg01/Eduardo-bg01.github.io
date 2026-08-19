@@ -194,6 +194,11 @@ if (envelope) {
       render();
     }
   });
+
+  // Desktop: clone items for seamless infinite scroll
+  if (window.innerWidth > 1024) {
+    items.forEach(el => carousel.appendChild(el.cloneNode(true)));
+  }
 })();
 
 // ========== COUNTDOWN TIMER ==========
