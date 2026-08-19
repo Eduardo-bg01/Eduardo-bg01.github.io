@@ -68,6 +68,7 @@ ul{list-style:none}
 .px-10{padding-left:2.5rem;padding-right:2.5rem}
 .py-3{padding-top:0.75rem;padding-bottom:0.75rem}
 .py-4{padding-top:1rem;padding-bottom:1rem}
+.py-10{padding-top:2.5rem;padding-bottom:2.5rem}
 .py-16{padding-top:4rem;padding-bottom:4rem}
 .p-8{padding:2rem}
 .pt-8{padding-top:2rem}
@@ -416,8 +417,8 @@ section[id]{scroll-margin-top:6rem}
 }
 .play-toggle{
   position:absolute;
-  top:calc(50% + 1rem + 8px);
-  left:calc(50% - 3rem);
+  top:calc(50% + 1rem + 9px);
+  left:calc(50% - 3rem - 1px);
   transform:translate(-50%,-50%);
   width:auto;
   height:auto;
@@ -434,7 +435,18 @@ section[id]{scroll-margin-top:6rem}
 }
 .play-toggle:hover{transform:translate(-50%,-50%) scale(1.1)}
 .play-toggle:active{transform:translate(-50%,-50%) scale(0.95)}
-.play-icon,.pause-icon{width:clamp(12rem,34vw,20rem);height:auto}
+.play-icon,.pause-icon{
+  --icon-size: clamp(12rem,34vw,20rem);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+/* Si aún notas micro-desalineación visual por padding interno del PNG,
+   descomenta y ajusta SOLO el icono necesario:
+   .pause-icon{ transform: translate(0.06rem,-0.04rem); }
+*/
 .player-caption{
   grid-area:1/1;
   position:relative;
@@ -483,6 +495,10 @@ section[id]{scroll-margin-top:6rem}
   object-fit:cover;
   background:#ffffff;
   display:block;
+}
+/* Foto 2020 (3ra polaroid): mover foco del recorte hacia la derecha */
+.polaroid:nth-of-type(3) img{
+  object-position:75% center;
 }
 .polaroid figcaption{
   font-family:Montserrat,Helvetica,sans-serif;
@@ -553,16 +569,20 @@ input,select{
 #rsvp-party-count option{padding:0.5rem}
 
 /* === FOOTER === */
-footer{border-top:1px solid rgba(217,192,197,0.4)}
-footer a{transition:color 0.2s}
-footer.py-16{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
-footer .rsvp-link{
+footer{
+  border-top:1px solid rgba(217,192,197,0.4);
   background:#41001c;
   color:#fff;
+}
+footer a{transition:color 0.2s}
+footer.py-10{padding-bottom:calc(2.5rem + env(safe-area-inset-bottom))}
+footer .rsvp-link{
+  background:#ffffff;
+  color:#41001c;
   border-radius:9999px;
   padding:0.6rem 1.6rem;
 }
-footer .rsvp-link:hover{background:#611031;color:#fff}
+footer .rsvp-link:hover{background:#f6e9ee;color:#41001c}
 
 /* === RESPONSIVE === */
 @media(max-width:1024px){
