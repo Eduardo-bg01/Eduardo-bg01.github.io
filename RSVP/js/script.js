@@ -15,7 +15,7 @@ function updateInvitation(guest) {
     inviteName.textContent = raw;
     inviteName.style.fontSize = raw.length <= 8 ? '0.85rem' : raw.length <= 14 ? '0.7rem' : '0.6rem';
   }
-  inviteName.style.fontFamily = '"Playfair Display", Georgia, serif';
+  inviteName.style.fontFamily = '"Source Serif 4", Georgia, serif';
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';
   const card = document.querySelector('.invitation-pass');
