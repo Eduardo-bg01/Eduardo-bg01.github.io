@@ -204,8 +204,8 @@ ul{list-style:none}
   overflow:hidden;
   box-sizing:border-box;
 }
-.env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em;margin-top:5px}
-.env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:150px;line-height:0.85;margin:-0.9rem 0 2.5rem;text-align:center;width:100%;transform:scaleY(1.5);transform-origin:center center}
+.env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em;margin-top:0}
+.env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:150px;line-height:0.85;margin:calc(-0.9rem - 5px) 0 2.5rem;text-align:center;width:100%;transform:scaleY(1.5);transform-origin:center center}
 .env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.9rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 #invite-people{margin-top:0;padding:0 0.5rem}
@@ -417,8 +417,8 @@ section[id]{scroll-margin-top:6rem}
 }
 .play-toggle{
   position:absolute;
-  top:calc(50% + 1rem + 13px);
-  left:calc(50% - 3rem - 2px);
+  top:calc(50% + 1rem + 15px);
+  left:calc(50% - 3rem - 3px);
   transform:translate(-50%,-50%);
   width:auto;
   height:auto;
@@ -647,12 +647,12 @@ footer .rsvp-link:hover{background:#f6e9ee;color:#41001c}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 3px)}
+  .play-toggle{top:calc(50% + 1rem + 4px);left:calc(45% + 2px)}
   .player-icon{width:115%;justify-self:center;margin-left:-2rem}
-  .play-toggle{left:calc(45% + 3px)}
+  .play-toggle{left:calc(45% + 2px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.6rem}
-.env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:150px;line-height:0.85;margin:-0.9rem 0 2.5rem;text-align:center;width:100%;transform:scaleY(1.5);transform-origin:center center}
+.env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:150px;line-height:0.85;margin:calc(-0.9rem - 5px) 0 2.5rem;text-align:center;width:100%;transform:scaleY(1.5);transform-origin:center center}
   .env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.8rem}
   .player-caption{margin-top:calc(4rem - 4px);margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
