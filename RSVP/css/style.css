@@ -206,7 +206,7 @@ ul{list-style:none}
 }
 .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em;margin-top:0}
 .env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:150px;line-height:0.85;margin:calc(-0.9rem - 5px) 0 2.5rem;text-align:center;width:100%;transform:scaleY(1.5);transform-origin:center center}
-.env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.9rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%}
+.env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.9rem;overflow-wrap:break-word;word-wrap:break-word;max-width:100%;margin-top:3px}
 .env-card .text-primary,.env-card .text-on-surface-variant{color:#ffffff}
 #invite-people{margin-top:0;padding:0 0.5rem}
 #invite-name{margin-top:2px;padding:0 1rem}
@@ -734,7 +734,7 @@ body.no-scroll{overflow:hidden}
   inset:0;
   z-index:9999;
   overflow:hidden;
-  background:#fff8f8 url('../assets/169_Picture.jpg') center/cover no-repeat;
+  background:#fff8f8 url('../assets/NE_Welcome_169.jpeg') center/cover no-repeat;
   perspective:1200px;
 }
 /* bottom panel — opaque envelope interior, hides the photo until it slides away; the translucent flap is the veil over it */
@@ -831,3 +831,4 @@ body.no-scroll{overflow:hidden}
 @media(orientation:portrait){
   #intro-screen{background-image:url('../assets/welcome_pic.jpg')}
 }
+
