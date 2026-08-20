@@ -1,4 +1,3 @@
-// ponytail: intro shows once per tab-session (internal nav/reload skips it, fresh open shows it)
 (function () {
   const intro = document.getElementById('intro-screen');
   const seal = intro && intro.querySelector('.wax-seal');

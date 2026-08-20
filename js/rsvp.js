@@ -37,7 +37,7 @@ function sendRsvpEmail(guest, response, count) {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: body.toString()
-  }).catch(function () {}); // ponytail: fire-and-forget
+  }).catch(function () {});
 }
 
 // ========== REWRITE BACK LINK ==========
@@ -66,7 +66,6 @@ function markResponded(guestId, response, count) {
 }
 
 // ========== SHOW ALREADY RESPONDED ==========
-// Precedence: JSON confirm > localStorage
 function showAlreadyResponded(guest, response, count) {
   rsvpNotFound.style.display = 'none';
   rsvpFound.style.display = 'block';
