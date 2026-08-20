@@ -77,6 +77,7 @@ if (envelope) {
 
   // true drags set dataset.dragged to suppress the click that follows
   envelope.addEventListener('click', function (e) {
+    if (!e.target.closest('.env-card')) return;
     e.preventDefault();
     if (envelope.dataset.dragged) { delete envelope.dataset.dragged; return; }
     navigate();
@@ -100,6 +101,7 @@ if (envelope) {
 
   let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
   envelope.addEventListener('touchstart', e => {
+    if (!e.target.closest('.env-card')) { y0 = null; return; }
     delete envelope.dataset.dragged;
     y0 = e.touches[0].clientY;
     from = curPct = basePct();

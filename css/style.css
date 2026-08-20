@@ -172,7 +172,6 @@ ul{list-style:none}
   text-align:center;
   aspect-ratio:3300/2550;
   transition:transform 0.2s;
-  touch-action:none; /* keep touch drags on the card from scrolling the page */
 }
 .invitation-pass:hover{transform:translateY(-2px)}
 .sobre-layer{position:absolute;inset:-10%;width:auto;height:auto;object-fit:fill}
@@ -203,6 +202,7 @@ ul{list-style:none}
   margin:0 auto;
   overflow:hidden;
   box-sizing:border-box;
+  touch-action:none;
 }
 .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.7rem;letter-spacing:0.18em;margin-top:0}
 .env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:150px;line-height:0.85;margin:calc(-0.9rem - 5px) 0 2.5rem;text-align:center;width:100%;transform:scaleY(1.5);transform-origin:center center}
