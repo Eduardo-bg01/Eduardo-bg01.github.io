@@ -30,6 +30,13 @@ function sendRsvpEmail(guest, response, count) {
   }).catch(function () {}); // ponytail: fire-and-forget
 }
 
+// ========== REWRITE BACK LINK ==========
+function rewriteRsvpLinks(guest) {
+  document.querySelectorAll('.rsvp-link, #rsvp-back-link').forEach(a => {
+    a.href = `index.html?id=${guest.id}`;
+  });
+}
+
 // ========== DUPLICATE PREVENTION ==========
 function hasResponded(guestId) {
   return localStorage.getItem('rsvp_' + guestId) !== null;
@@ -119,6 +126,7 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
     var match = findGuestById(guestId);
     if (match) {
       currentGuest = match;
+      rewriteRsvpLinks(match);
       if (hasResponded(match.id)) {
         showAlreadyResponded(match, localStorage.getItem('rsvp_' + match.id));
       } else {
@@ -133,6 +141,7 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
     var match = findGuestByName(guestName);
     if (match) {
       currentGuest = match;
+      rewriteRsvpLinks(match);
       if (hasResponded(match.id)) {
         showAlreadyResponded(match, localStorage.getItem('rsvp_' + match.id));
       } else {

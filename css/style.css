@@ -245,7 +245,7 @@ ul{list-style:none}
   transition:color 0.2s,border-color 0.2s;
 }
 .invitation-details img{
-  width:70%;
+  width:100%;
   height:auto;
   opacity:0.85;
 }
@@ -261,7 +261,7 @@ ul{list-style:none}
 /* === SECTIONS === */
 section{
   width:100%;
-  padding-block:clamp(1.25rem,2.5vw,2rem);
+  padding-block:clamp(0.75rem,1.5vw,1.25rem);
 }
 section[id]{scroll-margin-top:6rem}
 .section-inner{
@@ -436,8 +436,8 @@ section[id]{scroll-margin-top:6rem}
   transition:transform 0.2s ease;
   z-index:10;
 }
-.play-toggle:hover{transform:translate(-50%,-50%) scale(1.1)}
-.play-toggle:active{transform:translate(-50%,-50%) scale(0.95)}
+.play-toggle:hover{transform:translate(-50%,-50%)}
+.play-toggle:active{transform:translate(-50%,-50%)}
 .play-icon,.pause-icon{
   --icon-size: clamp(12rem,34vw,20rem);
   width: var(--icon-size);
@@ -621,6 +621,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 }
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
+  #rsvp{padding-top:clamp(3rem,6vw,4rem)}
   .hero-composition{flex-direction:column;gap:2.25rem}
   .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
   .invitation-image-wrap{width:98%}
@@ -629,7 +630,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   }
   .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
   .invitation-pass .sobre-layer{inset:-6%;left:50%;transform:translateX(-50%);width:112%}
-  .invitation-details img{width:60%}
+  .invitation-details img{width:85%}
   .events{
     grid-template-columns:1fr;
     max-width:24rem;
@@ -678,7 +679,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .play-toggle{left:calc(45% + 2px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.6rem}
-  .env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:clamp(4rem,13vw,6rem);line-height:1;margin:0 0 0.8rem;text-align:center;width:100%}
+  .env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:clamp(4rem,13vw,6rem);line-height:1;margin:0 0 1.25rem;text-align:center;width:100%}
   .env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.8rem}
   .player-caption{margin-top:calc(4rem - 4px);margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
@@ -703,7 +704,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .invitation-pass,.invitation-details{width:min(39rem,92vw)}
   .invitation-pass{position:relative;z-index:2}
   .invitation-pass .sobre-layer{inset:-7%;left:50%;transform:translateX(-50%);width:114%}
-  .invitation-details img{width:60%}
+  .invitation-details img{width:85%}
   .env-card{left:5%;right:5%;width:55%;aspect-ratio:3/4;max-height:75vh}
   .env-card .text-display-lg{font-size:clamp(3rem,8vw,5rem)}
   .env-card .text-display-md{font-size:clamp(1rem,2vw,1.3rem)}
