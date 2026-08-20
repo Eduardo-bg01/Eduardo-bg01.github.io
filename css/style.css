@@ -669,7 +669,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 1rem - 6px);left:calc(45% + 2px)}
+  .play-toggle{top:calc(50% + 1rem - 6px + 5px);left:calc(45% + 2px)}
   .player-icon{width:115%;justify-self:center;margin-left:-2rem}
   .play-toggle{left:calc(45% + 2px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
