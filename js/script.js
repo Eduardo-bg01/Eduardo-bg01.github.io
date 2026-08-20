@@ -228,13 +228,21 @@ if (envelope) {
 (function () {
   const audio = document.getElementById('bg-music');
   const btn = document.querySelector('.play-toggle');
+  const playText = document.getElementById('play-text');
   if (!audio || !btn) return;
   const playIcon = btn.querySelector('.play-icon');
   const pauseIcon = btn.querySelector('.pause-icon');
-  btn.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block'; }
-    else { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
-  });
+  function toggle() {
+    if (audio.paused) {
+      audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block';
+      if (playText) playText.textContent = 'Pausar';
+    } else {
+      audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
+      if (playText) playText.textContent = 'Haz click para reproducir';
+    }
+  }
+  btn.addEventListener('click', toggle);
+  if (playText) playText.addEventListener('click', toggle);
 })();
 
 // ========== INIT ==========

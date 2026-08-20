@@ -49,9 +49,14 @@
           <select id="rsvp-party-count" class="bg-surface border border-outline-variant rounded-full px-6 py-3 font-label text-label text-on-surface-variant" style="outline:none;cursor:pointer;min-width:8rem">
           </select>
         </div>
+        <p id="rsvp-error" class="font-label text-label" style="color:#b3261e;display:none;margin-bottom:1rem">Confirma el n&uacute;mero de asistentes!</p>
         <div class="flex gap-4 justify-center flex-wrap" id="rsvp-buttons">
           <button class="rsvp-yes bg-primary text-on-primary px-10 py-4 rounded-full font-label text-label shadow-lg" style="cursor:pointer;transition:all 0.2s;min-width:10rem;letter-spacing:0.15em">SÍ, ASISTIRÉ</button>
           <button class="rsvp-no border border-outline-variant text-on-surface-variant px-10 py-4 rounded-full font-label text-label" style="cursor:pointer;transition:all 0.2s;min-width:10rem;background:transparent">NO PODRÉ</button>
+        </div>
+        <p class="font-label text-label text-on-surface-variant mt-4" style="font-size:0.6rem;letter-spacing:0.1em;opacity:0.7">Último día para confirmar asistencia: 10 de Octubre del 2026</p>
+        <div id="rsvp-closed" style="display:none;margin-top:2rem;padding:1.5rem;background:rgba(251,234,236,0.5);border-radius:0.5rem">
+          <p class="font-display italic text-display-md text-primary">Las confirmaciones ya cerraron.</p>
         </div>
         <div id="rsvp-response" style="display:none;margin-top:2rem;padding:1.5rem;background:rgba(251,234,236,0.5);border-radius:0.5rem">
           <p class="font-display italic text-display-md text-primary" id="rsvp-response-text"></p>
