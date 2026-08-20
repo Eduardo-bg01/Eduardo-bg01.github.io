@@ -136,17 +136,5 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
     }
   }
 
-  var guestName = params.get('name');
-  if (guestName) {
-    var match = findGuestByName(guestName);
-    if (match) {
-      currentGuest = match;
-      rewriteRsvpLinks(match);
-      if (hasResponded(match.id)) {
-        showAlreadyResponded(match, localStorage.getItem('rsvp_' + match.id));
-      } else {
-        updateRsvp(match);
-      }
-    }
-  }
+
 })();

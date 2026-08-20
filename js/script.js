@@ -258,12 +258,5 @@ if (envelope) {
     }
   }
 
-  const guestName = params.get('name');
-  if (guestName) {
-    const match = findGuestByName(guestName);
-    if (match) {
-      updateInvitation(match);
-      rewriteRsvpLinks(match);
-    }
-  }
+
 })();

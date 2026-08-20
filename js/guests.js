@@ -6,11 +6,6 @@ async function loadGuests() {
   GUESTS = await res.json();
 }
 
-function findGuestByName(name) {
-  const q = name.trim().toLowerCase();
-  return GUESTS.find(g => g.name.toLowerCase() === q) || null;
-}
-
 function findGuestById(id) {
   return GUESTS.find(g => g.id === parseInt(id)) || null;
 }
