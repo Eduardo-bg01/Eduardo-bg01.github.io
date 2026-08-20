@@ -12,6 +12,7 @@ const rsvpPartySelect = document.getElementById('rsvp-party-select');
 const rsvpPartyCount = document.getElementById('rsvp-party-count');
 const rsvpError = document.getElementById('rsvp-error');
 const rsvpClosed = document.getElementById('rsvp-closed');
+const rsvpDeadline = document.getElementById('rsvp-deadline');
 
 // ========== DEADLINE ==========
 // ponytail: deadline Oct 10 2026 Mexicali (PDT, UTC-7)
@@ -71,6 +72,7 @@ function showAlreadyResponded(guest, response, count) {
   rsvpFound.style.display = 'block';
   rsvpButtons.style.display = 'none';
   rsvpPartySelect.style.display = 'none';
+  rsvpDeadline.style.display = 'none';
   rsvpResponse.style.display = 'block';
   rsvpGuestName.textContent = guest.name;
   var p = guest.party === 1 ? 'persona' : 'personas';
@@ -89,6 +91,7 @@ function showClosed(guest) {
   rsvpFound.style.display = 'block';
   rsvpButtons.style.display = 'none';
   rsvpPartySelect.style.display = 'none';
+  rsvpDeadline.style.display = 'none';
   rsvpGuestName.textContent = guest.name;
   var p = guest.party === 1 ? 'persona' : 'personas';
   rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + p;
