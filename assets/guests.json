@@ -53,7 +53,7 @@
   { "id": 14, "name": "Fam. Aguilar Arce", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 37, "name": "Kevin Plata", "party": 1, "confirm": null, "party_confirmed": null },
   { "id": 47, "name": "Yeimye & Ivan", "party": 2, "confirm": null, "party_confirmed": null },
-  { "id": 48, "name": "Fam. Cota Wancho", "party": 2, "confirm": "yes, "party_confirmed": 2 },
+  { "id": 48, "name": "Fam. Cota Wancho", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 49, "name": "Fam. Wancho Saucedo", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 50, "name": "Fam. Avila Alfaro", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 12, "name": "Glenda Escandon", "party": 2, "confirm": null, "party_confirmed": null },
