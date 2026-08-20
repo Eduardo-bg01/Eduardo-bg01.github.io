@@ -69,6 +69,13 @@ if (envelope) {
   const card = envelope.querySelector('.env-card');
   const ENV_OUT = -100;
 
+  function isOnCard(cx, cy) {
+    const r = card.getBoundingClientRect();
+    const dx = (cx - (r.left + r.width / 2)) / (r.width / 2);
+    const dy = (cy - (r.top + r.height / 2)) / (r.height / 2);
+    return dx * dx + dy * dy <= 1;
+  }
+
   function navigate() {
     envelope.classList.add('open');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -77,7 +84,7 @@ if (envelope) {
 
   // true drags set dataset.dragged to suppress the click that follows
   envelope.addEventListener('click', function (e) {
-    if (!e.target.closest('.env-card')) return;
+    if (!isOnCard(e.clientX, e.clientY)) return;
     e.preventDefault();
     if (envelope.dataset.dragged) { delete envelope.dataset.dragged; return; }
     navigate();
@@ -101,7 +108,7 @@ if (envelope) {
 
   let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
   envelope.addEventListener('touchstart', e => {
-    if (!e.target.closest('.env-card')) { y0 = null; return; }
+    if (!isOnCard(e.touches[0].clientX, e.touches[0].clientY)) { y0 = null; return; }
     delete envelope.dataset.dragged;
     y0 = e.touches[0].clientY;
     from = curPct = basePct();
