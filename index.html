@@ -27,12 +27,12 @@
 <header class="fixed top-0 w-full z-50" id="navbar">
   <div class="flex justify-between items-center w-full px-6 navbar-inner">
     <div class="flex items-center gap-3">
-      <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem">menu</button>
+      <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem;padding:0.5rem">menu</button>
       <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
     </div>
     <nav class="hidden md:flex items-center nav-centered" style="gap:3rem">
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
-    <a class="font-label text-label text-on-primary hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#itinerario">Itinerario</a>
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
     </nav>
@@ -44,7 +44,7 @@
 <div class="p-8 h-full flex flex-col">
   <div class="flex justify-between items-start mb-10">
      <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
-    <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer">close</button>
+    <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer;padding:0.5rem">close</button>
   </div>
   <nav class="flex flex-col gap-6">
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
@@ -58,6 +58,7 @@
   </div>
 </div>
 </aside>
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
 
 <!-- ===== MAIN ===== -->
 <main>

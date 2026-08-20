@@ -36,31 +36,33 @@ function rewriteRsvpLinks(guest) {
   const nav = document.getElementById('navbar');
   if (!nav) return;
   let lastY = window.scrollY;
+  let accum = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (window.innerWidth >= 768) {
-      nav.classList.toggle('nav-hidden', y > lastY && y > 120);
+      const dy = y - lastY;
+      accum = dy > 0 ? Math.max(0, accum + dy) : Math.min(0, accum + dy);
+      if (y <= 120) { accum = 0; nav.classList.remove('nav-hidden'); }
+      else if (accum > 60) nav.classList.add('nav-hidden');
+      else if (accum < -20) nav.classList.remove('nav-hidden');
     }
     lastY = y;
   }, { passive: true });
 })();
 
 // ========== DRAWER LOGIC ==========
-document.getElementById('menu-toggle').addEventListener('click', () => {
-  document.getElementById('side-drawer').classList.remove('-translate-x-full');
-});
-document.getElementById('close-drawer').addEventListener('click', () => {
-  document.getElementById('side-drawer').classList.add('-translate-x-full');
-});
+const drawer = document.getElementById('side-drawer');
+const backdrop = document.getElementById('drawer-backdrop');
+function openDrawer() { drawer.classList.remove('-translate-x-full'); backdrop.classList.add('open'); }
+function closeDrawer() { drawer.classList.add('-translate-x-full'); backdrop.classList.remove('open'); }
+document.getElementById('menu-toggle').addEventListener('click', openDrawer);
+document.getElementById('close-drawer').addEventListener('click', closeDrawer);
+backdrop.addEventListener('click', closeDrawer);
 window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) {
-    document.getElementById('side-drawer').classList.add('-translate-x-full');
-  }
+  if (window.innerWidth >= 768) closeDrawer();
 });
 document.querySelectorAll('#side-drawer a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('side-drawer').classList.add('-translate-x-full');
-  });
+  a.addEventListener('click', closeDrawer);
 });
 
 // ========== ENVELOPE: drag (touch) + tap (navigate) ==========
@@ -77,6 +79,7 @@ if (envelope) {
   }
 
   function navigate() {
+    card.style.transform = '';
     envelope.classList.add('open');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     setTimeout(() => { window.location.href = envelope.href; }, reduced ? 0 : 700);
@@ -97,23 +100,15 @@ if (envelope) {
     const y = parseFloat(m.split(',')[5]) || 0;
     return card.offsetHeight ? (y / card.offsetHeight) * 100 : 0;
   }
-  // resting position (what CSS gives without .open), used as the "in" snap target
-  function restPct() {
-    const wasOpen = envelope.classList.contains('open');
-    if (wasOpen) envelope.classList.remove('open');
-    const v = basePct();
-    if (wasOpen) envelope.classList.add('open');
-    return v;
-  }
 
-  let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
+  let y0 = null, from = 0, curPct = 0, dragging = false;
   envelope.addEventListener('touchstart', e => {
     if (!isOnCard(e.touches[0].clientX, e.touches[0].clientY)) { y0 = null; return; }
     delete envelope.dataset.dragged;
     y0 = e.touches[0].clientY;
     from = curPct = basePct();
-    home = restPct();
     dragging = false;
+    card.style.transition = 'none';
   }, { passive: true });
   envelope.addEventListener('touchmove', e => {
     if (y0 === null) return;
@@ -121,8 +116,7 @@ if (envelope) {
     if (!dragging && Math.abs(dy) < 10) return;
     dragging = true;
     e.preventDefault();
-    card.style.transition = 'none';
-    curPct = Math.max(ENV_OUT, Math.min(-15, from + (dy / card.offsetHeight) * 100));
+    curPct = Math.max(ENV_OUT, Math.min(0, from + (dy / card.offsetHeight) * 100));
     card.style.transform = `translateY(${curPct}%)`;
   }, { passive: false });
   envelope.addEventListener('touchend', () => {
@@ -131,17 +125,10 @@ if (envelope) {
     if (!dragging) return;
     dragging = false;
     envelope.dataset.dragged = '1';
-    const out = curPct <= -70;
-    card.style.transition = '';
-    card.style.transform = `translateY(${out ? ENV_OUT : home}%)`;
-    envelope.classList.toggle('open', out);
-    setTimeout(() => { card.style.transform = ''; }, 450);
   });
   envelope.addEventListener('touchcancel', () => {
     y0 = null;
     dragging = false;
-    card.style.transition = '';
-    card.style.transform = '';
   });
 }
 

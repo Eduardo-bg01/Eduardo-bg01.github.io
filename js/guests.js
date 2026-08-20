@@ -20,4 +20,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.fade-section').forEach(s => fadeObserver.observe(s));
+document.querySelectorAll('.fade-section').forEach(s => {
+  s.classList.add('animate-in');
+  fadeObserver.observe(s);
+});

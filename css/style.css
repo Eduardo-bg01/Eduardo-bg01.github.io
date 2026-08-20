@@ -1,6 +1,6 @@
 /* === RESET & BASE === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:auto;-webkit-tap-highlight-color:transparent}
 body{
   position:relative;
   background:#ffffff;
@@ -436,8 +436,8 @@ section[id]{scroll-margin-top:6rem}
   transition:transform 0.2s ease;
   z-index:10;
 }
-.play-toggle:hover{transform:translate(-50%,-50%)}
-.play-toggle:active{transform:translate(-50%,-50%)}
+.play-toggle:hover{transform:translate(-50%,-50%);opacity:0.8}
+.play-toggle:active{transform:translate(-50%,-50%);opacity:0.6}
 .play-icon,.pause-icon{
   --icon-size: clamp(12rem,34vw,20rem);
   width: var(--icon-size);
@@ -484,14 +484,9 @@ section[id]{scroll-margin-top:6rem}
   border-radius:0.15rem;
   padding:0.5rem;
   box-shadow:0 6px 18px rgba(65,0,28,0.12);
-  transition:transform 0.3s ease,box-shadow 0.3s ease;
 }
 .polaroid:nth-child(odd){transform:rotate(-1.5deg) translateY(0.3rem)}
 .polaroid:nth-child(even){transform:rotate(1.5deg)}
-.polaroid:hover{
-  transform:rotate(0deg) translateY(-0.25rem);
-  box-shadow:0 12px 28px rgba(65,0,28,0.18);
-}
 .polaroid img{
   width:100%;
   height:clamp(12rem,22vw,18rem);
@@ -580,13 +575,16 @@ section[id]{scroll-margin-top:6rem}
 }
 
 /* === FADE SECTIONS === */
-.fade-section{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
-.fade-section.visible{opacity:1;transform:translateY(0)}
+.fade-section{opacity:1;transform:translateY(0);transition:opacity 0.5s ease,transform 0.5s ease}
+.fade-section.animate-in{opacity:0;transform:translateY(24px)}
+.fade-section.animate-in.visible{opacity:1;transform:translateY(0)}
 
 /* === DRAWER === */
 #side-drawer{transition:transform 0.3s ease-in-out;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 #navbar img,#side-drawer img{border:0;outline:none}
 #menu-toggle,#close-drawer{background:none;border:none;padding:0;line-height:1}
+.drawer-backdrop{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,0.3);opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+.drawer-backdrop.open{opacity:1;pointer-events:auto}
 
 /* === FORM ELEMENTS === */
 input,select{
@@ -674,7 +672,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 @media(max-width:768px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 1rem + 4px);left:calc(45% + 2px)}
+  .play-toggle{top:calc(50% + 1rem - 6px);left:calc(45% + 2px)}
   .player-icon{width:115%;justify-self:center;margin-left:-2rem}
   .play-toggle{left:calc(45% + 2px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
@@ -683,6 +681,8 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.8rem}
   .player-caption{margin-top:calc(4rem - 4px);margin-left:4rem}
   .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
+  .custom-player .text-label{font-family:Montserrat,Helvetica,sans-serif;grid-area:1/1;align-self:start;justify-self:center;z-index:3;position:relative;margin-top:0.25rem}
+  #rsvp-not-found .material-symbols-outlined{margin-top:1rem}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
@@ -755,11 +755,10 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 }
 
 /* === INTRO === */
-body.no-scroll{overflow:hidden}
 #intro-screen{
   position:fixed;
   inset:0;
-  z-index:9999;
+  z-index:999;
   overflow:hidden;
   background:#fff8f8 url('../assets/NE_Welcome_169.jpeg') center/cover no-repeat;
   perspective:1200px;
