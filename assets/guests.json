@@ -5,7 +5,7 @@
   { "id": 200, "name": "Fam. Treviño Pérez", "party": 3, "confirm": "yes", "party_confirmed": 3 },
   { "id": 3, "name": "Tania L. & Jesus Estupiñan.", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 18, "name": "Fam. Gioia", "party": 2, "confirm": "yes", "party_confirmed": 2 },
-  { "id": 20, "name": "Fam. Treviño Ramirez.", "party": 4, "confirm": null, "party_confirmed": null },
+  { "id": 20, "name": "Fam. Treviño Ramirez.", "party": 4, "confirm": "yes", "party_confirmed": 4 },
   { "id": 31, "name": "Aylin Urbalejo", "party": 1, "confirm": "yes", "party_confirmed": 1 },
   { "id": 4, "name": "Fam. Viniegra Wancho", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 5, "name": "Fam. Soto Viniegra", "party": 2, "confirm": null, "party_confirmed": null },
