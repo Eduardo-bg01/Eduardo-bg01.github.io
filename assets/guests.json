@@ -23,7 +23,7 @@
   { "id": 203, "name": "Sr. & Sra. Gonzales Pérez.", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 300, "name": "Renan Gonzales.", "party": 1, "confirm": null, "party_confirmed": null },
   { "id": 301, "name": "Claudio Gonzales.", "party": 1, "confirm": null, "party_confirmed": null },
-  { "id": 29, "name": "Fam. Macias", "party": 3, "confirm": null, "party_confirmed": null },
+  { "id": 29, "name": "Fam. Macias", "party": 3, "confirm": "yes", "party_confirmed": 2 },
   { "id": 34, "name": "Ileana R. & Juan E.", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 39, "name": "Cripto Boys", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 44, "name": "Ramon M. & Karla G.", "party": 2, "confirm": null, "party_confirmed": null },
