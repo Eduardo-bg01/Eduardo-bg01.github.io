@@ -57,7 +57,7 @@
   { "id": 49, "name": "Fam. Wancho Saucedo", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 50, "name": "Fam. Avila Alfaro", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 12, "name": "Glenda Escandon", "party": 2, "confirm": null, "party_confirmed": null },
-  { "id": 38, "name": "Pedro Cervantes", "party": 1, "confirm": null, "party_confirmed": null },
+  { "id": 38, "name": "Pedro Cervantes", "party": 1, "confirm": "yes", "party_confirmed": 1 },
   { "id": 40, "name": "Lizeth Z. & Gibran", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 51, "name": "Paulina & Rodrigo", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 41, "name": "Omar C. y Andrea T.", "party": 2, "confirm": null, "party_confirmed": null },
