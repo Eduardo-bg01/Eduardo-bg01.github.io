@@ -80,7 +80,7 @@
   { "id": 116, "name": "Leslie C. & Luigi", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 211, "name": "Yuridia Treviño B.", "party": 1, "confirm": null, "party_confirmed": null },
   { "id": 212, "name": "Fam. Flores Treviño", "party": 3, "confirm": null, "party_confirmed": null },
-  { "id": 213, "name": "Brenda Flores.", "party": 1, "confirm": null, "party_confirmed": null },
+  { "id": 213, "name": "Brenda Flores.", "party": 1, "confirm": "no", "party_confirmed": null },
   { "id": 214, "name": "Alejandro T & Daniel M.", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 215, "name": "Fam. Pérez Zepeda", "party": 3, "confirm": null, "party_confirmed": null },
   { "id": 216, "name": "Sr. & Sra. Torres", "party": 2, "confirm": null, "party_confirmed": null },
