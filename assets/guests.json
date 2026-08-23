@@ -1,5 +1,5 @@
 [
-  { "id": 1, "name": "Fam. Beltran Garcia", "party": 2, "confirm": null, "party_confirmed": null },
+  { "id": 1, "name": "Fam. Beltran Garcia", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 2, "name": "Fam. Arriaga Beltran", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 27, "name": "Sr. & Sra. Jackson.", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 200, "name": "Fam. Treviño Pérez", "party": 3, "confirm": "yes", "party_confirmed": 3 },
