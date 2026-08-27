@@ -70,7 +70,7 @@
   { "id": 103, "name": "Roberto Alvarado", "party": 1, "confirm": null, "party_confirmed": null },
   { "id": 107, "name": "Elisa Wancho", "party": 1, "confirm": null, "party_confirmed": null },
   { "id": 209, "name": "Sr. & Sra. Gonzalez", "party": 2, "confirm": null, "party_confirmed": null },
-  { "id": 109, "name": "Fam. Galindo Ramirez", "party": 2, "confirm": null, "party_confirmed": null },
+  { "id": 109, "name": "Fam. Galindo Ramirez", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 110, "name": "Alyssa Garcia S.", "party": 1, "confirm": null, "party_confirmed": null },
   { "id": 210, "name": "Sr. & Sra. Beltran P.", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 112, "name": "Horacio & Alicia", "party": 2, "confirm": null, "party_confirmed": null },
