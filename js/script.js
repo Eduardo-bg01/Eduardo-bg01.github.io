@@ -137,7 +137,8 @@ if (envelope) {
   const carousel = document.getElementById('polaroid-carousel');
   if (!carousel) return;
   const items = Array.from(carousel.querySelectorAll('.polaroid'));
-  const mq = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
+  // ponytail: phones only (390/430) — desktop (>1024) stays infinite scroll
+  const mq = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
   let idx = 0;
 
   function render() {
@@ -150,17 +151,21 @@ if (envelope) {
   }
 
   function apply() {
-    if (mq.matches) render();
-    else items.forEach(el => delete el.dataset.pos);
+    if (mq.matches) {
+      // ponytail: clean desktop clones when rotating to portrait (prevents double count)
+      while (carousel.children.length > items.length) carousel.removeChild(carousel.lastChild);
+      render();
+    } else items.forEach(el => delete el.dataset.pos);
   }
 
   mq.addEventListener('change', apply);
   apply();
 
-  // swipe flips photos, tap/click advances (portrait only)
-  // ponytail: touchmove preventDefault (passive:false) claims horizontal drags so the page can't slide; click covers taps + desktop.
+  // swipe flips photos, tap/click advances (phones only)
+  // ponytail: touchmove preventDefault (passive:false) claims horizontal drags so page can't slide; click stays forward
   let tx = null, ty = null, didSwipe = false;
   carousel.addEventListener('touchstart', e => {
+    if (!mq.matches) return;
     tx = e.touches[0].clientX;
     ty = e.touches[0].clientY;
     didSwipe = false;
@@ -169,7 +174,7 @@ if (envelope) {
     if (tx === null) return;
     const dx = e.touches[0].clientX - tx;
     const dy = e.touches[0].clientY - ty;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+    if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) e.preventDefault(); // ponytail: 30px = lighter swipe, 40 was stiff
   }, { passive: false });
   carousel.addEventListener('touchend', e => {
     if (tx === null) return;
@@ -177,22 +182,24 @@ if (envelope) {
     const dy = e.changedTouches[0].clientY - ty;
     tx = ty = null;
     if (!mq.matches) return;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+    if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
       didSwipe = true;
-      idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length;
+      idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length; // ponytail: bidirectional
       render();
+      setTimeout(() => { didSwipe = false; }, 350); // ponytail: debounce click after swipe
     }
   }, { passive: true });
   carousel.addEventListener('click', () => {
     if (didSwipe) { didSwipe = false; return; }
     if (mq.matches) {
-      idx = (idx + 1) % items.length;
+      idx = (idx + 1) % items.length; // ponytail: click stays forward
       render();
     }
   });
 
   // Desktop: clone items for seamless infinite scroll
-  if (window.innerWidth > 1024) {
+  // ponytail: only clone once, apply() cleans them on portrait switch
+  if (window.innerWidth > 1024 && carousel.children.length === items.length) {
     items.forEach(el => carousel.appendChild(el.cloneNode(true)));
   }
 })();
