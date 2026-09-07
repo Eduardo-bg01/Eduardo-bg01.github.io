@@ -15,7 +15,7 @@ function updateInvitation(guest) {
     inviteName.textContent = raw;
     inviteName.style.fontSize = raw.length <= 8 ? '0.85rem' : raw.length <= 14 ? '0.7rem' : '0.6rem';
   }
-  inviteName.style.fontFamily = '"Playfair Display", Georgia, serif';
+  inviteName.style.fontFamily = '"Source Serif 4", Georgia, serif';
   inviteCount.textContent = guest.party;
   invitePeople.textContent = guest.party === 1 ? 'persona' : 'personas';
   const card = document.querySelector('.invitation-pass');
@@ -36,31 +36,33 @@ function rewriteRsvpLinks(guest) {
   const nav = document.getElementById('navbar');
   if (!nav) return;
   let lastY = window.scrollY;
+  let accum = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (window.innerWidth >= 768) {
-      nav.classList.toggle('nav-hidden', y > lastY && y > 120);
+      const dy = y - lastY;
+      accum = dy > 0 ? Math.max(0, accum + dy) : Math.min(0, accum + dy);
+      if (y <= 120) { accum = 0; nav.classList.remove('nav-hidden'); }
+      else if (accum > 60) nav.classList.add('nav-hidden');
+      else if (accum < -20) nav.classList.remove('nav-hidden');
     }
     lastY = y;
   }, { passive: true });
 })();
 
 // ========== DRAWER LOGIC ==========
-document.getElementById('menu-toggle').addEventListener('click', () => {
-  document.getElementById('side-drawer').classList.remove('-translate-x-full');
-});
-document.getElementById('close-drawer').addEventListener('click', () => {
-  document.getElementById('side-drawer').classList.add('-translate-x-full');
-});
+const drawer = document.getElementById('side-drawer');
+const backdrop = document.getElementById('drawer-backdrop');
+function openDrawer() { drawer.classList.remove('-translate-x-full'); backdrop.classList.add('open'); }
+function closeDrawer() { drawer.classList.add('-translate-x-full'); backdrop.classList.remove('open'); }
+document.getElementById('menu-toggle').addEventListener('click', openDrawer);
+document.getElementById('close-drawer').addEventListener('click', closeDrawer);
+backdrop.addEventListener('click', closeDrawer);
 window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) {
-    document.getElementById('side-drawer').classList.add('-translate-x-full');
-  }
+  if (window.innerWidth >= 768) closeDrawer();
 });
 document.querySelectorAll('#side-drawer a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('side-drawer').classList.add('-translate-x-full');
-  });
+  a.addEventListener('click', closeDrawer);
 });
 
 // ========== ENVELOPE: drag (touch) + tap (navigate) ==========
@@ -69,7 +71,15 @@ if (envelope) {
   const card = envelope.querySelector('.env-card');
   const ENV_OUT = -100;
 
+  function isOnCard(cx, cy) {
+    const r = card.getBoundingClientRect();
+    const dx = (cx - (r.left + r.width / 2)) / (r.width / 2);
+    const dy = (cy - (r.top + r.height / 2)) / (r.height / 2);
+    return dx * dx + dy * dy <= 1;
+  }
+
   function navigate() {
+    card.style.transform = '';
     envelope.classList.add('open');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     setTimeout(() => { window.location.href = envelope.href; }, reduced ? 0 : 700);
@@ -77,6 +87,7 @@ if (envelope) {
 
   // true drags set dataset.dragged to suppress the click that follows
   envelope.addEventListener('click', function (e) {
+    if (!isOnCard(e.clientX, e.clientY)) return;
     e.preventDefault();
     if (envelope.dataset.dragged) { delete envelope.dataset.dragged; return; }
     navigate();
@@ -89,22 +100,15 @@ if (envelope) {
     const y = parseFloat(m.split(',')[5]) || 0;
     return card.offsetHeight ? (y / card.offsetHeight) * 100 : 0;
   }
-  // resting position (what CSS gives without .open), used as the "in" snap target
-  function restPct() {
-    const wasOpen = envelope.classList.contains('open');
-    if (wasOpen) envelope.classList.remove('open');
-    const v = basePct();
-    if (wasOpen) envelope.classList.add('open');
-    return v;
-  }
 
-  let y0 = null, from = 0, home = 0, curPct = 0, dragging = false;
+  let y0 = null, from = 0, curPct = 0, dragging = false;
   envelope.addEventListener('touchstart', e => {
+    if (!isOnCard(e.touches[0].clientX, e.touches[0].clientY)) { y0 = null; return; }
     delete envelope.dataset.dragged;
     y0 = e.touches[0].clientY;
     from = curPct = basePct();
-    home = restPct();
     dragging = false;
+    card.style.transition = 'none';
   }, { passive: true });
   envelope.addEventListener('touchmove', e => {
     if (y0 === null) return;
@@ -112,8 +116,7 @@ if (envelope) {
     if (!dragging && Math.abs(dy) < 10) return;
     dragging = true;
     e.preventDefault();
-    card.style.transition = 'none';
-    curPct = Math.max(ENV_OUT, Math.min(-15, from + (dy / card.offsetHeight) * 100));
+    curPct = Math.max(ENV_OUT, Math.min(0, from + (dy / card.offsetHeight) * 100));
     card.style.transform = `translateY(${curPct}%)`;
   }, { passive: false });
   envelope.addEventListener('touchend', () => {
@@ -122,17 +125,10 @@ if (envelope) {
     if (!dragging) return;
     dragging = false;
     envelope.dataset.dragged = '1';
-    const out = curPct <= -70;
-    card.style.transition = '';
-    card.style.transform = `translateY(${out ? ENV_OUT : home}%)`;
-    envelope.classList.toggle('open', out);
-    setTimeout(() => { card.style.transform = ''; }, 450);
   });
   envelope.addEventListener('touchcancel', () => {
     y0 = null;
     dragging = false;
-    card.style.transition = '';
-    card.style.transform = '';
   });
 }
 
@@ -141,7 +137,8 @@ if (envelope) {
   const carousel = document.getElementById('polaroid-carousel');
   if (!carousel) return;
   const items = Array.from(carousel.querySelectorAll('.polaroid'));
-  const mq = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
+  // ponytail: phones only (390/430) — desktop (>1024) stays infinite scroll
+  const mq = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
   let idx = 0;
 
   function render() {
@@ -154,17 +151,21 @@ if (envelope) {
   }
 
   function apply() {
-    if (mq.matches) render();
-    else items.forEach(el => delete el.dataset.pos);
+    if (mq.matches) {
+      // ponytail: clean desktop clones when rotating to portrait (prevents double count)
+      while (carousel.children.length > items.length) carousel.removeChild(carousel.lastChild);
+      render();
+    } else items.forEach(el => delete el.dataset.pos);
   }
 
   mq.addEventListener('change', apply);
   apply();
 
-  // swipe flips photos, tap/click advances (portrait only)
-  // ponytail: touchmove preventDefault (passive:false) claims horizontal drags so the page can't slide; click covers taps + desktop.
+  // swipe flips photos, tap/click advances (phones only)
+  // ponytail: touchmove preventDefault (passive:false) claims horizontal drags so page can't slide; click stays forward
   let tx = null, ty = null, didSwipe = false;
   carousel.addEventListener('touchstart', e => {
+    if (!mq.matches) return;
     tx = e.touches[0].clientX;
     ty = e.touches[0].clientY;
     didSwipe = false;
@@ -173,7 +174,7 @@ if (envelope) {
     if (tx === null) return;
     const dx = e.touches[0].clientX - tx;
     const dy = e.touches[0].clientY - ty;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+    if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) e.preventDefault(); // ponytail: 30px = lighter swipe, 40 was stiff
   }, { passive: false });
   carousel.addEventListener('touchend', e => {
     if (tx === null) return;
@@ -181,19 +182,26 @@ if (envelope) {
     const dy = e.changedTouches[0].clientY - ty;
     tx = ty = null;
     if (!mq.matches) return;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+    if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
       didSwipe = true;
-      idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length;
+      idx = (idx + (dx > 0 ? -1 : 1) + items.length) % items.length; // ponytail: bidirectional
       render();
+      setTimeout(() => { didSwipe = false; }, 350); // ponytail: debounce click after swipe
     }
   }, { passive: true });
   carousel.addEventListener('click', () => {
     if (didSwipe) { didSwipe = false; return; }
     if (mq.matches) {
-      idx = (idx + 1) % items.length;
+      idx = (idx + 1) % items.length; // ponytail: click stays forward
       render();
     }
   });
+
+  // Desktop: clone items for seamless infinite scroll
+  // ponytail: only clone once, apply() cleans them on portrait switch
+  if (window.innerWidth > 1024 && carousel.children.length === items.length) {
+    items.forEach(el => carousel.appendChild(el.cloneNode(true)));
+  }
 })();
 
 // ========== COUNTDOWN TIMER ==========
@@ -227,13 +235,21 @@ if (envelope) {
 (function () {
   const audio = document.getElementById('bg-music');
   const btn = document.querySelector('.play-toggle');
+  const playText = document.getElementById('play-text');
   if (!audio || !btn) return;
   const playIcon = btn.querySelector('.play-icon');
   const pauseIcon = btn.querySelector('.pause-icon');
-  btn.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block'; }
-    else { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
-  });
+  function toggle() {
+    if (audio.paused) {
+      audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block';
+      if (playText) playText.textContent = 'Pausar';
+    } else {
+      audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
+      if (playText) playText.textContent = 'Haz click para reproducir';
+    }
+  }
+  btn.addEventListener('click', toggle);
+  if (playText) playText.addEventListener('click', toggle);
 })();
 
 // ========== INIT ==========
@@ -257,12 +273,5 @@ if (envelope) {
     }
   }
 
-  const guestName = params.get('name');
-  if (guestName) {
-    const match = findGuestByName(guestName);
-    if (match) {
-      updateInvitation(match);
-      rewriteRsvpLinks(match);
-    }
-  }
+
 })();

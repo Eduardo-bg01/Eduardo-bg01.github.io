@@ -10,6 +10,17 @@ const rsvpResponse = document.getElementById('rsvp-response');
 const rsvpResponseText = document.getElementById('rsvp-response-text');
 const rsvpPartySelect = document.getElementById('rsvp-party-select');
 const rsvpPartyCount = document.getElementById('rsvp-party-count');
+const rsvpError = document.getElementById('rsvp-error');
+const rsvpClosed = document.getElementById('rsvp-closed');
+const rsvpDeadline = document.getElementById('rsvp-deadline');
+
+// ========== DEADLINE ==========
+// ponytail: deadline Sep 23 2026 Mexicali (PDT, UTC-7)
+const DEADLINE = new Date('2026-09-24T00:00:00-07:00');
+
+function isPastDeadline() {
+  return Date.now() >= DEADLINE.getTime();
+}
 
 // ========== EMAIL via FormSubmit.co ==========
 function sendRsvpEmail(guest, response, count) {
@@ -27,33 +38,64 @@ function sendRsvpEmail(guest, response, count) {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: body.toString()
-  }).catch(function () {}); // ponytail: fire-and-forget
+  }).catch(function () {});
 }
 
-// ========== DUPLICATE PREVENTION ==========
+// ========== REWRITE BACK LINK ==========
+function rewriteRsvpLinks(guest) {
+  document.querySelectorAll('.rsvp-link, #rsvp-back-link').forEach(a => {
+    a.href = `index.html?id=${guest.id}`;
+  });
+}
+
+// ========== LOCALSTORAGE HELPERS ==========
+function getStoredResponse(guestId) {
+  return localStorage.getItem('rsvp_' + guestId);
+}
+
+function getStoredCount(guestId) {
+  return localStorage.getItem('rsvp_count_' + guestId);
+}
+
 function hasResponded(guestId) {
-  return localStorage.getItem('rsvp_' + guestId) !== null;
+  return getStoredResponse(guestId) !== null;
 }
 
-function markResponded(guestId, response) {
+function markResponded(guestId, response, count) {
   localStorage.setItem('rsvp_' + guestId, response);
+  if (count != null) localStorage.setItem('rsvp_count_' + guestId, String(count));
 }
 
 // ========== SHOW ALREADY RESPONDED ==========
-function showAlreadyResponded(guest, response) {
+function showAlreadyResponded(guest, response, count) {
   rsvpNotFound.style.display = 'none';
   rsvpFound.style.display = 'block';
   rsvpButtons.style.display = 'none';
   rsvpPartySelect.style.display = 'none';
+  rsvpDeadline.style.display = 'none';
   rsvpResponse.style.display = 'block';
   rsvpGuestName.textContent = guest.name;
   var p = guest.party === 1 ? 'persona' : 'personas';
   rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + p;
+  var msg = count + ' ' + (count === 1 ? 'persona' : 'personas');
   if (response === 'SÍ, ASISTIRÉ') {
-    rsvpResponseText.textContent = '¡Qué emoción! ' + guest.name + ', ya confirmaste tu asistencia.';
+    rsvpResponseText.textContent = '¡Qué emoción! ' + guest.name + ', confirmamos ' + msg + '.';
   } else {
-    rsvpResponseText.textContent = guest.name + ', ya registraste tu respuesta.';
+    rsvpResponseText.textContent = guest.name + ', lamentamos que no puedas acompañarnos.';
   }
+}
+
+// ========== SHOW CLOSED ==========
+function showClosed(guest) {
+  rsvpNotFound.style.display = 'none';
+  rsvpFound.style.display = 'block';
+  rsvpButtons.style.display = 'none';
+  rsvpPartySelect.style.display = 'none';
+  rsvpDeadline.style.display = 'none';
+  rsvpGuestName.textContent = guest.name;
+  var p = guest.party === 1 ? 'persona' : 'personas';
+  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + p;
+  rsvpClosed.style.display = 'block';
 }
 
 // ========== UPDATE RSVP ==========
@@ -61,6 +103,7 @@ function updateRsvp(guest) {
   rsvpNotFound.style.display = 'none';
   rsvpFound.style.display = 'block';
   rsvpResponse.style.display = 'none';
+  rsvpError.style.display = 'none';
   rsvpButtons.style.display = 'flex';
   rsvpGuestName.textContent = guest.name;
   var p = guest.party === 1 ? 'persona' : 'personas';
@@ -68,11 +111,17 @@ function updateRsvp(guest) {
   if (guest.party > 1) {
     rsvpPartySelect.style.display = 'block';
     rsvpPartyCount.innerHTML = '';
-    for (var i = guest.party; i >= 1; i--) {
+    var placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = 'Selecciona';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    rsvpPartyCount.appendChild(placeholder);
+    var max = Math.min(guest.party, 4);
+    for (var i = 1; i <= max; i++) {
       var opt = document.createElement('option');
       opt.value = i;
       opt.textContent = i + ' ' + (i === 1 ? 'persona' : 'personas');
-      if (i === guest.party) opt.selected = true;
       rsvpPartyCount.appendChild(opt);
     }
   } else {
@@ -83,8 +132,13 @@ function updateRsvp(guest) {
 // ========== RSVP CONFIRM / DECLINE ==========
 document.querySelector('.rsvp-yes')?.addEventListener('click', function () {
   if (!currentGuest) return;
-  var count = rsvpPartyCount.value ? parseInt(rsvpPartyCount.value) : currentGuest.party;
-  markResponded(currentGuest.id, 'SÍ, ASISTIRÉ');
+  if (currentGuest.party > 1 && rsvpPartyCount.value === '') {
+    rsvpError.style.display = 'block';
+    return;
+  }
+  rsvpError.style.display = 'none';
+  var count = currentGuest.party > 1 ? parseInt(rsvpPartyCount.value) : 1;
+  markResponded(currentGuest.id, 'SÍ, ASISTIRÉ', count);
   sendRsvpEmail(currentGuest, 'SÍ, ASISTIRÉ', count);
   rsvpPartySelect.style.display = 'none';
   rsvpButtons.style.display = 'none';
@@ -95,7 +149,7 @@ document.querySelector('.rsvp-yes')?.addEventListener('click', function () {
 
 document.querySelector('.rsvp-no')?.addEventListener('click', function () {
   if (!currentGuest) return;
-  markResponded(currentGuest.id, 'NO PODRÉ');
+  markResponded(currentGuest.id, 'NO PODRÉ', currentGuest.party);
   sendRsvpEmail(currentGuest, 'NO PODRÉ', currentGuest.party);
   rsvpPartySelect.style.display = 'none';
   rsvpButtons.style.display = 'none';
@@ -119,25 +173,33 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
     var match = findGuestById(guestId);
     if (match) {
       currentGuest = match;
-      if (hasResponded(match.id)) {
-        showAlreadyResponded(match, localStorage.getItem('rsvp_' + match.id));
-      } else {
-        updateRsvp(match);
+      rewriteRsvpLinks(match);
+
+      // Check JSON confirm first (source of truth after manual update)
+      if (match.confirm !== null) {
+        var count = match.party_confirmed || match.party;
+        showAlreadyResponded(match, match.confirm === 'yes' ? 'SÍ, ASISTIRÉ' : 'NO PODRÉ', count);
+        return;
       }
+
+      // Then check localStorage (device-level lock before JSON update)
+      if (hasResponded(match.id)) {
+        var stored = getStoredResponse(match.id);
+        var storedCount = getStoredCount(match.id) || match.party;
+        showAlreadyResponded(match, stored, parseInt(storedCount));
+        return;
+      }
+
+      // Deadline gate
+      if (isPastDeadline()) {
+        showClosed(match);
+        return;
+      }
+
+      updateRsvp(match);
       return;
     }
   }
 
-  var guestName = params.get('name');
-  if (guestName) {
-    var match = findGuestByName(guestName);
-    if (match) {
-      currentGuest = match;
-      if (hasResponded(match.id)) {
-        showAlreadyResponded(match, localStorage.getItem('rsvp_' + match.id));
-      } else {
-        updateRsvp(match);
-      }
-    }
-  }
+
 })();

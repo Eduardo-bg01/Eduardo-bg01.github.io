@@ -27,12 +27,12 @@
 <header class="fixed top-0 w-full z-50" id="navbar">
   <div class="flex justify-between items-center w-full px-6 navbar-inner">
     <div class="flex items-center gap-3">
-      <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem">menu</button>
+      <button class="material-symbols text-primary md:hidden" id="menu-toggle" aria-label="Abrir menú" style="cursor:pointer;font-size:1.5rem;padding:0.5rem">menu</button>
       <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
     </div>
     <nav class="hidden md:flex items-center nav-centered" style="gap:3rem">
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
-      <a class="font-label text-label text-on-surface-variant hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
+    <a class="font-label text-label text-on-surface-variant hover:text-primary rsvp-link" href="rsvp.html">RSVP</a>
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#itinerario">Itinerario</a>
       <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#dresscode">Dresscode</a>
     </nav>
@@ -44,7 +44,7 @@
 <div class="p-8 h-full flex flex-col">
   <div class="flex justify-between items-start mb-10">
      <img class="logo-sm" src="assets/Icons/logo.png" alt="Logo" />
-    <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer">close</button>
+    <button class="material-symbols-outlined" id="close-drawer" aria-label="Cerrar menú" style="cursor:pointer;padding:0.5rem">close</button>
   </div>
   <nav class="flex flex-col gap-6">
     <a class="font-label text-label text-on-surface-variant hover:text-primary" href="#invitacion">Invitación</a>
@@ -58,6 +58,7 @@
   </div>
 </div>
 </aside>
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
 
 <!-- ===== MAIN ===== -->
 <main>
@@ -69,9 +70,9 @@
     <a class="invitation-pass rsvp-link" href="rsvp.html">
       <img class="sobre-layer sobre-low" src="assets/sobre_low.png" alt="" />
       <span class="env-card">
-        <span class="font-label text-label text-on-surface-variant">pase para</span>
-        <span class="font-display text-display-lg text-primary font-bold" id="invite-count">—</span>
-        <span class="font-label text-label text-on-surface-variant" id="invite-people">personas</span>
+        <span class="font-label text-label text-on-surface-variant">Pase Para</span>
+        <span class="font-display text-display-lg text-primary font-bold" id="invite-count">-</span>
+        <span class="font-label text-label text-on-surface-variant" id="invite-people">Personas</span>
         <span class="font-display text-display-md text-primary font-semibold" id="invite-name">Invitado</span>
       </span>
       <span class="rsvp-strip">Confirmar<br>Asistencia</span>
@@ -87,8 +88,7 @@
 
     <!-- Details element (right) -->
     <a class="invitation-details" href="#detalles">
-      <img src="assets/Icons/Lamps.png" alt="" aria-hidden="true" />
-      <span class="details-label">Detalles</span>
+      <img src="assets/Icons/detalles.png" alt="" aria-hidden="true" />
     </a>
 
   </div>
@@ -178,7 +178,7 @@
       <p class="text-body-md text-on-surface-variant">(Efectivo Preferido)</p>
     </div>
     <div class="info-block">
-      <img class="info-icon" src="assets/Icons/icon_location.png" alt="" aria-hidden="true" />
+      <img class="info-icon" src="assets/Icons/location.png" alt="" aria-hidden="true" />
       <h3 class="font-label text-label text-primary info-title">Ubicación</h3>
       <p class="text-body-md text-on-surface-variant">La 500s.</p>
       <p class="text-body-md text-on-surface-variant"><b>Dirección: </b>Av. Mineros 500, Libertad, 21030 Mexicali, B.C.</p>
@@ -187,7 +187,7 @@
     <div class="info-block">
       <img class="info-icon" src="assets/Icons/icon_corazon.png" alt="" aria-hidden="true" />
       <h3 class="font-label text-label text-primary info-title">No niños</h3>
-      <p class="text-body-md text-on-surface-variant">Queremos que disfrutes la fiesta al máximo y que puedas celebrar con nosotros. Por eso, este será un evento exclusivo para adultos. ¡Esperamos contar contigo!</p>
+      <p class="text-body-md text-on-surface-variant">Para que disfrutes la fiesta al máximo, te contamos que por limitación de espacio, este será un evento solo para mayores de 14 años. Gracias por entender y los esperamos ahí!</p>
     </div>
   </div>
 </div>
@@ -208,13 +208,13 @@
     <li>No mezclilla</li>
     <li>No guayabera</li>
     <li>No mini vestidos</li>
-    <li>No camisas estampadas</li>
+    <li>No Tenis o zapatillas</li>
   </ul>
 
   <div class="dresscode-illustrations">
     <img src="assets/dresscode.PNG" alt="Sugerencia de vestimenta" loading="lazy" decoding="async" />
   </div>
-  <p class="text-body-md italic text-on-surface-variant text-center mt-10">
+  <p class="text-body-md text-on-surface-variant text-center mt-4">
     Dejemos el color Blanco, Beige, Ivory y derivados para los novios.
   </p>
 </div>
@@ -224,6 +224,7 @@
 <section id="galeria" class="fade-section">
 <div class="section-inner">
   <div class="custom-player">
+    <p id="play-text" class="text-label text-on-surface-variant text-center" style="font-size:0.65rem;letter-spacing:0.2em;margin-bottom:0.25rem;cursor:pointer">Haz click para reproducir</p>
     <button class="play-toggle" aria-label="Play/Pause">
       <img class="play-icon" src="assets/Icons/play.png" alt="" />
       <img class="pause-icon" src="assets/Icons/pause.png" alt="" />
@@ -237,8 +238,9 @@
   <audio id="bg-music" src="assets/lovely-mess.mp3" preload="none" style="display:none"></audio>
   <div class="polaroid-carousel" id="polaroid-carousel">
     <figure class="polaroid"><img src="assets/polaroid/2018.jpg" alt="Eduardo y Natalia 2018" loading="lazy" decoding="async" /><figcaption>2018</figcaption></figure>
-    <figure class="polaroid"><img src="assets/polaroid/2019.jpg" alt="Eduardo y Natalia 2019" loading="lazy" decoding="async" /><figcaption>2019</figcaption></figure>
+    <figure class="polaroid"><img src="assets/polaroid/2019_na.JPG" alt="Eduardo y Natalia 2019" loading="lazy" decoding="async" style="object-fit:cover;transform:scale(1.1)" /><figcaption>2019</figcaption></figure>
     <figure class="polaroid"><img src="assets/polaroid/2020.jpg" alt="Eduardo y Natalia 2020" loading="lazy" decoding="async" /><figcaption>2020</figcaption></figure>
+    <figure class="polaroid"><img src="assets/polaroid/2021.JPG" alt="Eduardo y Natalia 2021" loading="lazy" decoding="async" /><figcaption>2021</figcaption></figure>
     <figure class="polaroid"><img src="assets/polaroid/2022.jpg" alt="Eduardo y Natalia 2022" loading="lazy" decoding="async" /><figcaption>2022</figcaption></figure>
     <figure class="polaroid"><img src="assets/polaroid/2023.jpg" alt="Eduardo y Natalia 2023" loading="lazy" decoding="async" /><figcaption>2023</figcaption></figure>
     <figure class="polaroid"><img src="assets/polaroid/2024.jpg" alt="Eduardo y Natalia 2024" loading="lazy" decoding="async" /><figcaption>2024</figcaption></figure>
@@ -253,10 +255,8 @@
 <div class="section-inner">
   <div class="text-center">
     <div class="final-divider" style="max-width:24rem;margin:0 auto 2.5rem"></div>
-    <p class="text-body-lg text-on-surface-variant leading-relaxed">
-      Nos emociona mucho celebrar<br />
-      este día tan feliz con<br />
-      la gente que amamos.
+    <p class="text-body-lg text-on-surface-variant leading-relaxed" style="font-size:1.35rem">
+      Nos emociona mucho celebrar este día tan feliz con la gente que amamos.
     </p>
     <img class="mt-8" style="width:2.75rem;height:2.75rem;margin-inline:auto" src="assets/Icons/logo.png" alt="Eduardo & Natalia" />
   </div>
