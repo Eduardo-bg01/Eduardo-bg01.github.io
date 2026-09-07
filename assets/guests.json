@@ -89,7 +89,7 @@
   { "id": 219, "name": "Ivan U. & Dulce V.", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 220, "name": "Daniel U. & Caronlina E.", "party": 2, "confirm": null, "party_confirmed": null },
   { "id": 221, "name": "Gerardo E. Urías.", "party": 1, "confirm": null, "party_confirmed": null },
-  { "id": 222, "name": "Fam. Pérez de la Cruz", "party": 3, "confirm": null, "party_confirmed": null },
+  { "id": 222, "name": "Fam. Pérez de la Cruz", "party": 3, "confirm": "yes", "party_confirmed": 3 },
   { "id": 223, "name": "Sr. & Sra. Pérez Hernandez", "party": 2, "confirm": "yes", "party_confirmed": 2 },
   { "id": 224, "name": "Fam. Pérez- Bojórquez", "party": 3, "confirm": null, "party_confirmed": null },
   { "id": 225, "name": "Guillermina Rivera.", "party": 1, "confirm": null, "party_confirmed": null }
