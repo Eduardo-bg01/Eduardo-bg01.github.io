@@ -290,8 +290,8 @@
     "id": 28,
     "name": "Sr. & Sra. Behl",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 30,
@@ -318,8 +318,8 @@
     "id": 40,
     "name": "Lizeth Zuñiga",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 41,
