@@ -493,8 +493,8 @@
     "id": 116,
     "name": "Leslie C. & Luigi",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 201,
