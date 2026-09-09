@@ -437,8 +437,8 @@
     "id": 97,
     "name": "Daniel Flores",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 98,
@@ -556,7 +556,7 @@
     "id": 209,
     "name": "Sr. & Sra. Gonzalez",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
