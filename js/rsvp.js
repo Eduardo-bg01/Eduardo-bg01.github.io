@@ -117,7 +117,7 @@ function updateRsvp(guest) {
     placeholder.disabled = true;
     placeholder.selected = true;
     rsvpPartyCount.appendChild(placeholder);
-    var max = Math.min(guest.party, 4);
+    var max = Math.min(guest.party, 5);
     for (var i = 1; i <= max; i++) {
       var opt = document.createElement('option');
       opt.value = i;
