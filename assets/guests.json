@@ -304,8 +304,8 @@
     "id": 36,
     "name": "Arturo Montes.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 39,
