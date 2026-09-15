@@ -458,8 +458,8 @@
     "id": 110,
     "name": "Alyssa Garcia S.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 112,
@@ -521,8 +521,8 @@
     "id": 204,
     "name": "Margarita Treviño.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 205,
@@ -549,8 +549,8 @@
     "id": 208,
     "name": "Luciana Ballesteros.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 209,
@@ -577,8 +577,8 @@
     "id": 214,
     "name": "Alejandro T & Daniel M.",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 215,
