@@ -325,8 +325,8 @@
     "id": 41,
     "name": "Omar Eduardo Calvo",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 44,
