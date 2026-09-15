@@ -255,8 +255,8 @@
     "id": 11,
     "name": "Fernanda Garcia",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 13,
@@ -451,8 +451,8 @@
     "id": 103,
     "name": "Roberto Alvarado",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 110,
