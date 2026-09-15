@@ -269,8 +269,8 @@
     "id": 14,
     "name": "Fam. Aguilar Arce",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 21,
