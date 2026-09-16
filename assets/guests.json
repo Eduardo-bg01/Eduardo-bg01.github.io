@@ -381,8 +381,8 @@
     "id": 53,
     "name": "Fam. Castro Rivas",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 55,
@@ -423,8 +423,8 @@
     "id": 78,
     "name": "Sr. & Sra. Velez",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 96,
