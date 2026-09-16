@@ -24,13 +24,6 @@ function updateInvitation(guest) {
   card.style.animation = 'slideUp 1.2s cubic-bezier(0.22, 0.97, 0.36, 1) forwards';
 }
 
-// ========== REWRITE RSVP LINKS ==========
-function rewriteRsvpLinks(guest) {
-  document.querySelectorAll('.rsvp-link').forEach(a => {
-    a.href = `rsvp.html?id=${guest.id}`;
-  });
-}
-
 // ========== NAVBAR HIDE ON SCROLL (desktop) ==========
 (function () {
   const nav = document.getElementById('navbar');
@@ -268,7 +261,7 @@ if (envelope) {
     const match = findGuestById(guestId);
     if (match) {
       updateInvitation(match);
-      rewriteRsvpLinks(match);
+      rewriteRsvpLinks(match, 'rsvp');
       return;
     }
   }

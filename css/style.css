@@ -40,61 +40,14 @@ ul{list-style:none}
 .bg-surface{background-color:#fff8f8}
 
 .border-outline-variant{border-color:#d9c0c5}
-/* === LAYOUT === */
-.flex{display:flex}
-.flex-col{flex-direction:column}
-.flex-wrap{flex-wrap:wrap}
-.items-center{align-items:center}
-.items-start{align-items:flex-start}
-.justify-center{justify-content:center}
-.justify-between{justify-content:space-between}
-.gap-3{gap:0.75rem}
-.gap-4{gap:1rem}
-.gap-6{gap:1.5rem}
-.gap-8{gap:2rem}
-.hidden{display:none}
-.relative{position:relative}
-.fixed{position:fixed}
-.inset-y-0{top:0;bottom:0}
-.left-0{left:0}
-.top-0{top:0}
-.z-10{z-index:10}
-.z-50{z-index:50}
-.z-\[100\]{z-index:100}
-.w-full{width:100%}
-.h-full{height:100%}
-.overflow-hidden{overflow:hidden}
-.px-6{padding-left:1.5rem;padding-right:1.5rem}
-.px-10{padding-left:2.5rem;padding-right:2.5rem}
-.py-3{padding-top:0.75rem;padding-bottom:0.75rem}
-.py-4{padding-top:1rem;padding-bottom:1rem}
-.py-10{padding-top:2.5rem;padding-bottom:2.5rem}
-.py-16{padding-top:4rem;padding-bottom:4rem}
-.p-8{padding:2rem}
-.pt-8{padding-top:2rem}
-.mt-2{margin-top:0.5rem}
-.mt-4{margin-top:1rem}
-.mt-8{margin-top:2rem}
-.mt-auto{margin-top:auto}
-.mb-1{margin-bottom:0.25rem}
-.mb-6{margin-bottom:1.5rem}
-.mb-10{margin-bottom:2.5rem}
-
-/* === SHADOWS & BORDERS === */
+/* === UTILITIES KEPT FROM HAND-ROLLED SET (value != Tailwind default, or needs border-style with preflight off) === */
 .shadow-lg{box-shadow:0 8px 24px rgba(0,0,0,0.12)}
 .shadow-2xl{box-shadow:0 20px 60px rgba(0,0,0,0.2)}
 .rounded-lg{border-radius:0.25rem}
-.rounded-full{border-radius:9999px}
+.leading-relaxed{line-height:1.7}
 .border{border:1px solid}
 .border-t{border-top:1px solid}
 .border-r{border-right:1px solid}
-
-/* === TYPOGRAPHY HELPERS === */
-.text-center{text-align:center}
-.italic{font-style:italic}
-.leading-relaxed{line-height:1.7}
-.font-bold{font-weight:700}
-.font-semibold{font-weight:600}
 
 /* === MISC === */
 .logo-sm{width:2.5rem;height:2.5rem}
@@ -629,11 +582,6 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .polaroid-carousel{grid-template-columns:repeat(2,1fr);row-gap:3rem;max-width:40rem;margin-inline:auto}
   .info-grid{grid-template-columns:repeat(2,1fr);gap:2rem;max-width:48rem;margin-inline:auto}
 }
-@media(min-width:768px){
-  .md\:flex{display:flex}
-  .md\:hidden{display:none}
-  .md\:p-10{padding:2.5rem}
-}
 @media(max-width:768px){
   .hero{padding-top:5.5rem}
   #rsvp{padding-top:clamp(3rem,6vw,4rem)}
@@ -722,11 +670,11 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .dresscode-illustrations{width:min(100%,46rem)}
 }
 
-/* portrait tablets (iPad) — match iPhone 15 column rhythm */
+/* portrait tablets (iPad) — column rhythm like iPhone 15 */
 @media(min-width:769px) and (max-width:1024px) and (orientation:portrait){
-  .hero{padding-top:5.5rem} /* ponytail: same as iPhone 15, not taller */
-  .hero-composition{flex-direction:column;gap:2.25rem} /* iPhone 15 = 2.25rem */
-  .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1} /* iPhone 15 = 22rem */
+  .hero{padding-top:5.5rem}
+  .hero-composition{flex-direction:column;gap:2.25rem}
+  .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
   .invitation-pass,.invitation-details{width:min(35rem,92vw)}
   .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
   .invitation-pass .sobre-layer{inset:-6%;left:50%;transform:translateX(-50%);width:112%}

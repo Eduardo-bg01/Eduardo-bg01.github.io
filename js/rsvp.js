@@ -14,12 +14,16 @@ const rsvpError = document.getElementById('rsvp-error');
 const rsvpClosed = document.getElementById('rsvp-closed');
 const rsvpDeadline = document.getElementById('rsvp-deadline');
 
-// ========== DEADLINE ==========
+// ========== HELPERS ==========
 // ponytail: deadline Sep 23 2026 Mexicali (PDT, UTC-7)
 const DEADLINE = new Date('2026-09-24T00:00:00-07:00');
 
 function isPastDeadline() {
   return Date.now() >= DEADLINE.getTime();
+}
+
+function plural(n) {
+  return n === 1 ? 'persona' : 'personas';
 }
 
 // ========== EMAIL via FormSubmit.co ==========
@@ -41,64 +45,33 @@ function sendRsvpEmail(guest, response, count) {
   }).catch(function () {});
 }
 
-// ========== REWRITE BACK LINK ==========
-function rewriteRsvpLinks(guest) {
-  document.querySelectorAll('.rsvp-link, #rsvp-back-link').forEach(a => {
-    a.href = `index.html?id=${guest.id}`;
-  });
-}
-
-// ========== LOCALSTORAGE HELPERS ==========
-function getStoredResponse(guestId) {
-  return localStorage.getItem('rsvp_' + guestId);
-}
-
-function getStoredCount(guestId) {
-  return localStorage.getItem('rsvp_count_' + guestId);
-}
-
-function hasResponded(guestId) {
-  return getStoredResponse(guestId) !== null;
-}
-
+// ========== LOCALSTORAGE ==========
 function markResponded(guestId, response, count) {
   localStorage.setItem('rsvp_' + guestId, response);
   if (count != null) localStorage.setItem('rsvp_count_' + guestId, String(count));
 }
 
-// ========== SHOW ALREADY RESPONDED ==========
-function showAlreadyResponded(guest, response, count) {
+// ========== SHOW LOCKED STATE (already responded OR closed) ==========
+function showLocked(guest, response, count) {
   rsvpNotFound.style.display = 'none';
   rsvpFound.style.display = 'block';
   rsvpButtons.style.display = 'none';
   rsvpPartySelect.style.display = 'none';
   rsvpDeadline.style.display = 'none';
-  rsvpResponse.style.display = 'block';
   rsvpGuestName.textContent = guest.name;
-  var p = guest.party === 1 ? 'persona' : 'personas';
-  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + p;
-  var msg = count + ' ' + (count === 1 ? 'persona' : 'personas');
-  if (response === 'SÍ, ASISTIRÉ') {
-    rsvpResponseText.textContent = '¡Qué emoción! ' + guest.name + ', confirmamos ' + msg + '.';
-  } else {
-    rsvpResponseText.textContent = guest.name + ', lamentamos que no puedas acompañarnos.';
+  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + plural(guest.party);
+  if (response === null) {
+    rsvpClosed.style.display = 'block';
+    return;
   }
+  rsvpResponse.style.display = 'block';
+  var msg = count + ' ' + plural(count);
+  rsvpResponseText.textContent = response === 'SÍ, ASISTIRÉ'
+    ? '¡Qué emoción! ' + guest.name + ', confirmamos ' + msg + '.'
+    : guest.name + ', lamentamos que no puedas acompañarnos.';
 }
 
-// ========== SHOW CLOSED ==========
-function showClosed(guest) {
-  rsvpNotFound.style.display = 'none';
-  rsvpFound.style.display = 'block';
-  rsvpButtons.style.display = 'none';
-  rsvpPartySelect.style.display = 'none';
-  rsvpDeadline.style.display = 'none';
-  rsvpGuestName.textContent = guest.name;
-  var p = guest.party === 1 ? 'persona' : 'personas';
-  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + p;
-  rsvpClosed.style.display = 'block';
-}
-
-// ========== UPDATE RSVP ==========
+// ========== UPDATE RSVP (live form) ==========
 function updateRsvp(guest) {
   rsvpNotFound.style.display = 'none';
   rsvpFound.style.display = 'block';
@@ -106,8 +79,7 @@ function updateRsvp(guest) {
   rsvpError.style.display = 'none';
   rsvpButtons.style.display = 'flex';
   rsvpGuestName.textContent = guest.name;
-  var p = guest.party === 1 ? 'persona' : 'personas';
-  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + p;
+  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + plural(guest.party);
   if (guest.party > 1) {
     rsvpPartySelect.style.display = 'block';
     rsvpPartyCount.innerHTML = '';
@@ -121,7 +93,7 @@ function updateRsvp(guest) {
     for (var i = 1; i <= max; i++) {
       var opt = document.createElement('option');
       opt.value = i;
-      opt.textContent = i + ' ' + (i === 1 ? 'persona' : 'personas');
+      opt.textContent = i + ' ' + plural(i);
       rsvpPartyCount.appendChild(opt);
     }
   } else {
@@ -143,8 +115,7 @@ document.querySelector('.rsvp-yes')?.addEventListener('click', function () {
   rsvpPartySelect.style.display = 'none';
   rsvpButtons.style.display = 'none';
   rsvpResponse.style.display = 'block';
-  var msg = count === 1 ? 'persona' : 'personas';
-  rsvpResponseText.textContent = '¡Qué emoción! ' + currentGuest.name + ', confirmamos ' + count + ' ' + msg + '.';
+  rsvpResponseText.textContent = '¡Qué emoción! ' + currentGuest.name + ', confirmamos ' + count + ' ' + plural(count) + '.';
 });
 
 document.querySelector('.rsvp-no')?.addEventListener('click', function () {
@@ -173,26 +144,26 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
     var match = findGuestById(guestId);
     if (match) {
       currentGuest = match;
-      rewriteRsvpLinks(match);
+      rewriteRsvpLinks(match, 'index');
 
       // Check JSON confirm first (source of truth after manual update)
       if (match.confirm !== null) {
         var count = match.party_confirmed || match.party;
-        showAlreadyResponded(match, match.confirm === 'yes' ? 'SÍ, ASISTIRÉ' : 'NO PODRÉ', count);
+        showLocked(match, match.confirm === 'yes' ? 'SÍ, ASISTIRÉ' : 'NO PODRÉ', count);
         return;
       }
 
       // Then check localStorage (device-level lock before JSON update)
-      if (hasResponded(match.id)) {
-        var stored = getStoredResponse(match.id);
-        var storedCount = getStoredCount(match.id) || match.party;
-        showAlreadyResponded(match, stored, parseInt(storedCount));
+      if (localStorage.getItem('rsvp_' + match.id) !== null) {
+        var stored = localStorage.getItem('rsvp_' + match.id);
+        var storedCount = localStorage.getItem('rsvp_count_' + match.id) || match.party;
+        showLocked(match, stored, parseInt(storedCount));
         return;
       }
 
       // Deadline gate
       if (isPastDeadline()) {
-        showClosed(match);
+        showLocked(match, null);
         return;
       }
 
@@ -200,6 +171,4 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
       return;
     }
   }
-
-
 })();

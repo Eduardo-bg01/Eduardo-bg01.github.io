@@ -10,6 +10,13 @@ function findGuestById(id) {
   return GUESTS.find(g => g.id === parseInt(id)) || null;
 }
 
+// shared per-page: point custom links to the target page with the guest id
+function rewriteRsvpLinks(guest, page) {
+  document.querySelectorAll('.rsvp-link, #rsvp-back-link').forEach(a => {
+    a.href = page + '.html?id=' + guest.id;
+  });
+}
+
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
