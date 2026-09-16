@@ -507,8 +507,8 @@
     "id": 202,
     "name": "Fam. Treviño-Valle",
     "party": 3,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 3
   },
   {
     "id": 203,
@@ -633,8 +633,8 @@
     "id": 224,
     "name": "Fam. Pérez-Bojórquez",
     "party": 3,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 3
   },
   {
     "id": 225,
@@ -654,7 +654,7 @@
     "id": 301,
     "name": "Claudio Gonzáles.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   }
 ]
