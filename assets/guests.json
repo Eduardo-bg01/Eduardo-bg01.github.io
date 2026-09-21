@@ -248,8 +248,8 @@
     "id": 10,
     "name": "Alberto G & M.A Refugio",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 11,
