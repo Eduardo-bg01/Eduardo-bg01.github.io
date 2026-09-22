@@ -479,14 +479,14 @@
     "id": 114,
     "name": "Nallely M. & Hugo L.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
     "id": 115,
     "name": "Sr. & Sra. Morales.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -647,7 +647,7 @@
     "id": 300,
     "name": "Renan González.",
     "party": 1,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
