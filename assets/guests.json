@@ -297,8 +297,8 @@
     "id": 30,
     "name": "Fam. Aldana.",
     "party": 5,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 5
   },
   {
     "id": 36,
@@ -584,8 +584,8 @@
     "id": 215,
     "name": "Fam. Pérez Zepeda",
     "party": 3,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 3
   },
   {
     "id": 216,
