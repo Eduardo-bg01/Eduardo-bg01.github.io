@@ -119,13 +119,6 @@
     "party_confirmed": 2
   },
   {
-    "id": 30,
-    "name": "Fam. Aldana.",
-    "party": 5,
-    "confirm": "yes",
-    "party_confirmed": 5
-  },
-  {
     "id": 31,
     "name": "Aylin Urbalejo",
     "party": 1,
@@ -364,13 +357,6 @@
     "party_confirmed": 2
   },
   {
-    "id": 215,
-    "name": "Fam. Pérez Zepeda",
-    "party": 3,
-    "confirm": "yes",
-    "party_confirmed": 3
-  },
-  {
     "id": 222,
     "name": "Fam. Pérez de la Cruz",
     "party": 3,
@@ -444,14 +430,14 @@
     "id": 5,
     "name": "Fam. Soto Viniegra",
     "party": 2,
-    "confirm": "no",
+    "confirm": null,
     "party_confirmed": null
   },
   {
     "id": 13,
     "name": "Fam. Lara Herrera",
     "party": 2,
-    "confirm": "no",
+    "confirm": null,
     "party_confirmed": null
   },
   {
@@ -465,15 +451,22 @@
     "id": 22,
     "name": "Sr. & Sra. Tuller.",
     "party": 2,
-    "confirm": "no",
+    "confirm": null,
+    "party_confirmed": null
+  },
+  {
+    "id": 30,
+    "name": "Fam. Aldana.",
+    "party": 5,
+    "confirm": null,
     "party_confirmed": null
   },
   {
     "id": 39,
     "name": "Cripto Boys",
     "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 45,
@@ -528,8 +521,8 @@
     "id": 58,
     "name": "Rebeca Del Bosque.",
     "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 70,
@@ -591,8 +584,8 @@
     "id": 206,
     "name": "Sr. & Sra. Granillo Pérez.",
     "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 1
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 211,
@@ -609,25 +602,32 @@
     "party_confirmed": null
   },
   {
+    "id": 215,
+    "name": "Fam. Pérez Zepeda",
+    "party": 3,
+    "confirm": null,
+    "party_confirmed": null
+  },
+  {
     "id": 216,
     "name": "Sr. & Sra. Torres",
     "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 217,
     "name": "Fam. Pérez Ramos",
     "party": 4,
-    "confirm": "yes",
-    "party_confirmed": 2
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 218,
     "name": "Sr. & Sra. Pérez Sesma",
     "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 219,
@@ -654,7 +654,7 @@
     "id": 225,
     "name": "Guillermina Rivera.",
     "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
+    "confirm": null,
+    "party_confirmed": null
   }
 ]
