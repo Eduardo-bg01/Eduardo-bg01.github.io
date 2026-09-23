@@ -15,8 +15,8 @@ const rsvpClosed = document.getElementById('rsvp-closed');
 const rsvpDeadline = document.getElementById('rsvp-deadline');
 
 // ========== HELPERS ==========
-// ponytail: deadline Sep 23 2026 Mexicali (PDT, UTC-7)
-const DEADLINE = new Date('2026-09-24T00:00:00-07:00');
+// deadline sep 30 2026 Mexicali (PDT, UTC-7)
+const DEADLINE = new Date('2026-10-01T00:00:00-07:00');
 
 function isPastDeadline() {
   return Date.now() >= DEADLINE.getTime();
