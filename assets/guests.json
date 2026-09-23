@@ -514,7 +514,7 @@
     "id": 52,
     "name": "Sandra C. & Juan A.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
