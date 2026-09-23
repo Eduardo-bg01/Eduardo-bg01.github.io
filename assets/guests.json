@@ -654,7 +654,7 @@
     "id": 225,
     "name": "Guillermina Rivera.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   }
 ]
