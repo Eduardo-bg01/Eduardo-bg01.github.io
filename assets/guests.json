@@ -444,14 +444,14 @@
     "id": 5,
     "name": "Fam. Soto Viniegra",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
     "id": 13,
     "name": "Fam. Lara Herrera",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -465,15 +465,15 @@
     "id": 22,
     "name": "Sr. & Sra. Tuller.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
     "id": 39,
     "name": "Cripto Boys",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 45,
@@ -528,8 +528,8 @@
     "id": 58,
     "name": "Rebeca Del Bosque.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 70,
