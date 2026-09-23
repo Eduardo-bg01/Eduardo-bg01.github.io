@@ -619,8 +619,8 @@
     "id": 217,
     "name": "Fam. Pérez Ramos",
     "party": 4,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 218,
