@@ -10,6 +10,18 @@ function findGuestById(id) {
   return GUESTS.find(g => g.id === parseInt(id)) || null;
 }
 
+// shared page init: load guests, read ?id=, return the matching guest (or null)
+async function getGuestFromUrl() {
+  try {
+    await loadGuests();
+  } catch (e) {
+    console.error('Failed to load guests.json:', e);
+    return null;
+  }
+  const id = new URLSearchParams(window.location.search).get('id');
+  return id ? findGuestById(id) : null;
+}
+
 // shared per-page: point custom links to the target page with the guest id
 function rewriteRsvpLinks(guest, page) {
   document.querySelectorAll('.rsvp-link, #rsvp-back-link').forEach(a => {

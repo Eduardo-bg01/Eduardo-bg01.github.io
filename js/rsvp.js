@@ -26,6 +26,11 @@ function plural(n) {
   return n === 1 ? 'persona' : 'personas';
 }
 
+function setGuestHeader(guest) {
+  rsvpGuestName.textContent = guest.name;
+  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + plural(guest.party);
+}
+
 // ========== EMAIL via FormSubmit.co ==========
 function sendRsvpEmail(guest, response, count) {
   const body = new URLSearchParams();
@@ -58,8 +63,7 @@ function showLocked(guest, response, count) {
   rsvpButtons.style.display = 'none';
   rsvpPartySelect.style.display = 'none';
   rsvpDeadline.style.display = 'none';
-  rsvpGuestName.textContent = guest.name;
-  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + plural(guest.party);
+  setGuestHeader(guest);
   if (response === null) {
     rsvpClosed.style.display = 'block';
     return;
@@ -78,8 +82,7 @@ function updateRsvp(guest) {
   rsvpResponse.style.display = 'none';
   rsvpError.style.display = 'none';
   rsvpButtons.style.display = 'flex';
-  rsvpGuestName.textContent = guest.name;
-  rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + plural(guest.party);
+  setGuestHeader(guest);
   if (guest.party > 1) {
     rsvpPartySelect.style.display = 'block';
     rsvpPartyCount.innerHTML = '';
@@ -130,45 +133,31 @@ document.querySelector('.rsvp-no')?.addEventListener('click', function () {
 
 // ========== INIT ==========
 (async function init() {
-  try {
-    await loadGuests();
-  } catch (e) {
-    console.error('Failed to load guests.json:', e);
+  const match = await getGuestFromUrl();
+  if (!match) return;
+  currentGuest = match;
+  rewriteRsvpLinks(match, 'index');
+
+  // Check JSON confirm first (source of truth after manual update)
+  if (match.confirm !== null) {
+    var count = match.party_confirmed || match.party;
+    showLocked(match, match.confirm === 'yes' ? 'SÍ, ASISTIRÉ' : 'NO PODRÉ', count);
     return;
   }
 
-  var params = new URLSearchParams(window.location.search);
-
-  var guestId = params.get('id');
-  if (guestId) {
-    var match = findGuestById(guestId);
-    if (match) {
-      currentGuest = match;
-      rewriteRsvpLinks(match, 'index');
-
-      // Check JSON confirm first (source of truth after manual update)
-      if (match.confirm !== null) {
-        var count = match.party_confirmed || match.party;
-        showLocked(match, match.confirm === 'yes' ? 'SÍ, ASISTIRÉ' : 'NO PODRÉ', count);
-        return;
-      }
-
-      // Then check localStorage (device-level lock before JSON update)
-      if (localStorage.getItem('rsvp_' + match.id) !== null) {
-        var stored = localStorage.getItem('rsvp_' + match.id);
-        var storedCount = localStorage.getItem('rsvp_count_' + match.id) || match.party;
-        showLocked(match, stored, parseInt(storedCount));
-        return;
-      }
-
-      // Deadline gate
-      if (isPastDeadline()) {
-        showLocked(match, null);
-        return;
-      }
-
-      updateRsvp(match);
-      return;
-    }
+  // Then check localStorage (device-level lock before JSON update)
+  if (localStorage.getItem('rsvp_' + match.id) !== null) {
+    var stored = localStorage.getItem('rsvp_' + match.id);
+    var storedCount = localStorage.getItem('rsvp_count_' + match.id) || match.party;
+    showLocked(match, stored, parseInt(storedCount));
+    return;
   }
+
+  // Deadline gate
+  if (isPastDeadline()) {
+    showLocked(match, null);
+    return;
+  }
+
+  updateRsvp(match);
 })();

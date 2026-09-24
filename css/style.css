@@ -827,7 +827,7 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .env-card,.polaroid{transition:none}
 }
 
-/* portrait: welcome photo; landscape/desktop keep 169_Picture.jpg */
+/* portrait: welcome photo; landscape/desktop keep NE_Welcome_169.jpeg */
 @media(orientation:portrait){
   #intro-screen{background-image:url('../assets/welcome_pic.jpg')}
 }

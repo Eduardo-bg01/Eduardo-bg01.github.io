@@ -247,24 +247,9 @@ if (envelope) {
 
 // ========== INIT ==========
 (async function init() {
-  try {
-    await loadGuests();
-  } catch (e) {
-    console.error('Failed to load guests.json:', e);
-    return;
+  const match = await getGuestFromUrl();
+  if (match) {
+    updateInvitation(match);
+    rewriteRsvpLinks(match, 'rsvp');
   }
-
-  const params = new URLSearchParams(window.location.search);
-
-  const guestId = params.get('id');
-  if (guestId) {
-    const match = findGuestById(guestId);
-    if (match) {
-      updateInvitation(match);
-      rewriteRsvpLinks(match, 'rsvp');
-      return;
-    }
-  }
-
-
 })();

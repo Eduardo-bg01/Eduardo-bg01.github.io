@@ -577,8 +577,8 @@
     "id": 76,
     "name": "Fam. Figueroa Pérez.",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 98,
@@ -598,8 +598,8 @@
     "id": 113,
     "name": "Ulises & Sofia M.",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 201,
@@ -668,8 +668,8 @@
     "id": 227,
     "name": "Abraham Saucedo",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 228,
