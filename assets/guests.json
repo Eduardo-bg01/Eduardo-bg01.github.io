@@ -528,8 +528,8 @@
     "id": 21,
     "name": "Fam. Urbano Figueroa",
     "party": 4,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 3
   },
   {
     "id": 45,
