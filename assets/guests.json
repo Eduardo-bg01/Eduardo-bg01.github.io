@@ -556,8 +556,8 @@
     "id": 51,
     "name": "Paulina O. & Rodrigo G.",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 55,
