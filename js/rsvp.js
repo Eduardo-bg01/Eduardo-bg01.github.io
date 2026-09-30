@@ -15,7 +15,7 @@ const rsvpClosed = document.getElementById('rsvp-closed');
 const rsvpDeadline = document.getElementById('rsvp-deadline');
 
 // ========== HELPERS ==========
-// deadline sep 30 2026 Mexicali (PDT, UTC-7)
+// deadline oct 1 2026 Mexicali (PDT, UTC-7)
 const DEADLINE = new Date('2026-10-01T00:00:00-07:00');
 
 function isPastDeadline() {
@@ -31,24 +31,83 @@ function setGuestHeader(guest) {
   rsvpPartyInfo.textContent = 'Invitación para ' + guest.party + ' ' + plural(guest.party);
 }
 
-// ========== EMAIL via FormSubmit.co ==========
-function sendRsvpEmail(guest, response, count) {
-  const body = new URLSearchParams();
-  body.set('_subject', 'RSVP: ' + guest.name + ' - ' + response);
-  body.set('_cc', 'ntrevino@uabc.edu.mx,ebeltran8@uabc.edu.mx');
-  body.set('_captcha', 'false');
-  body.set('_template', 'table');
+// ========== EMAIL: FormSubmit primary, Web3Forms fallback ==========
+// ponytail: two providers, first success wins. Add a third by appending to the array.
+const RSVP_ACCESS_KEY = '7b37018e-e65b-48bd-bd79-9865114a72bd'; // free at https://web3forms.com
+
+function rsvpCommon(body, guest, response, count) {
   body.set('Invitado', guest.name);
   body.set('Respuesta', response);
   body.set('Asistentes', count);
   body.set('Mensaje', guest.name + ' ' + (response === 'SÍ, ASISTIRÉ' ? 'confirmó' : 'declinó') + ' asistencia para ' + count + ' persona(s).');
-
-  fetch('https://formsubmit.co/ajax/pgmbeltraneduardo@gmail.com', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString()
-  }).catch(function () {});
 }
+
+function formsubmitBody(guest, response, count) {
+  var b = new URLSearchParams();
+  b.set('_subject', 'RSVP: ' + guest.name + ' - ' + response);
+  b.set('_url', 'https://natalia-y-eduardo.com.mx/rsvp.html');
+  b.set('_honey', 'no-fill');
+  b.set('_captcha', 'false');
+  b.set('_template', 'table');
+  rsvpCommon(b, guest, response, count);
+  return b;
+}
+
+function web3formsBody(guest, response, count) {
+  var b = new URLSearchParams();
+  b.set('access_key', RSVP_ACCESS_KEY);
+  b.set('subject', 'RSVP: ' + guest.name + ' - ' + response);
+  rsvpCommon(b, guest, response, count);
+  return b;
+}
+
+const RSVP_PROVIDERS = [
+  { name: 'formsubmit', endpoint: 'https://formsubmit.co/ajax/pgmbeltraneduardo@gmail.com', build: formsubmitBody },
+  { name: 'web3forms',  endpoint: 'https://api.web3forms.com/submit',                       build: web3formsBody }
+];
+
+// ponytail: never swallow this. formsubmit.co started returning 500 for every
+// guest and an empty .catch() hid it for weeks. Read text not json because
+// formsubmit answers errors with HTML, which would make res.json() reject.
+function postForm(endpoint, body) {
+  return fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+    body: body.toString()
+  })
+    .then(function (res) {
+      return res.text().then(function (text) {
+        var json = null;
+        try { json = JSON.parse(text); } catch (e) { /* HTML error page */ }
+        // ponytail: some services reply 200 with a failure body, so trust the JSON too
+        return { ok: res.ok && (!json || json.success !== false), status: res.status, json: json };
+      });
+    })
+    .catch(function (err) { return { ok: false, status: 0, error: String(err) }; });
+}
+
+// ponytail: global chain, no retries beyond the provider list.
+function sendRsvpEmail(guest, response, count) {
+  return RSVP_PROVIDERS.reduce(function (chain, p) {
+    return chain.then(function (prev) {
+      if (prev && prev.ok) return prev; // first success wins, never send twice
+      return postForm(p.endpoint, p.build(guest, response, count)).then(function (r) {
+        r.provider = p.name;
+        if (!r.ok) console.warn('[RSVP] ' + p.name + ' falló, probando el siguiente', r);
+        return r;
+      });
+    });
+  }, Promise.resolve(null)).then(function (r) {
+    console.log(r && r.ok ? '[RSVP] email enviada via ' + r.provider : '[RSVP] email FALLÓ en todos los proveedores', r);
+    return r;
+  });
+}
+
+// self-check: open rsvp.html, run testRsvpEmail() in the console, read the log.
+// Never leaves a fake RSVP behind because it bypasses localStorage.
+window.testRsvpEmail = function () {
+  return sendRsvpEmail({ name: '[PRUEBA] Sin nombre' }, 'SÍ, ASISTIRÉ', 1);
+};
 
 // ========== LOCALSTORAGE ==========
 function markResponded(guestId, response, count) {
