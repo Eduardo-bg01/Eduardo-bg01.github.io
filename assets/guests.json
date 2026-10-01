@@ -528,22 +528,22 @@
     "id": 21,
     "name": "Fam. Urbano Figueroa",
     "party": 4,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 3
   },
   {
     "id": 45,
     "name": "Miguel A. & Airam P.",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 47,
-    "name": "Yeimye & Ivan",
-    "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "name": "Yeimye Avila",
+    "party": 1,
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 49,
@@ -556,8 +556,8 @@
     "id": 51,
     "name": "Paulina O. & Rodrigo G.",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 55,
