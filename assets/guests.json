@@ -256,7 +256,7 @@
     "name": "Itzel Q. & Gonzalo P.",
     "party": 2,
     "confirm": "yes",
-    "party_confirmed": 2
+    "party_confirmed": 1
   },
   {
     "id": 65,
@@ -626,8 +626,8 @@
     "id": 211,
     "name": "Yuridia Treviño B.",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 212,
@@ -653,7 +653,7 @@
   {
     "id": 221,
     "name": "Gerardo E. Urías.",
-    "party": 1,
+    "party": 2,
     "confirm": null,
     "party_confirmed": null
   },
@@ -661,7 +661,7 @@
     "id": 226,
     "name": "Natali Acosta",
     "party": 1,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -682,7 +682,8 @@
     "id": 229,
     "name": "Raul Macias",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   }
+
 ]
