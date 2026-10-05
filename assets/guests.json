@@ -626,7 +626,7 @@
     "id": 112,
     "name": "Horacio & Alicia",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -681,6 +681,13 @@
   {
     "id": 228,
     "name": "Fernando Ramirez",
+    "party": 1,
+    "confirm": "yes",
+    "party_confirmed": 1
+  },
+  {
+    "id": 333,
+    "name": "Alfredo Wancho",
     "party": 1,
     "confirm": null,
     "party_confirmed": null
