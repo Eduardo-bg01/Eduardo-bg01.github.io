@@ -98,6 +98,13 @@
     "party_confirmed": 4
   },
   {
+    "id": 21,
+    "name": "Fam. Urbano Figueroa",
+    "party": 4,
+    "confirm": "yes",
+    "party_confirmed": 3
+  },
+  {
     "id": 27,
     "name": "Sr. & Sra. Jackson.",
     "party": 2,
@@ -217,11 +224,25 @@
     "party_confirmed": 2
   },
   {
+    "id": 45,
+    "name": "Miguel A. & Airam P.",
+    "party": 2,
+    "confirm": "yes",
+    "party_confirmed": 2
+  },
+  {
     "id": 46,
     "name": "Natanael Q. & Esmeralda P.",
     "party": 2,
     "confirm": "yes",
     "party_confirmed": 2
+  },
+  {
+    "id": 47,
+    "name": "Yeimye Avila",
+    "party": 1,
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 48,
@@ -233,6 +254,13 @@
   {
     "id": 50,
     "name": "Fam. Avila Alfaro",
+    "party": 2,
+    "confirm": "yes",
+    "party_confirmed": 2
+  },
+  {
+    "id": 51,
+    "name": "Paulina O. & Rodrigo G.",
     "party": 2,
     "confirm": "yes",
     "party_confirmed": 2
@@ -278,6 +306,13 @@
     "party": 1,
     "confirm": "yes",
     "party_confirmed": 1
+  },
+  {
+    "id": 76,
+    "name": "Fam. Figueroa Pérez.",
+    "party": 2,
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 78,
@@ -327,6 +362,13 @@
     "party": 1,
     "confirm": "yes",
     "party_confirmed": 1
+  },
+  {
+    "id": 113,
+    "name": "Ulises & Sofia M.",
+    "party": 2,
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 116,
@@ -383,6 +425,13 @@
     "party": 2,
     "confirm": "yes",
     "party_confirmed": 2
+  },
+  {
+    "id": 211,
+    "name": "Yuridia Treviño B.",
+    "party": 1,
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 214,
@@ -443,6 +492,13 @@
   {
     "id": 225,
     "name": "Guillermina Rivera.",
+    "party": 1,
+    "confirm": "yes",
+    "party_confirmed": 1
+  },
+  {
+    "id": 227,
+    "name": "Abraham Saucedo",
     "party": 1,
     "confirm": "yes",
     "party_confirmed": 1
@@ -511,6 +567,20 @@
     "party_confirmed": null
   },
   {
+    "id": 226,
+    "name": "Natali Acosta",
+    "party": 1,
+    "confirm": "no",
+    "party_confirmed": null
+  },
+  {
+    "id": 229,
+    "name": "Raul Macias",
+    "party": 2,
+    "confirm": "no",
+    "party_confirmed": null
+  },
+  {
     "id": 300,
     "name": "Renan González.",
     "party": 1,
@@ -525,39 +595,11 @@
     "party_confirmed": null
   },
   {
-    "id": 21,
-    "name": "Fam. Urbano Figueroa",
-    "party": 4,
-    "confirm": "yes",
-    "party_confirmed": 3
-  },
-  {
-    "id": 45,
-    "name": "Miguel A. & Airam P.",
-    "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
-  },
-  {
-    "id": 47,
-    "name": "Yeimye Avila",
-    "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
-  },
-  {
     "id": 49,
     "name": "Fam. Wancho Saucedo",
     "party": 2,
     "confirm": null,
     "party_confirmed": null
-  },
-  {
-    "id": 51,
-    "name": "Paulina O. & Rodrigo G.",
-    "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
   },
   {
     "id": 55,
@@ -574,13 +616,6 @@
     "party_confirmed": null
   },
   {
-    "id": 76,
-    "name": "Fam. Figueroa Pérez.",
-    "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
-  },
-  {
     "id": 98,
     "name": "Sr. y Sra. Gomez",
     "party": 2,
@@ -593,13 +628,6 @@
     "party": 2,
     "confirm": null,
     "party_confirmed": null
-  },
-  {
-    "id": 113,
-    "name": "Ulises & Sofia M.",
-    "party": 2,
-    "confirm": "yes",
-    "party_confirmed": 2
   },
   {
     "id": 201,
@@ -621,13 +649,6 @@
     "party": 2,
     "confirm": null,
     "party_confirmed": null
-  },
-  {
-    "id": 211,
-    "name": "Yuridia Treviño B.",
-    "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
   },
   {
     "id": 212,
@@ -658,32 +679,10 @@
     "party_confirmed": null
   },
   {
-    "id": 226,
-    "name": "Natali Acosta",
-    "party": 1,
-    "confirm": "no",
-    "party_confirmed": null
-  },
-  {
-    "id": 227,
-    "name": "Abraham Saucedo",
-    "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
-  },
-  {
     "id": 228,
     "name": "Fernando Ramirez",
     "party": 1,
     "confirm": null,
     "party_confirmed": null
-  },
-  {
-    "id": 229,
-    "name": "Raul Macias",
-    "party": 2,
-    "confirm": "no",
-    "party_confirmed": null
   }
-
 ]
