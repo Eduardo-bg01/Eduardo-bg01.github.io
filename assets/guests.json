@@ -703,8 +703,8 @@
     "id": 335,
     "name": "Priscila Saenz",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
     {
     "id": 336,
