@@ -16,7 +16,7 @@ const rsvpDeadline = document.getElementById('rsvp-deadline');
 
 // ========== HELPERS ==========
 // deadline oct 10 2026 Mexicali (PDT, UTC-7) -> closes midnight, i.e. start of oct 11
-const DEADLINE = new Date('2026-10-11T00:00:00-07:00');
+const DEADLINE = new Date('2026-13-11T00:00:00-07:00');
 
 function isPastDeadline() {
   return Date.now() >= DEADLINE.getTime();
