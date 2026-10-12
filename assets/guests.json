@@ -626,7 +626,7 @@
     "id": 55,
     "name": "Fam. Figueroa Castellanos",
     "party": 4,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -675,21 +675,21 @@
     "id": 219,
     "name": "Ivan U. & Dulce V.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
     "id": 220,
     "name": "Daniel U. & Caronlina E.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
     "id": 221,
     "name": "Gerardo E. Urías.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
