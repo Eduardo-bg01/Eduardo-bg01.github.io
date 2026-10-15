@@ -640,21 +640,21 @@
     "id": 98,
     "name": "Sr. y Sra. Gomez",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
     "id": 201,
     "name": "Sr. & Sra. Treviño Ramirez",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 203,
     "name": "Sr. & Sra. González Pérez.",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -696,8 +696,8 @@
     "id": 333,
     "name": "Alfredo Wancho",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 334,
@@ -710,8 +710,8 @@
     "id": 336,
     "name": "Sr. & Sra. Urbalejo Avalos",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 2
   },
   {
     "id": 108,
