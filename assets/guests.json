@@ -619,7 +619,7 @@
     "id": 49,
     "name": "Fam. Wancho Saucedo",
     "party": 2,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -661,15 +661,15 @@
     "id": 205,
     "name": "Sr. & Sra. Flores García",
     "party": 2,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 212,
     "name": "Fam. Flores Treviño",
     "party": 3,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 219,
@@ -703,7 +703,7 @@
     "id": 334,
     "name": "Oliva Alviz Quirarte",
     "party": 1,
-    "confirm": null,
+    "confirm": "no",
     "party_confirmed": null
   },
   {
@@ -724,21 +724,21 @@
     "id": 444,
     "name": "Alexis Alcaraz",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 445,
     "name": "Valeria Sanchez",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   },
   {
     "id": 446,
     "name": "Stephanie Real",
     "party": 1,
-    "confirm": null,
-    "party_confirmed": null
+    "confirm": "yes",
+    "party_confirmed": 1
   }
 ]
