@@ -745,15 +745,15 @@
     "id": 555,
     "name": "Isabella Nieves N.",
     "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
+    "confirm": null,
+    "party_confirmed": null
   },
   {
     "id": 456,
     "name": "Guadalupe Lopez V.",
     "party": 1,
-    "confirm": "yes",
-    "party_confirmed": 1
+    "confirm": null,
+    "party_confirmed": null
   }
 
 ]
