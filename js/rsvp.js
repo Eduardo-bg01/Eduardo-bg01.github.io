@@ -16,6 +16,8 @@ const rsvpDeadline = document.getElementById('rsvp-deadline');
 
 // ========== HELPERS ==========
 // deadline oct 10 2026 Mexicali (PDT, UTC-7) -> closes midnight, i.e. start of oct 11
+// TODO(human): '2026-20-11' is not a valid ISO date (month 20), so DEADLINE is Invalid Date
+// and isPastDeadline() is always false — RSVP never closes. Pick the intended close date (YYYY-MM-DD).
 const DEADLINE = new Date('2026-20-11T00:00:00-07:00');
 
 function isPastDeadline() {

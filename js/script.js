@@ -130,8 +130,8 @@ if (envelope) {
   const carousel = document.getElementById('polaroid-carousel');
   if (!carousel) return;
   const items = Array.from(carousel.querySelectorAll('.polaroid'));
-  // ponytail: phones only (390/430) — desktop (>1024) stays infinite scroll
-  const mq = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+  // phones + portrait tablets (iPad); keep in sync with the carousel @media in css/style.css
+  const mq = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
   let idx = 0;
 
   function render() {

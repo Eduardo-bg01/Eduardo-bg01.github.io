@@ -86,7 +86,7 @@ ul{list-style:none}
 }
 
 /* === NAVBAR === */
-#navbar{background:transparent;padding-top:env(safe-area-inset-top);transition:transform 0.3s ease}
+#navbar{background:rgba(255,255,255,0.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding-top:env(safe-area-inset-top);transition:transform 0.3s ease}
 #navbar.nav-hidden{transform:translateY(-100%)}
 #navbar a{transition:color 0.2s}
 .nav-centered{justify-content:center;flex:1}
@@ -118,6 +118,7 @@ ul{list-style:none}
 .invitation-main{
   flex-shrink:0;
   width:clamp(20rem,42vw,32rem);
+  order:-1; /* invitation first on every screen, like iPhone */
 }
 .invitation-image-wrap{width:17rem}
 
@@ -421,6 +422,8 @@ section[id]{scroll-margin-top:6rem}
   font-size:clamp(0.55rem,1.4vw,0.8rem);color:#41001c;opacity:0.85;
 }
 .pause-icon{display:none}
+/* "Haz click para reproducir" sits on top of the player art (otherwise it auto-places below it) */
+.custom-player .text-label{grid-area:1/1;align-self:start;justify-self:center;z-index:3;position:relative;margin-top:0.25rem}
 
 /* === GALLERY (polaroids) === */
 .polaroid-carousel{
@@ -467,10 +470,12 @@ section[id]{scroll-margin-top:6rem}
 /* === DESKTOP: iPhone 15 polish at scale === */
 @media(min-width:1025px){
   .hero{padding:6rem 2rem 3rem}
-  .hero-composition{gap:clamp(1.5rem,2vw,2.5rem);width:min(100%,58rem)}
-  .invitation-main{width:clamp(20rem,26vw,28rem)}
+  .hero-composition{gap:clamp(1.5rem,2.5vw,3rem);width:min(100%,76rem)}
+  /* sized by height too, so the invitation fills a laptop screen without clipping */
+  .invitation-main{width:clamp(18rem,min(30vw,(100svh - 10rem) * 0.72),30rem)}
+  .invitation-image-wrap{width:100%}
   .invitation-pass{width:min(34rem,38vw)}
-  .invitation-details{width:min(7rem,14vw)}
+  .invitation-details{width:min(12rem,13vw);padding:0}
   .section-inner{width:min(100% - 4rem,1100px)}
   section{padding-block:clamp(1.5rem,2vw,2.5rem)}
   .events{gap:2rem;max-width:62rem;margin-inline:auto}
@@ -550,7 +555,9 @@ section[id]{scroll-margin-top:6rem}
 .fade-section.animate-in.visible{opacity:1;transform:translateY(0)}
 
 /* === DRAWER === */
-#side-drawer{transition:transform 0.3s ease-in-out;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+#side-drawer{transition:transform 0.3s ease-in-out,visibility 0.3s;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+/* closed drawer: hide its shadow bleeding on the left edge and its links from keyboard focus */
+#side-drawer.-translate-x-full{visibility:hidden}
 #navbar img,#side-drawer img{border:0;outline:none}
 #menu-toggle,#close-drawer{background:none;border:none;padding:0;line-height:1}
 .drawer-backdrop{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,0.3);opacity:0;pointer-events:none;transition:opacity 0.3s ease}
@@ -577,12 +584,15 @@ footer .rsvp-link{
 footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 
 /* === RESPONSIVE === */
+/* 769–1024 landscape (small laptops, iPad mini landscape): keep desktop rows; 9 polaroids = clean 3x3 */
 @media(max-width:1024px){
-  .events{grid-template-columns:repeat(3,1fr);row-gap:3rem;max-width:48rem;margin-inline:auto}
-  .polaroid-carousel{grid-template-columns:repeat(2,1fr);row-gap:3rem;max-width:40rem;margin-inline:auto}
-  .info-grid{grid-template-columns:repeat(2,1fr);gap:2rem;max-width:48rem;margin-inline:auto}
+  .events{gap:1rem}
+  .info-grid{gap:1.5rem}
+  .info-block{padding:2.5rem 1.5rem}
+  .polaroid-carousel{grid-template-columns:repeat(3,1fr);row-gap:2rem;max-width:48rem;margin-inline:auto}
 }
-@media(max-width:768px){
+/* phones + every portrait tablet (iPad): the iPhone 15 single-column layout */
+@media(max-width:768px),(max-width:1024px) and (orientation:portrait){
   .hero{padding-top:5.5rem}
   #rsvp{padding-top:clamp(3rem,6vw,4rem)}
   .hero-composition{flex-direction:column;gap:2.25rem}
@@ -642,20 +652,22 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .invitation-pass{width:min(35rem,96vw)}
 }
 
-@media(max-width:768px) and (orientation:portrait){
+@media(max-width:1024px) and (orientation:portrait){
   .hero-composition{gap:2.5rem}
   .invitation-pass{margin-top:3.25rem}
-  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 2px)}
-  .player-icon{width:115%;justify-self:center;margin-left:-2rem}
-  .play-toggle{left:calc(45% + 2px)}
   .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh;border-radius:50%;padding:0.75rem 1rem}
   .env-card .text-label{font-family:Montserrat,Helvetica,sans-serif;font-size:0.6rem}
   .env-card .text-display-lg{font-family:"Playfair Display",Georgia,serif;font-size:clamp(4rem,13vw,6rem);line-height:1;margin:0 0 1.25rem;text-align:center;width:100%}
   .env-card .text-display-md{font-family:"Source Serif 4",Georgia,serif;font-size:0.8rem}
+  .custom-player .text-label{font-family:Montserrat,Helvetica,sans-serif}
+}
+/* phone-only player tuning (offsets are tied to the 90vw player width) */
+@media(max-width:768px) and (orientation:portrait){
+  .play-toggle{top:calc(50% + 1rem + 2px);left:calc(45% + 2px)}
+  .player-icon{width:115%;justify-self:center;margin-left:-2rem}
   .player-caption{margin-top:calc(4rem - 4px);margin-left:4rem}
-  .custom-player{width:90vw;margin-left:5vw;margin-right:5vw}
-  .custom-player .text-label{font-family:Montserrat,Helvetica,sans-serif;grid-area:1/1;align-self:start;justify-self:center;z-index:3;position:relative;margin-top:0.25rem}
-  #rsvp-not-found .material-symbols-outlined{margin-top:1rem}
+  /* 90vw centered on the viewport; the old 5vw margins pushed it 4px past the screen edge */
+  .custom-player{width:90vw;margin-inline:calc(50% - 45vw)}
 }
 
 @media(max-width:1024px) and (orientation:landscape){
@@ -670,22 +682,8 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
   .dresscode-illustrations{width:min(100%,46rem)}
 }
 
-/* portrait tablets (iPad) — column rhythm like iPhone 15 */
-@media(min-width:769px) and (max-width:1024px) and (orientation:portrait){
-  .hero{padding-top:5.5rem}
-  .hero-composition{flex-direction:column;gap:2.25rem}
-  .invitation-main{width:min(100%,22rem);order:-1;position:relative;z-index:1}
-  .invitation-pass,.invitation-details{width:min(35rem,92vw)}
-  .invitation-pass{position:relative;z-index:2;margin-top:2.5rem}
-  .invitation-pass .sobre-layer{inset:-6%;left:50%;transform:translateX(-50%);width:112%}
-  .invitation-details img{width:85%}
-  .env-card{left:5%;right:5%;width:42%;aspect-ratio:3/4;max-height:80vh}
-  .env-card .text-display-lg{font-size:clamp(4rem,13vw,6rem)}
-  .env-card .text-display-md{font-size:0.8rem}
-}
-
-/* === CARRUSEL POLAROID (phones only — ponytail: 768 portrait, desktop/iPad keep grid/scroll) === */
-@media(max-width:768px) and (orientation:portrait){
+/* === CARRUSEL POLAROID (phones + portrait tablets; keep in sync with matchMedia in js/script.js) === */
+@media(max-width:1024px) and (orientation:portrait){
   .polaroid-carousel{
     display:block;
     position:relative;
@@ -726,6 +724,20 @@ footer .rsvp-link:hover{background:rgba(255,255,255,0.1);color:#ffffff}
     z-index:0;
   }
   .polaroid img{height:clamp(14rem,40vw,19rem)}
+}
+
+/* portrait tablets (iPad): same iPhone 15 layout, scaled up so it doesn't look stretched */
+@media(min-width:600px) and (max-width:1024px) and (orientation:portrait){
+  .hero{min-height:auto;padding-bottom:3rem}
+  .invitation-main{width:min(100%,26rem)}
+  .invitation-pass{width:min(32rem,78vw)}
+  .invitation-details{width:min(20rem,50vw)}
+  .events{max-width:28rem}
+  .event-icon{max-width:9rem}
+  .info-grid{max-width:32rem}
+  .polaroid-carousel{height:36rem;max-width:40rem}
+  .polaroid{width:50%}
+  .polaroid img{height:24rem}
 }
 
 /* === INTRO === */
