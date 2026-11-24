@@ -470,12 +470,27 @@ section[id]{scroll-margin-top:6rem}
 /* === DESKTOP: iPhone 15 polish at scale === */
 @media(min-width:1025px){
   .hero{padding:6rem 2rem 3rem}
-  .hero-composition{gap:clamp(1.5rem,2.5vw,3rem);width:min(100%,76rem)}
-  /* sized by height too, so the invitation fills a laptop screen without clipping */
-  .invitation-main{width:clamp(18rem,min(30vw,(100svh - 10rem) * 0.72),30rem)}
+  /* --h = height of the hero content; everything scales from it so any screen size fills the first view.
+     Capped by width too: the composition is ~1.55 x --h wide (envelope art overhangs its box by 10% each side). */
+  .hero-composition{
+    --h:clamp(34rem,min(100svh - 9rem,(100vw - 8rem) / 1.55),64rem);
+    display:grid;
+    grid-template-columns:auto auto;
+    grid-template-rows:auto auto;
+    align-items:center;
+    justify-items:center;
+    column-gap:calc(var(--h) * 0.1);
+    row-gap:calc(var(--h) * 0.06);
+    width:auto;
+  }
+  .invitation-main{grid-column:1;grid-row:1 / span 2;width:calc(var(--h) * 0.77)} /* image is 2465x3195 */
   .invitation-image-wrap{width:100%}
-  .invitation-pass{width:min(34rem,38vw)}
-  .invitation-details{width:min(12rem,13vw);padding:0}
+  .invitation-pass{grid-column:2;grid-row:1;align-self:end;width:calc(var(--h) * 0.55)}
+  .invitation-details{grid-column:2;grid-row:2;align-self:start;width:calc(var(--h) * 0.28);padding:0}
+  /* card inside the envelope scales with it instead of fixed rem sizes that clip on 13" laptops */
+  .env-card{padding:calc(var(--h) * 0.02)}
+  .env-card .text-label{font-size:clamp(0.55rem,calc(var(--h) * 0.012),0.8rem);letter-spacing:0.15em}
+  .env-card .text-display-lg{font-size:calc(var(--h) * 0.16);margin-bottom:calc(var(--h) * 0.04)}
   .section-inner{width:min(100% - 4rem,1100px)}
   section{padding-block:clamp(1.5rem,2vw,2.5rem)}
   .events{gap:2rem;max-width:62rem;margin-inline:auto}
